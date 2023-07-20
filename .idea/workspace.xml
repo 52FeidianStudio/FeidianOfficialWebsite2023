@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="chore(model):新增LoginUser用于认证授权">
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/FileUploadUtil.java" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(model):新增AvatarVO用于返回给前端头像">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/FileUploadUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/FileUploadUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +76,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.feiidan.vo" />
       <recent name="com.feiidan.bo" />
     </key>
   </component>
@@ -117,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689840304639</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat(model):新增AvatarVO用于返回给前端头像">
+      <created>1689850966459</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689850966459</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +147,7 @@
     <MESSAGE value="refactor(project):重构各个pom文件" />
     <MESSAGE value="chore(service-system):第一次尝试提交到分支" />
     <MESSAGE value="chore(model):新增LoginUser用于认证授权" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore(model):新增LoginUser用于认证授权" />
+    <MESSAGE value="feat(model):新增AvatarVO用于返回给前端头像" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(model):新增AvatarVO用于返回给前端头像" />
   </component>
 </project>
