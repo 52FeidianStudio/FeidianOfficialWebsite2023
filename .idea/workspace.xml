@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="chore(service-system&amp;common-util):初步构建项目">
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/service/impl/UtilServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/service/impl/UtilServiceImpl.java" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="chore(model):分层">
+      <change afterPath="$PROJECT_DIR$/common/security/src/main/java/com/fedian/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/security/src/main/java/com/fedian/filter/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/security/src/main/java/com/fedian/handle/AccessDeniedHandleImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/security/src/main/java/com/fedian/handle/AuthenticationEntryPointImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/security/src/main/java/com/fedian/util/SecurityUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/exception/ControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/exception/ControllerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +27,10 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/service-system/pom.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,14 +64,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Develop/jerbrains/idea/idea projects/FeidianOfficialWebsite2023/service-system/src/main/resources",
+    "last_opened_file_path": "D:/develop/IdeaProjects/BlogProject",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.runner"
   }
 }]]></component>
@@ -70,8 +82,11 @@
       <recent name="D:\Develop\jerbrains\idea\idea projects\FeidianOfficialWebsite2023\common\common-util\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.fedian.handle" />
+      <recent name="com.fedian.util" />
+      <recent name="com.fedian.filter" />
+      <recent name="com.fedian.config" />
       <recent name="service.impl" />
-      <recent name="service" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
