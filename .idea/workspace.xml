@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="chore(service-system&amp;common-util):初步构建项目">
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/service/impl/UtilServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/service/impl/UtilServiceImpl.java" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="chore(service-system&amp;common-util):初步构建项目02">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/ReceivingFileUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/UploadingFileUtil.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689823707466</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="chore(service-system&amp;common-util):初步构建项目02">
+      <created>1689823988154</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1689823988154</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +152,7 @@
     <MESSAGE value="chore(project):" />
     <MESSAGE value="chore(service-system):" />
     <MESSAGE value="chore(service-system&amp;common-util):初步构建项目" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore(service-system&amp;common-util):初步构建项目" />
+    <MESSAGE value="chore(service-system&amp;common-util):初步构建项目02" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(service-system&amp;common-util):初步构建项目02" />
   </component>
 </project>
