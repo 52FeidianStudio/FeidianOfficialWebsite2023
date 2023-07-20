@@ -1,14 +1,15 @@
 package service.impl;
 
-import com.feidian.responseResult.ResponseResult;
-import com.feidian.service.UtilService;
-import com.feidian.util.EmailUtil;
-import com.feidian.util.RedisCache;
-import com.feidian.util.VerifyCode;
+
+import feidian.enums.HttpCodeEnum;
+import feidian.responseResult.ResponseResult;
+import feidian.util.RedisCache;
+import feidian.util.serviceUtil.EmailUtil;
+import feidian.util.serviceUtil.VerifyCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import service.UtilService;
 
-import static com.feidian.enums.HttpCodeEnum.REQUIRE_USERNAME;
 
 @Service
 public class UtilServiceImpl implements UtilService {
@@ -19,7 +20,7 @@ public class UtilServiceImpl implements UtilService {
     @Override
     public ResponseResult sendVerifyCode(String emailAddress, String label) {
         if (label == null){
-            return ResponseResult.errorResult(REQUIRE_USERNAME);
+            return ResponseResult.errorResult(HttpCodeEnum.REQUIRE_USERNAME);
         }
         String regexEmailAddress = "\\w+@[\\w&&[^_]]{2,7}(\\.[a-zA-Z]{2,4}){1,3}";
         String verifyCode = new VerifyCode().setVerifyCode();

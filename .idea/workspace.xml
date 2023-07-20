@@ -4,31 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="chore(service-system):第一次尝试提交到分支">
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/enums/HttpCodeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/exception/ControllerAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/responseResult/ResponseResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/FastJsonRedisSerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/RedisCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/WebUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/AESUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/Base64Util.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/EmailUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/ReceivingFileUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/UploadingFileUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/VerifyCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/service/UtilService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/service/impl/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/service/impl/UtilServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/application-deploy.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/application-develop.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common-util/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="chore(service-system&amp;common-util):初步构建项目">
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/service/impl/UtilServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/service/impl/UtilServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689820796718</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="chore(service-system&amp;common-util):初步构建项目">
+      <created>1689823707466</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689823707466</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +142,7 @@
     <MESSAGE value="chore(service-system):第一次尝试提交到分支" />
     <MESSAGE value="chore(project):" />
     <MESSAGE value="chore(service-system):" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore(service-system):" />
+    <MESSAGE value="chore(service-system&amp;common-util):初步构建项目" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(service-system&amp;common-util):初步构建项目" />
   </component>
 </project>
