@@ -1,18 +1,26 @@
 package feidian.exception;
 
 
+import feidian.enums.HttpCodeEnum;
 import feidian.responseResult.ResponseResult;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@org.springframework.web.bind.annotation.ControllerAdvice
+@RestControllerAdvice
+@Slf4j
 public class ControllerAdvice {
 
+    //未自定义的异常统一处理
     @ExceptionHandler(Exception.class)
-    @ResponseBody
-    public ResponseResult handleException(Exception e) {
-        return new ResponseResult(500, e.getMessage());
+    public ResponseResult exceptionHandler(Exception e){
+        //打印日志
+        log.error("出现异常",e);
+        //封装统一返回
+        return ResponseResult.errorResult(HttpCodeEnum.SYSTEM_ERROR.getCode(),e.getMessage());
     }
+
 
 }
 
