@@ -10,6 +10,7 @@ import com.feidian.po.SysMenu;
 import com.feidian.po.SysRoleMenu;
 import com.feidian.po.SysUser;
 import com.feidian.po.SysUserRole;
+import com.feiidan.bo.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

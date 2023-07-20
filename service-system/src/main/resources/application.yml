@@ -1,11 +1,18 @@
 spring:
+
+  server:
+    port: 3333
+
+  datasource:
+    url: jdbc:mysql://182.254.242.96/feidian?characterEncoding=utf-8&serverTimezone=UTC
+    username: developer
+    password: feidian52.com
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
   servlet:
     multipart:
       max-file-size: 104857600
       max-request-size: 1048576000
-
-  profiles:
-    active: develop
 
   aop:
     proxy-target-class: false #切换动态代理的方式
@@ -14,14 +21,22 @@ spring:
     host: 127.0.0.1 #redis服务器ip地址
     port: 6379  #redis端口号
 
-#  config:
-#    activate:
-#      on-profile: prod
 
 debug: true #开启日志
 logging:
   level:
     com.feidian: debug #设置日志级别
+
+mybatis-plus:
+  configuration:
+  #    # 日志
+  #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: delFlag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: auto
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml # mapper映射文件路径
@@ -29,7 +44,6 @@ mybatis:
   configuration:
     # 开启自动驼峰命名和下划线转换
     map-underscore-to-camel-case: true
-
 
 #  指标监控
 management:
