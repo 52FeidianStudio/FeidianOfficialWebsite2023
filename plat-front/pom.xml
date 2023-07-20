@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>play-front</artifactId>
+    <artifactId>plat-front</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
