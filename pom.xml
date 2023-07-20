@@ -12,6 +12,8 @@
         <module>common</module>
         <module>model</module>
         <module>service-system</module>
+        <module>plat-admin</module>
+        <module>plat-front</module>
     </modules>
 
     <parent>

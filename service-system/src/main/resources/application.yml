@@ -1,0 +1,42 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 104857600
+      max-request-size: 1048576000
+
+  profiles:
+    active: develop
+
+  aop:
+    proxy-target-class: false #切换动态代理的方式
+
+  redis:
+    host: 127.0.0.1 #redis服务器ip地址
+    port: 6379  #redis端口号
+
+#  config:
+#    activate:
+#      on-profile: prod
+
+debug: true #开启日志
+logging:
+  level:
+    com.feidian: debug #设置日志级别
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml # mapper映射文件路径
+  type-aliases-package: com.feidian.bo   # 配置哪个包下的类有默认的别名
+  configuration:
+    # 开启自动驼峰命名和下划线转换
+    map-underscore-to-camel-case: true
+
+
+#  指标监控
+management:
+  endpoints:
+    enabled-by-default: true #配置启用所有端点
+  web:
+    exposure:
+      include: "*" #web端暴露所有端点
+
+

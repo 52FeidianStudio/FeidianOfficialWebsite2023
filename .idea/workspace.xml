@@ -5,7 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="chore(service-system):第一次尝试提交到分支">
-      <change beforePath="$PROJECT_DIR$/model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/model/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/enums/HttpCodeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/exception/ControllerAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/responseResult/ResponseResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/FastJsonRedisSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/RedisCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/WebUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/AESUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/Base64Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/EmailUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/ReceivingFileUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/UploadingFileUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/VerifyCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/service/UtilService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/service/impl/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/service/impl/UtilServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/application-deploy.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/application-develop.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +75,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Develop/jerbrains/idea/idea projects/gitStudy",
+    "last_opened_file_path": "D:/Develop/jerbrains/idea/idea projects/FeidianOfficialWebsite2023/service-system/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,6 +86,17 @@
     "settings.editor.selected.configurable": "reference.settings.project.maven.runner"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Develop\jerbrains\idea\idea projects\FeidianOfficialWebsite2023\service-system\src\main\resources" />
+      <recent name="D:\Develop\jerbrains\idea\idea projects\FeidianOfficialWebsite2023\common\common-util\src\main\java\feidian\util\serviceUtil" />
+      <recent name="D:\Develop\jerbrains\idea\idea projects\FeidianOfficialWebsite2023\common\common-util\src\main\java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="service.impl" />
+      <recent name="service" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -94,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689820010573</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="chore(project):">
+      <created>1689820796718</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1689820796718</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,6 +156,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="refactor(project):重构各个pom文件" />
     <MESSAGE value="chore(service-system):第一次尝试提交到分支" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore(service-system):第一次尝试提交到分支" />
+    <MESSAGE value="chore(project):" />
+    <MESSAGE value="chore(service-system):" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(service-system):" />
   </component>
 </project>
