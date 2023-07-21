@@ -54,7 +54,7 @@ public class FileUploadUtil {
 
             // 保存文件
             avatarFile.transferTo(new File(filePath));
-            return ResponseResult.errorResult(200,"filePath");
+            return ResponseResult.successResult("filePath");
 
         } catch (IOException e) {
             return ResponseResult.errorResult(400,"上传失败" + e.getMessage());
