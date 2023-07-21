@@ -19,8 +19,6 @@ public class RegisterDTO {
     private String direction;
     //大学四年整体规划
     private String arrangement;
-    //申请状态(0表示已提交，1表示已查看，2表示已通过，3表示未通过)
-    private String status;
     //申请理由，对你所选择方向的了解以及为什么想选择此方向
     private String reason;
     //大头照

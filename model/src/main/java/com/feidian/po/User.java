@@ -15,25 +15,25 @@ import org.springframework.stereotype.Component;
 public class User {
 
   @TableId
-  private long id;
+  private Long id;
   private String username;
   private String password;
   private String name;
   private String nickname;
   private String birthday;
   private String sex;
-  private long studentId;
+  private Long studentId;
   private String className;
   private String subject;
-  private long facultyId;
-  private long departmentId;
+  private Long facultyId;
+  private Long departmentId;
   private String avatarUrl;
   private String nationality;
   private String phone;
   private String email;
   private String qq;
 
-  private long isDeleted;
+  private Long isDeleted;
   private java.sql.Timestamp createTime;
   private String createBy;
   private java.sql.Timestamp updateTime;
