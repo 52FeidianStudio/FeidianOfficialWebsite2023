@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.feidian.dto.RegisterDTO;
 import com.feidian.mapper.RegisterMapper;
 import com.feidian.po.Register;
-import feidian.responseResult.ResponseResult;
+import com.feidian.responseResult.ResponseResult;
 import org.springframework.stereotype.Service;
 import com.feidian.service.RegisterService;
 

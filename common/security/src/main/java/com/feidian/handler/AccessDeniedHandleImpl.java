@@ -1,9 +1,9 @@
 package com.feidian.handler;
 
 import com.alibaba.fastjson.JSON;
-import feidian.enums.HttpCodeEnum;
-import feidian.responseResult.ResponseResult;
-import feidian.util.WebUtils;
+import com.feidian.enums.HttpCodeEnum;
+import com.feidian.responseResult.ResponseResult;
+import com.feidian.util.WebUtils;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;

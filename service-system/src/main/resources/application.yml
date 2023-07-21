@@ -1,7 +1,7 @@
 spring:
 
   server:
-    port: 3333
+    port: 8080
 
   datasource:
     url: jdbc:mysql://182.254.242.96/feidian?characterEncoding=utf-8&serverTimezone=UTC
@@ -30,7 +30,7 @@ logging:
 mybatis-plus:
   configuration:
   #    # 日志
-  #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
       logic-delete-field: delFlag

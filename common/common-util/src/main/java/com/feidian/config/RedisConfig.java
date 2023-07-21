@@ -1,6 +1,6 @@
-package feidian.config;
+package com.feidian.config;
 
-import feidian.util.FastJsonRedisSerializer;
+import com.feidian.util.FastJsonRedisSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

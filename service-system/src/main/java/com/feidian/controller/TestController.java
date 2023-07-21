@@ -2,7 +2,7 @@ package com.feidian.controller;
 
 
 import com.feidian.dto.RegisterDTO;
-import feidian.responseResult.ResponseResult;
+import com.feidian.responseResult.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

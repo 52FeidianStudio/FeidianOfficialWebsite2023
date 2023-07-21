@@ -3,7 +3,7 @@ package com.feidian.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.feidian.dto.PageDTO;
 import com.feidian.po.Graduates;
-import feidian.responseResult.ResponseResult;
+import com.feidian.responseResult.ResponseResult;
 
 
 /**

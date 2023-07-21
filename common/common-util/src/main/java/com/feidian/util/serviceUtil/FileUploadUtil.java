@@ -1,6 +1,6 @@
-package feidian.util.serviceUtil;
+package com.feidian.util.serviceUtil;
 
-import feidian.responseResult.ResponseResult;
+import com.feidian.responseResult.ResponseResult;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;

@@ -1,8 +1,8 @@
-package feidian.responseResult;
+package com.feidian.responseResult;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import feidian.enums.HttpCodeEnum;
+import com.feidian.enums.HttpCodeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
