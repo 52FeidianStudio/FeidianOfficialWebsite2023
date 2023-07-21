@@ -18,7 +18,7 @@ public class Graduates {
   private Long id;
   private String name;
   private Long facultyId;
-  private String subject;
+  private Long subjectId;
   private Long departmentId;
   private String city;
   private String company;
