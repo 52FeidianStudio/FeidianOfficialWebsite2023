@@ -1,6 +1,7 @@
 package feidian.util.serviceUtil;
 
 
+import feidian.responseResult.ResponseResult;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -12,6 +13,8 @@ public class FileUploadUtil {
 
     // 支持的图片文件格式
     private static final String[] SUPPORTED_IMAGE_EXTENSIONS = {"jpg", "jpeg", "png"};
+    //图片文件Url长度上限
+    private static final int IMG_URL_MAX_LENGTH = 255;
 
     public static String uploadAvatar(MultipartFile avatarFile){
 
@@ -32,6 +35,7 @@ public class FileUploadUtil {
             return "文件格式不支持";
         }
 
+
         //文件保存在服务器上的目录地址
         String uploadDir = "http://182.254.242.96:3333//www//wwwroot//FeidianOfficialWebsite2023//image//";
 
@@ -45,6 +49,10 @@ public class FileUploadUtil {
 
             // 生成保存文件的路径，利用UUID生成唯一标识
             String filePath = uploadDir + UUID.randomUUID() + avatarFile.getOriginalFilename();
+
+            if (filePath.length() > IMG_URL_MAX_LENGTH) {
+                return "头像URL超出长度限制";
+            }
 
             // 保存文件
             avatarFile.transferTo(new File(filePath));

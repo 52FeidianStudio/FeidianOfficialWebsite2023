@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(common-util):新增FileUploadUtil工具类用于用户上传头像。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/TestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
@@ -34,6 +33,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -175,6 +175,7 @@
     <MESSAGE value="feat(model):新增AvatarVO用于返回给前端头像" />
     <MESSAGE value="feat(model):给po层添加了一一与数据库对应的javaBean类" />
     <MESSAGE value="fix(security):将UserLogin替换成了LoginUser，让security模块依赖了model模块。" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(security):将UserLogin替换成了LoginUser，让security模块依赖了model模块。" />
+    <MESSAGE value="fix(model):将User下的long全部替换成Long" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(model):将User下的long全部替换成Long" />
   </component>
 </project>
