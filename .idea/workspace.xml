@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(common-util):新增FileUploadUtil工具类用于用户上传头像。">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):删去了冗余的RegisterController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/FileUploadUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/FileUploadUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/TestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
@@ -29,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -145,7 +147,21 @@
       <option name="project" value="LOCAL" />
       <updated>1689903630873</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat(service-system):新增了上传报名表的功能">
+      <created>1689922953671</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1689922953671</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat(service-system):删去了冗余的RegisterController">
+      <created>1689923079212</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1689923079212</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +186,8 @@
     <MESSAGE value="feat(model):新增AvatarVO用于返回给前端头像" />
     <MESSAGE value="feat(model):给po层添加了一一与数据库对应的javaBean类" />
     <MESSAGE value="fix(security):将UserLogin替换成了LoginUser，让security模块依赖了model模块。" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(security):将UserLogin替换成了LoginUser，让security模块依赖了model模块。" />
+    <MESSAGE value="feat(service-system):新增了上传报名表的功能" />
+    <MESSAGE value="feat(service-system):删去了冗余的RegisterController" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(service-system):删去了冗余的RegisterController" />
   </component>
 </project>

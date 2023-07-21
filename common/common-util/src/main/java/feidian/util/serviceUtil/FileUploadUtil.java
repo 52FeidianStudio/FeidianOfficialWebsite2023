@@ -1,6 +1,5 @@
 package feidian.util.serviceUtil;
 
-
 import feidian.responseResult.ResponseResult;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,10 +15,10 @@ public class FileUploadUtil {
     //图片文件Url长度上限
     private static final int IMG_URL_MAX_LENGTH = 255;
 
-    public static String uploadAvatar(MultipartFile avatarFile){
+    public static ResponseResult uploadAvatar(MultipartFile avatarFile){
 
         if (avatarFile.isEmpty()) {
-            return "未选择文件";
+            return ResponseResult.errorResult(400,"未选择文件");
         }
 
         //根据文件拓展名判断文件是否合法
@@ -32,9 +31,8 @@ public class FileUploadUtil {
             }
         }
         if(!isValidExtension){
-            return "文件格式不支持";
+            return ResponseResult.errorResult(400,"文件格式不支持");
         }
-
 
         //文件保存在服务器上的目录地址
         String uploadDir = "http://182.254.242.96:3333//www//wwwroot//FeidianOfficialWebsite2023//image//";
@@ -51,15 +49,15 @@ public class FileUploadUtil {
             String filePath = uploadDir + UUID.randomUUID() + avatarFile.getOriginalFilename();
 
             if (filePath.length() > IMG_URL_MAX_LENGTH) {
-                return "头像URL超出长度限制";
+                return ResponseResult.errorResult(400,"头像URL超出长度限制");
             }
 
             // 保存文件
             avatarFile.transferTo(new File(filePath));
-            return filePath;
+            return ResponseResult.errorResult(200,"filePath");
 
         } catch (IOException e) {
-            return "上传失败" + e.getMessage();
+            return ResponseResult.errorResult(400,"上传失败" + e.getMessage());
         }
     }
 
