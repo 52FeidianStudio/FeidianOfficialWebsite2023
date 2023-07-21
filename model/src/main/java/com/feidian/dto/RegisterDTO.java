@@ -21,7 +21,5 @@ public class RegisterDTO {
     private String arrangement;
     //申请理由，对你所选择方向的了解以及为什么想选择此方向
     private String reason;
-    //大头照
-    private String imgUrl;
 
 }

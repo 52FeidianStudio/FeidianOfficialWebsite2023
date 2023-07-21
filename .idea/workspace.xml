@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):删去了冗余的RegisterController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/FileUploadUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/serviceUtil/FileUploadUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/FastJsonRedisSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/feidian/util/FastJsonRedisSerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/TestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" afterDir="false" />
@@ -161,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689923079212</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat(common-util):再次修改了上传文件的返回值类型，方便后续操作。">
+      <created>1689925781070</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1689925781070</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +195,7 @@
     <MESSAGE value="fix(security):将UserLogin替换成了LoginUser，让security模块依赖了model模块。" />
     <MESSAGE value="feat(service-system):新增了上传报名表的功能" />
     <MESSAGE value="feat(service-system):删去了冗余的RegisterController" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(service-system):删去了冗余的RegisterController" />
+    <MESSAGE value="feat(common-util):再次修改了上传文件的返回值类型，方便后续操作。" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(common-util):再次修改了上传文件的返回值类型，方便后续操作。" />
   </component>
 </project>
