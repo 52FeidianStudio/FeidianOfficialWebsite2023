@@ -1,11 +1,12 @@
 package com.feiidan.bo;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.feidian.po.SysUser;
+import com.feiidan.po.User;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -18,14 +19,14 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class LoginUser implements UserDetails {
 
-    private SysUser user;
+    private User user;
 
     //存储权限信息
     private List<String> permissions;
 
     private HashMap<String, String> token;
 
-    public LoginUser(SysUser user, List<String> permissions) {
+    public LoginUser(User user, List<String> permissions) {
         this.user = user;
         this.permissions = permissions;
     }
