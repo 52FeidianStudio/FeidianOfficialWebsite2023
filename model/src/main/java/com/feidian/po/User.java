@@ -24,7 +24,7 @@ public class User {
   private String sex;
   private Long studentId;
   private String className;
-  private String subject;
+  private Long subjectId;
   private Long facultyId;
   private Long departmentId;
   private String avatarUrl;
