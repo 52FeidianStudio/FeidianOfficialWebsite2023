@@ -7,8 +7,11 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.feidian.dto.RegisterDTO;
 import com.feidian.mapper.RegisterMapper;
+import com.feidian.mapper.UserMapper;
 import com.feidian.po.Register;
+import com.feidian.po.User;
 import com.feidian.util.SecurityUtils;
+import com.feidian.vo.RegisterVO;
 import feidian.responseResult.ResponseResult;
 import feidian.util.RedisCache;
 import feidian.util.serviceUtil.FileUploadUtil;
@@ -20,12 +23,14 @@ import org.springframework.web.multipart.MultipartFile;
 import java.sql.Timestamp;
 
 
-
 @Service("registerService")
 public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> implements RegisterService {
 
     @Autowired
     private RegisterMapper registerMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @Autowired
     private RedisCache redisCache;
@@ -61,37 +66,43 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
     @Override
     public ResponseResult submitImage(MultipartFile imageFile) {
         ResponseResult submitImageResponseResult = FileUploadUtil.uploadAvatar(imageFile);
-        if(submitImageResponseResult.getCode() == 400){
+        if (submitImageResponseResult.getCode() == 400) {
             return submitImageResponseResult;
         }
         String key = SecurityUtils.getLoginUser().getUsername();
         redisCache.setCacheObject(key, submitImageResponseResult.getData());
 
-        return ResponseResult.successResult(200,"上传图片文件成功");
+        return ResponseResult.successResult(200, "上传图片文件成功");
     }
 
 
     //一大堆查询操作
     @Override
     public ResponseResult formalView(Long registerId) {
+        //查询用户
+        Long userId = SecurityUtils.getUserId();
+        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        userLambdaQueryWrapper.eq(User::getId, userId);
+        User user = userMapper.selectById(userLambdaQueryWrapper);
         //查询报名表
-        LambdaQueryWrapper<Register> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(Register::getId,registerId);
-        Register register = registerMapper.selectById(queryWrapper);
+        LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        registerLambdaQueryWrapper.eq(Register::getId, registerId);
+        Register register = registerMapper.selectById(registerLambdaQueryWrapper);
 
-        //更改状态为已查看
-        if (register != null) {
+        //更改状态为1 已查看
+        if (register != null && user != null) {
             LambdaUpdateWrapper<Register> updateWrapper = new LambdaUpdateWrapper<>();
             updateWrapper.eq(Register::getId, registerId)
                          .set(Register::getStatus, "1");
             registerMapper.update(null, updateWrapper);
 
             register.setStatus("1"); // 更新register对象中的状态字段
-        }else {
-            return ResponseResult.errorResult(400,"报名表不存在");
+        } else {
+            return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
         }
 
-        return ResponseResult.successResult(register);
+        RegisterVO registerVO = new RegisterVO(user, register);
+        return ResponseResult.successResult(registerVO);
     }
 
 
