@@ -21,5 +21,5 @@ public interface RegisterService extends IService<Register> {
 
     ResponseResult selectByStatus(String status);
 
-    ResponseResult isApproved(String isApprovedFlag);
+    ResponseResult isApproved(Long registerId, String isApprovedFlag);
 }

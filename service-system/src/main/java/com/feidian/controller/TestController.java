@@ -70,8 +70,8 @@ public class TestController {
 
     //      设置报名表状态（是否通过）
     @PostMapping("/isApproved")
-    public ResponseResult isApproved(@RequestBody String isApprovedFlag){
-        return registerService.isApproved(isApprovedFlag);
+    public ResponseResult isApproved(@RequestBody Long registerId, @RequestBody String isApprovedFlag){
+        return registerService.isApproved(registerId, isApprovedFlag);
     }
 
 }

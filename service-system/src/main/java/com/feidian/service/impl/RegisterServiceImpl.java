@@ -4,14 +4,17 @@ package com.feidian.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.feidian.dto.RegisterDTO;
 import com.feidian.mapper.RegisterMapper;
 import com.feidian.mapper.UserMapper;
+import com.feidian.mapper.UserRoleMapper;
 import com.feidian.po.Register;
 import com.feidian.po.User;
 import com.feidian.util.SecurityUtils;
 import com.feidian.vo.CompleteRegisterVO;
+import com.feidian.vo.SectionalRegisterVO;
 import feidian.responseResult.ResponseResult;
 import feidian.util.RedisCache;
 import feidian.util.serviceUtil.FileUploadUtil;
@@ -33,6 +36,9 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private UserRoleMapper userRoleMapper;
 
     @Autowired
     private RedisCache redisCache;
@@ -81,6 +87,74 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
     //一大堆查询操作
     @Override
     public ResponseResult formalView(Long registerId) {
+
+        ResponseResult tempResponseResult = selectByRegisterIdGetCompleteRegister(registerId);
+
+        if(tempResponseResult.getCode() == 400){
+            return tempResponseResult;
+        }else{
+            LambdaUpdateWrapper<Register> updateWrapper = new LambdaUpdateWrapper<>();
+            updateWrapper.eq(Register::getId, registerId)
+                    .set(Register::getStatus, "1");
+            registerMapper.update(null, updateWrapper);
+
+            tempResponseResult.getData().setStatus("1"); // 更新register对象中的状态字段
+        }
+
+
+
+
+    }
+
+    @Override
+    public ResponseResult selectByGradeName(String gradeName) {
+        //根据年级查询用户
+        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        userLambdaQueryWrapper.eq(User::getGradeName, gradeName);
+        List<User> userList = userMapper.selectList(userLambdaQueryWrapper);
+
+        List<SectionalRegisterVO> sectionalRegisterVOList = selectByUserGetSectionalRegisterVO(userList);
+        return ResponseResult.successResult(sectionalRegisterVOList);
+    }
+
+    @Override
+    public ResponseResult selectBySubjectId(Long subjectId) {
+        //根据专业查询用户
+        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        userLambdaQueryWrapper.eq(User::getSubjectId, subjectId);
+        List<User> userList = userMapper.selectList(userLambdaQueryWrapper);
+
+        List<SectionalRegisterVO> sectionalRegisterVOList = selectByUserGetSectionalRegisterVO(userList);
+
+        return ResponseResult.successResult(sectionalRegisterVOList);
+    }
+
+    @Override
+    public ResponseResult selectByDesireDepartmentId(Long desireDepartmentId) {
+        //根据申请组别查询报名表
+        LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        registerLambdaQueryWrapper.eq(Register::getDesireDepartmentId, desireDepartmentId);
+        List<Register> registerList = registerMapper.selectList(registerLambdaQueryWrapper);
+
+        List<SectionalRegisterVO> sectionalRegisterVOList = selectByRegisterGetSectionalRegisterVO(registerList);
+
+        return ResponseResult.successResult(sectionalRegisterVOList);
+    }
+
+    @Override
+    public ResponseResult selectByStatus(String status) {
+        //根据报名表状态查询报名表
+        LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        registerLambdaQueryWrapper.eq(Register::getStatus, status);
+        List<Register> registerList = registerMapper.selectList(registerLambdaQueryWrapper);
+
+        List<SectionalRegisterVO> sectionalRegisterVOList = selectByRegisterGetSectionalRegisterVO(registerList);
+
+        return ResponseResult.successResult(sectionalRegisterVOList);
+    }
+
+    @Override
+    public ResponseResult isApproved(Long registerId, String isApprovedFlag) {
         //查询报名表
         LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
         registerLambdaQueryWrapper.eq(Register::getId, registerId);
@@ -90,67 +164,82 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
         userLambdaQueryWrapper.eq(User::getId, register.getUserId());
         User user = userMapper.selectById(userLambdaQueryWrapper);
 
-        //更改状态为1 已查看
-        if (register != null && user != null) {
-            LambdaUpdateWrapper<Register> updateWrapper = new LambdaUpdateWrapper<>();
-            updateWrapper.eq(Register::getId, registerId)
-                         .set(Register::getStatus, "1");
-            registerMapper.update(null, updateWrapper);
+        if(register == null){
+            return ResponseResult.errorResult(400,"未找到报名表");
+        }
+        if (isApprovedFlag == "2"){
+            //更改状态为1 已查看
+            if (register != null && user != null) {
+                LambdaUpdateWrapper<Register> updateWrapper = new LambdaUpdateWrapper<>();
+                updateWrapper.eq(Register::getId, registerId)
+                        .set(Register::getStatus, "1");
+                registerMapper.update(null, updateWrapper);
 
-            register.setStatus("1"); // 更新register对象中的状态字段
+                register.setStatus("2"); // 更新register对象中的状态字段
+
+            } else {
+                return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
+            }
+            return ResponseResult.successResult(200,"成功修改报名表状态为已通过，并将其添加至预备成员。");
+        }else if(isApprovedFlag == "3"){
+            return ResponseResult.successResult(200,"成功修改报名表状态为未通过");
+        }
+        return ResponseResult.errorResult(400,"修改报名表状态失败!");
+    }
+
+    private ResponseResult selectByRegisterIdGetCompleteRegister(Long registerId){
+        //查询报名表
+        LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        registerLambdaQueryWrapper.eq(Register::getId, registerId);
+        Register register = registerMapper.selectById(registerLambdaQueryWrapper);
+        //查询用户
+        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        userLambdaQueryWrapper.eq(User::getId, register.getUserId());
+        User user = userMapper.selectById(userLambdaQueryWrapper);
+
+        if (register != null && user != null) {
+            CompleteRegisterVO registerVO = new CompleteRegisterVO(user, register);
+            return ResponseResult.successResult(registerVO);
         } else {
             return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
         }
-
-        CompleteRegisterVO registerVO = new CompleteRegisterVO(user, register);
-        return ResponseResult.successResult(registerVO);
     }
 
-    @Override
-    public ResponseResult selectByGradeName(String gradeName) {
-        //创建两个集合用于存储查出来的用户和报名表
-        List<User> userList;
-        List<Register> registerList = new ArrayList<>();
-
-        //查询用户
-        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        userLambdaQueryWrapper.eq(User::getGradeName, gradeName);
-        userList = userMapper.selectList(userLambdaQueryWrapper);
-
+    private List<SectionalRegisterVO> selectByUserGetSectionalRegisterVO(List<User> userList){
+        List<SectionalRegisterVO> sectionalRegisterVOList = new ArrayList<>();
         for (User u: userList) {
+            //根据用户查询报名表
             LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
             registerLambdaQueryWrapper.eq(Register::getUserId, u.getId());
             Register register = registerMapper.selectById(registerLambdaQueryWrapper);
             if(register != null){
-                registerList.add(register);
-            }else{
-                userList.remove(u);
+                SectionalRegisterVO sectionalRegisterVO = new SectionalRegisterVO(
+                        u.getId(),register.getId(),u.getName(),u.getNickname(),
+                        u.getAvatarUrl(),u.getSubjectId(),u.getGradeName(),
+                        register.getDesireDepartmentId(),register.getStatus());
+                sectionalRegisterVOList.add(sectionalRegisterVO);
             }
         }
-
-        return ResponseResult.successResult();
+        return sectionalRegisterVOList;
     }
 
-    @Override
-    public ResponseResult selectBySubjectId(Long subjectId) {
-        return null;
+    private List<SectionalRegisterVO> selectByRegisterGetSectionalRegisterVO(List<Register> registerList){
+        List<SectionalRegisterVO> sectionalRegisterVOList = new ArrayList<>();
+        for (Register r: registerList) {
+            //根据报名表查询用户
+            LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
+            userLambdaQueryWrapper.eq(User::getId, r.getUserId());
+            User user = userMapper.selectById(userLambdaQueryWrapper);
+            if(user != null){
+                SectionalRegisterVO sectionalRegisterVO = new SectionalRegisterVO(
+                        user.getId(),r.getId(),user.getName(),user.getNickname(),
+                        user.getAvatarUrl(),user.getSubjectId(),user.getGradeName(),
+                        r.getDesireDepartmentId(),r.getStatus());
+                sectionalRegisterVOList.add(sectionalRegisterVO);
+            }
+        }
+        return sectionalRegisterVOList;
     }
-
-    @Override
-    public ResponseResult selectByDesireDepartmentId(Long desireDepartmentId) {
-        return null;
-    }
-
-    @Override
-    public ResponseResult selectByStatus(String status) {
-        return null;
-    }
-
-    @Override
-    public ResponseResult isApproved(String isApprovedFlag) {
-        return null;
-    }
-
 
     private ResponseResult validate(RegisterDTO registerDTO) {
         if (registerDTO == null) {
