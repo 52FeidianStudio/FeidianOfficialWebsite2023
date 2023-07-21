@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(common-util):新增FileUploadUtil工具类用于用户上传头像。">
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/mapper/PermissionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/mapper/RolePermissionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/mapper/UserRoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feiidan/bo/LoginUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feiidan/bo/LoginUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/service/impl/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/service/impl/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feiidan/po/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feiidan/po/Register.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689850966459</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat(service-system):新增用于security的四个Mapper">
+      <created>1689903630873</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1689903630873</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

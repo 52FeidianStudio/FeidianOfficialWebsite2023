@@ -2,6 +2,7 @@ package com.fedian.filter;
 
 import com.alibaba.fastjson.JSON;
 
+import com.feiidan.bo.LoginUser;
 import feidian.enums.HttpCodeEnum;
 import feidian.responseResult.ResponseResult;
 import feidian.util.JwtUtil;
@@ -53,9 +54,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String userId = claims.getSubject();
 
         //从redis中获用户信息
-        UserLogin userLogin = redisCache.getCacheObject("bloglogin:"+userId);
+        LoginUser LoginUser = redisCache.getCacheObject("bloglogin:"+userId);
 
-        if(Objects.isNull(userLogin)){
+        if(Objects.isNull(LoginUser)){
             //登录过期，需要重新登录
             //响应告诉前端需要重新登录
             ResponseResult result = ResponseResult.errorResult(HttpCodeEnum.NEED_LOGIN);
@@ -65,7 +66,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         //将用户信息存入SecurityContextHolder
 
         //TODO 将loginUser中的权限集合传入SecurityContextHolder
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userLogin, null, userLogin.getAuthorities());
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(LoginUser, null, LoginUser.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 
         //过滤器放行

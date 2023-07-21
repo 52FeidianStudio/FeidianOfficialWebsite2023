@@ -1,6 +1,7 @@
 package com.fedian.util;
 
 
+import com.feiidan.bo.LoginUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -11,9 +12,9 @@ public class SecurityUtils
     /**
      * 获取用户
      **/
-    public static UserLogin getLoginUser()
+    public static LoginUser getLoginUser()
     {
-        return (UserLogin) getAuthentication().getPrincipal();
+        return (LoginUser) getAuthentication().getPrincipal();
     }
 
     /**

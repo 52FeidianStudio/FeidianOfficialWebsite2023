@@ -1,4 +1,4 @@
-package com.fedian.handle;
+package com.fedian.handler;
 
 import com.alibaba.fastjson.JSON;
 import feidian.enums.HttpCodeEnum;
