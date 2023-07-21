@@ -23,6 +23,7 @@ public class User {
   private String birthday;
   private String sex;
   private Long studentId;
+  private String gradeName;
   private String className;
   private Long subjectId;
   private Long facultyId;
@@ -38,7 +39,5 @@ public class User {
   private String createBy;
   private java.sql.Timestamp updateTime;
   private String updateBy;
-
-
 
 }
