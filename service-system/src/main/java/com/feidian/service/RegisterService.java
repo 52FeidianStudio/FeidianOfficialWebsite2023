@@ -12,4 +12,14 @@ public interface RegisterService extends IService<Register> {
     ResponseResult submitImage(MultipartFile imageFile);
 
     ResponseResult formalView(Long registerId);
+
+    ResponseResult selectByGradeName(String gradeName);
+
+    ResponseResult selectBySubjectId(Long subjectId);
+
+    ResponseResult selectByDesireDepartmentId(Long desireDepartmentId);
+
+    ResponseResult selectByStatus(String status);
+
+    ResponseResult isApproved(String isApprovedFlag);
 }

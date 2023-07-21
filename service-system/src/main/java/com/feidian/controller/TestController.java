@@ -1,6 +1,7 @@
 package com.feidian.controller;
 
 
+import com.baomidou.mybatisplus.extension.api.R;
 import com.feidian.dto.RegisterDTO;
 import feidian.responseResult.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,4 +43,35 @@ public class TestController {
     public ResponseResult formalView(@RequestBody Long registerId){
         return registerService.formalView(registerId);
     }
+
+    //      按年级筛选
+    @PostMapping("/selectByGradeName")
+    public ResponseResult selectByGradeName(@RequestBody String gradeName){
+        return registerService.selectByGradeName(gradeName);
+    }
+
+    //      按专业筛选
+    @PostMapping("/selectBySubjectId")
+    public ResponseResult selectBySubjectId(@RequestBody Long subjectId){
+        return registerService.selectBySubjectId(subjectId);
+    }
+
+    //      按申请组别筛选
+    @PostMapping("/selectByDesireDepartmentId")
+    public ResponseResult selectByDesireDepartmentId(@RequestBody Long desireDepartmentId){
+        return registerService.selectByDesireDepartmentId(desireDepartmentId);
+    }
+
+    //      按报名表状态筛选
+    @PostMapping("/selectByStatus")
+    public ResponseResult selectByStatus(@RequestBody String status){
+        return registerService.selectByStatus(status);
+    }
+
+    //      设置报名表状态（是否通过）
+    @PostMapping("/isApproved")
+    public ResponseResult isApproved(@RequestBody String isApprovedFlag){
+        return registerService.isApproved(isApprovedFlag);
+    }
+
 }

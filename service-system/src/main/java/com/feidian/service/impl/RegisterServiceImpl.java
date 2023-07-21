@@ -21,6 +21,8 @@ import com.feidian.service.RegisterService;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service("registerService")
@@ -79,15 +81,14 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
     //一大堆查询操作
     @Override
     public ResponseResult formalView(Long registerId) {
-        //查询用户
-        Long userId = SecurityUtils.getUserId();
-        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        userLambdaQueryWrapper.eq(User::getId, userId);
-        User user = userMapper.selectById(userLambdaQueryWrapper);
         //查询报名表
         LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
         registerLambdaQueryWrapper.eq(Register::getId, registerId);
         Register register = registerMapper.selectById(registerLambdaQueryWrapper);
+        //查询用户
+        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        userLambdaQueryWrapper.eq(User::getId, register.getUserId());
+        User user = userMapper.selectById(userLambdaQueryWrapper);
 
         //更改状态为1 已查看
         if (register != null && user != null) {
@@ -103,6 +104,51 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
 
         CompleteRegisterVO registerVO = new CompleteRegisterVO(user, register);
         return ResponseResult.successResult(registerVO);
+    }
+
+    @Override
+    public ResponseResult selectByGradeName(String gradeName) {
+        //创建两个集合用于存储查出来的用户和报名表
+        List<User> userList;
+        List<Register> registerList = new ArrayList<>();
+
+        //查询用户
+        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        userLambdaQueryWrapper.eq(User::getGradeName, gradeName);
+        userList = userMapper.selectList(userLambdaQueryWrapper);
+
+        for (User u: userList) {
+            LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
+            registerLambdaQueryWrapper.eq(Register::getUserId, u.getId());
+            Register register = registerMapper.selectById(registerLambdaQueryWrapper);
+            if(register != null){
+                registerList.add(register);
+            }else{
+                userList.remove(u);
+            }
+        }
+
+        return ResponseResult.successResult();
+    }
+
+    @Override
+    public ResponseResult selectBySubjectId(Long subjectId) {
+        return null;
+    }
+
+    @Override
+    public ResponseResult selectByDesireDepartmentId(Long desireDepartmentId) {
+        return null;
+    }
+
+    @Override
+    public ResponseResult selectByStatus(String status) {
+        return null;
+    }
+
+    @Override
+    public ResponseResult isApproved(String isApprovedFlag) {
+        return null;
     }
 
 
