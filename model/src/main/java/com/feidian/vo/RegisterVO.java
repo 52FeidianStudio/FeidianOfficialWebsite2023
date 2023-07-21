@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CompleteRegisterVO {
+public class RegisterVO {
 
     private User user;
 
