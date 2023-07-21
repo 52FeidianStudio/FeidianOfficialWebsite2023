@@ -11,7 +11,7 @@ import com.feidian.mapper.UserMapper;
 import com.feidian.po.Register;
 import com.feidian.po.User;
 import com.feidian.util.SecurityUtils;
-import com.feidian.vo.RegisterVO;
+import com.feidian.vo.CompleteRegisterVO;
 import feidian.responseResult.ResponseResult;
 import feidian.util.RedisCache;
 import feidian.util.serviceUtil.FileUploadUtil;
@@ -101,7 +101,7 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
             return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
         }
 
-        RegisterVO registerVO = new RegisterVO(user, register);
+        CompleteRegisterVO registerVO = new CompleteRegisterVO(user, register);
         return ResponseResult.successResult(registerVO);
     }
 
