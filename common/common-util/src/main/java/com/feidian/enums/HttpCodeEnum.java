@@ -15,7 +15,35 @@ public enum HttpCodeEnum {
 
     LOGIN_ERROR(505,"用户名或密码错误"),
     IMAGE_FORMAT_ERROR(505,"图片格式错误"),
-    IMAGE_UPLOAD_ERROR(505,"图片上传失败");
+    IMAGE_UPLOAD_ERROR(505,"图片上传失败"),
+    USERNAME_NOT_NULL(400, "用户名不能为空"),
+    PASSWORD_NOT_NULL(400, "密码不能为空"),
+    NAME_NOT_NULL(400, "姓名不能为空"),
+    BIRTHDAY_NOT_NULL(400, "生日不能为空"),
+    INVALID_SEX(400, "无效性别"),
+    INVALID_STUDENT_ID(400, "无效学号"),
+    FACULTY_NOT_NULL(400, "学院不能为空"),
+    DEPARTMENT_NOT_NULL(400, "部门不能为空"),
+    AVATAR_URL_NOT_NULL(400, "头像URL不能为空"),
+    NATIONALITY_NOT_NULL(400, "民族不能为空"),
+    PHONE_NOT_NULL(400, "联系电话不能为空"),
+    EMAIL_NOT_NULL(400, "邮箱不能为空"),
+    QQ_NOT_NULL(400, "QQ号不能为空"),
+    PASSWORD_NOT_STANDARDIZED(400,"密码不符合规范" ),
+    PHONE_EXIST(400,"电话已经存在" ),
+    EMAIL_NOT_FORMAT(400,"邮箱不符合规范" ),
+    PHONE_NOT_FORMAT(400,"电话不符合规范" ),
+    CODE_ERR(400,"验证码错误" ),
+    FACULTYID_NOT_NULL(400, "学院ID不能为空"),
+    SUBJECT_NOT_NULL(400, "专业不能为空"),
+    DEPARTMENTID_NOT_NULL(400, "部门ID不能为空"),
+    CITY_NOT_NULL(400, "城市不能为空"),
+    COMPANY_NOT_NULL(400, "公司不能为空"),
+    ISDELETED_NOT_NULL(400, "是否删除不能为空"),
+    CREATETIME_NOT_NULL(400, "创建时间不能为空"),
+    CREATEBY_NOT_NULL(400, "创建者不能为空");
+
+
 
 
 

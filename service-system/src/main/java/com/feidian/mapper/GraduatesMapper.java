@@ -1,6 +1,5 @@
 package com.feidian.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.feidian.po.Graduates;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -11,7 +10,14 @@ import org.apache.ibatis.annotations.Mapper;
  * @author makejava
  * @since 2023-07-21 11:23:32
  */
-public interface GraduatesMapper extends BaseMapper<Graduates> {
+public interface GraduatesMapper  {
+    void insertGraduate(Graduates graduate);
+
+    Graduates getGraduateById(Long id);
+
+    void updateGraduate(Graduates graduate);
+
+
 
 }
 
