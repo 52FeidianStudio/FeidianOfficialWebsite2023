@@ -1,4 +1,4 @@
-package feidian.util.serviceUtil;
+package com.feidian.util.serviceUtil;
 
 import java.util.Random;
 

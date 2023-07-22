@@ -2,6 +2,7 @@ package com.feidian.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.feidian.po.Graduates;
+import org.apache.ibatis.annotations.Mapper;
 
 
 /**

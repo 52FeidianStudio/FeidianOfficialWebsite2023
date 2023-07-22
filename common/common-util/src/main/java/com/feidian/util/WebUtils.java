@@ -1,4 +1,4 @@
-package feidian.util;
+package com.feidian.util;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

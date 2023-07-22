@@ -1,4 +1,4 @@
-package feidian.util;
+package com.feidian.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;

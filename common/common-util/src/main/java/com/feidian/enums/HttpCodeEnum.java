@@ -1,4 +1,4 @@
-package feidian.enums;
+package com.feidian.enums;
 
 public enum HttpCodeEnum {
     // 成功

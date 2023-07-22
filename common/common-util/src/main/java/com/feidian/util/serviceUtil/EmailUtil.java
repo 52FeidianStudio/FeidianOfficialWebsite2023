@@ -1,4 +1,4 @@
-package feidian.util.serviceUtil;
+package com.feidian.util.serviceUtil;
 
 import org.apache.commons.mail.HtmlEmail;
 
