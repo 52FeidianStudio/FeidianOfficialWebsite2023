@@ -90,9 +90,7 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
     @Override
     public ResponseResult formalView(Long registerId) {
         //查询审核人(即查询当前正在审核的User)
-        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        userLambdaQueryWrapper.eq(User::getId, SecurityUtils.getUserId());
-        User auditor = userMapper.selectById(userLambdaQueryWrapper);
+        User auditor = selectCurrentAuditor();
 
         //查询被查看的报名表和报名人
         CompleteRegisterVO completeRegisterVO = selectByRegisterIdGetCompleteRegister(registerId);
@@ -168,9 +166,7 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
     @Override
     public ResponseResult isApproved(Long registerId, String isApprovedFlag) {
         //查询审核人(即查询当前正在审核的User)
-        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        userLambdaQueryWrapper.eq(User::getId, SecurityUtils.getUserId());
-        User auditor = userMapper.selectById(userLambdaQueryWrapper);
+        User auditor = selectCurrentAuditor();
 
         //查询被查询的报名表相关信息
         CompleteRegisterVO completeRegisterVO = selectByRegisterIdGetCompleteRegister(registerId);
@@ -217,6 +213,14 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
             return ResponseResult.successResult(200, "成功修改报名表状态为未通过");
         }
         return ResponseResult.errorResult(400, "修改报名表状态失败!");
+    }
+
+    private User selectCurrentAuditor(){
+        //查询审核人(即查询当前正在审核的User)
+        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        userLambdaQueryWrapper.eq(User::getId, SecurityUtils.getUserId());
+        User auditor = userMapper.selectById(userLambdaQueryWrapper);
+        return auditor;
     }
 
     private CompleteRegisterVO selectByRegisterIdGetCompleteRegister(Long registerId) {
@@ -308,6 +312,5 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
 
         return ResponseResult.successResult(200, "注册信息验证通过");
     }
-
 
 }

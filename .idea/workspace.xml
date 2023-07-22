@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):修复了merge之后一些小bug">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/FileUploadUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/FileUploadUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/po/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/po/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/TestController.java" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(common-util):优化了文件上传的工具类">
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,7 +224,21 @@
       <option name="project" value="LOCAL" />
       <updated>1689991599734</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix(service-system):修复了报名系统审核时审核人不参与的bug">
+      <created>1689994669233</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1689994669233</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat(common-util):优化了文件上传的工具类">
+      <created>1689994912078</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1689994912078</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +283,8 @@
     <MESSAGE value="feat(model):完善了SectionalRegisterVO" />
     <MESSAGE value="feat(service-system):新增了一大堆查询" />
     <MESSAGE value="fix(service-system):修复了merge之后一些小bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修复了merge之后一些小bug" />
+    <MESSAGE value="fix(service-system):修复了报名系统审核时审核人不参与的bug" />
+    <MESSAGE value="feat(common-util):优化了文件上传的工具类" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(common-util):优化了文件上传的工具类" />
   </component>
 </project>
