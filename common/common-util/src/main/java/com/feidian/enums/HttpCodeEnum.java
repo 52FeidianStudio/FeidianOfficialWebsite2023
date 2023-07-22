@@ -13,7 +13,9 @@ public enum HttpCodeEnum {
     EMAIL_EXIST(406, "邮箱已存在"),
     REQUIRE_USERNAME(406, "必需填写用户名"),
 
-    LOGIN_ERROR(505,"用户名或密码错误");
+    LOGIN_ERROR(505,"用户名或密码错误"),
+    IMAGE_FORMAT_ERROR(505,"图片格式错误"),
+    IMAGE_UPLOAD_ERROR(505,"图片上传失败");
 
 
 
