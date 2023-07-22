@@ -1,7 +1,5 @@
 package com.feidian.controller;
 
-
-import com.baomidou.mybatisplus.extension.api.R;
 import com.feidian.dto.RegisterDTO;
 import com.feidian.responseResult.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,15 +27,7 @@ public class TestController {
         return registerService.submitRegister(registerDTO);
     }
 
-    //TODO  查询
-    //      正式查看
-    //      按年级筛选
-    //      按专业筛选
-    //      按申请组别筛选
-    //      按报名表状态筛选
-    //      正式查看日志
-    //      设置报名表状态（是否通过）
-
+    // TODO 日志
     // 正式查看
     @PostMapping("/formalView")
     public ResponseResult formalView(@RequestBody Long registerId){
@@ -74,5 +64,4 @@ public class TestController {
         return registerService.isApproved(registerId, isApprovedFlag);
     }
 
-    //
 }

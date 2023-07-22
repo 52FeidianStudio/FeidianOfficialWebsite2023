@@ -234,8 +234,7 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
         User user = userMapper.selectById(userLambdaQueryWrapper);
 
         if (register != null && user != null) {
-            CompleteRegisterVO registerVO = new CompleteRegisterVO(user, register);
-            return registerVO;
+            return new CompleteRegisterVO(user, register);
         } else {
             return null;
         }
