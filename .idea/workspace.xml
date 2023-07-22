@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(model):完善了SectionalRegisterVO">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):新增了一大堆查询">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +77,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "com.sjhy.plugin.ui.TemplateSettingForm",
-    "spring.configuration.checksum": "2188b450bd1d35ac52d752940a79ebfd"
+    "spring.configuration.checksum": "bc7762e098c008defbc497bc542c060b"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -103,6 +101,7 @@
       <updated>1689818880064</updated>
       <workItem from="1689818881203" duration="1461000" />
       <workItem from="1689901566944" duration="1338000" />
+      <workItem from="1689987858706" duration="3101000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -188,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689939169404</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="feat(service-system):新增了一大堆查询">
+      <created>1689942418667</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1689942418667</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +237,7 @@
     <MESSAGE value="feat(service-system):新增上传大头照、上传报名表、正式查看的功能（查看后会修改报名表状态）" />
     <MESSAGE value="feat(service-system):初步新增了根据条件筛选的四个接口" />
     <MESSAGE value="feat(model):完善了SectionalRegisterVO" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(model):完善了SectionalRegisterVO" />
+    <MESSAGE value="feat(service-system):新增了一大堆查询" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(service-system):新增了一大堆查询" />
   </component>
 </project>
