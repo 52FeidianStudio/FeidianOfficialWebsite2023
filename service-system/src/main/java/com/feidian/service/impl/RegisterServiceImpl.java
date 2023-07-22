@@ -178,7 +178,7 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
                 .set(Register::getUpdateBy, tempUser.getUsername());
         registerMapper.update(null, updateWrapper);
 
-        return ResponseResult.successResult(200, "提交报名表成功!");
+        return ResponseResult.successResult(200, "修改报名表成功!");
     }
 
     //一大堆查询操作
