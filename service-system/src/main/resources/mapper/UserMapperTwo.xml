@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.feidian.mapper.UserMapper">
+<mapper namespace="com.feidian.mapper.UserMapperTwo">
     <!-- 插入用户数据 -->
     <insert id="insertUser" parameterType="com.feidian.po.User">
         INSERT INTO user (
