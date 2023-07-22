@@ -1,8 +1,10 @@
 package com.feidian.mapper;
 
 
+import com.feidian.bo.GraduatesBO;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * (Graduates)表数据库访问层
@@ -11,8 +13,8 @@ import org.springframework.stereotype.Repository;
  * @since 2023-07-21 11:23:32
  */
 @Mapper
-@Repository
-public interface GraduatesMapper  {
+public interface GraduatesMapper{
 
+    List<GraduatesBO> getGraduatesMessage();
 }
 
