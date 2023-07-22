@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.feidian.mapper.RegisterMapper">
+
+    <!-- 定义结果映射 -->
+    <resultMap id="BaseResultMap" type="com.feidian.po.Register">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="resume" property="resume"/>
+        <result column="desire_department_id" property="desireDepartmentId"/>
+        <result column="direction" property="direction"/>
+        <result column="arrangement" property="arrangement"/>
+        <result column="status" property="status"/>
+        <result column="reason" property="reason"/>
+        <result column="img_url" property="imgUrl"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+    </resultMap>
+
+    <!-- 根据用户ID查询报名表，返回单个Register对象 -->
+    <select id="selectRegisterByUserId" parameterType="long" resultType="com.feidian.po.Register">
+        SELECT *
+        FROM register
+        WHERE user_id = #{userId}
+        LIMIT 1
+    </select>
+
+    <!-- 根据报名表ID查询报名表，返回单个Register对象 -->
+    <select id="selectRegisterByRegisterId" parameterType="long" resultType="com.feidian.po.Register">
+        SELECT *
+        FROM register
+        WHERE id = #{registerId}
+        LIMIT 1
+    </select>
+
+    <!-- 根据申请组别查询报名表 -->
+    <select id="selectByDesireDepartmentId" parameterType="long" resultMap="BaseResultMap">
+        SELECT *
+        FROM register
+        WHERE desire_department_id = #{desireDepartmentId}
+    </select>
+
+    <!-- 根据报名表状态查询报名表 -->
+    <select id="selectByStatus" parameterType="string" resultMap="BaseResultMap">
+        SELECT *
+        FROM register
+        WHERE status = #{status}
+    </select>
+
+    <!-- 添加报名表 -->
+    <insert id="insertRegister" parameterType="com.feidian.po.Register">
+        INSERT INTO register (user_id, resume, desire_department_id, direction, arrangement, status, reason, img_url, is_deleted, create_time, create_by, update_time, update_by)
+        VALUES (#{userId}, #{resume}, #{desireDepartmentId}, #{direction}, #{arrangement}, #{status}, #{reason}, #{imgUrl}, #{isDeleted}, #{createTime}, #{createBy}, #{updateTime}, #{updateBy})
+    </insert>
+
+    <!-- 更新报名表状态 -->
+    <update id="updateStatus" parameterType="com.feidian.po.Register">
+        UPDATE register
+        SET status = #{status},
+            update_by = #{updateBy},
+            update_time = #{updateTime}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 更新报名表内容 -->
+    <update id="updateContent" parameterType="com.feidian.po.Register">
+        UPDATE register
+        <set>
+            <!-- 使用动态SQL，根据字段是否为空来动态更新字段 -->
+            <if test="resume != null">resume = #{resume},</if>
+            <if test="desireDepartmentId != null">desire_department_id = #{desireDepartmentId},</if>
+            <if test="direction != null">direction = #{direction},</if>
+            <if test="arrangement != null">arrangement = #{arrangement},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="reason != null">reason = #{reason},</if>
+            <if test="imgUrl != null">img_url = #{imgUrl},</if>
+            update_by = #{updateBy},
+            update_time = #{updateTime}
+        </set>
+        WHERE id = #{id}
+    </update>
+
+</mapper>
