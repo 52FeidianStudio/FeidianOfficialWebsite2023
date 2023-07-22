@@ -21,7 +21,6 @@ spring:
     host: 127.0.0.1 #redis服务器ip地址
     port: 6379  #redis端口号
 
-
 debug: true #开启日志
 logging:
   level:
@@ -52,5 +51,9 @@ management:
   web:
     exposure:
       include: "*" #web端暴露所有端点
-
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countsql
 
