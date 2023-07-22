@@ -6,25 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):新增了修改报名表的功能，下一阶段准备按项目要求，全部替换回mybatis。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/DepartmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/DepartmentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/FacultyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/FacultyMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/GraduatesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/GraduatesMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/PermissionMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RolePermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RolePermissionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/SubjectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/SubjectMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserRoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserRoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/DepartmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/FacultyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/FacultyServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/GraduatesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/GraduatesServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/PermissionServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/SubjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/SubjectServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690010192573</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="chore(project):更改mapper、service的格式">
+      <created>1690012001976</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1690012001976</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,6 +324,7 @@
     <MESSAGE value="feat(common-util):优化了文件上传的工具类" />
     <MESSAGE value="feat(service-system):优化了查询审核人信息的方法" />
     <MESSAGE value="feat(service-system):新增了修改报名表的功能，下一阶段准备按项目要求，全部替换回mybatis。" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(service-system):新增了修改报名表的功能，下一阶段准备按项目要求，全部替换回mybatis。" />
+    <MESSAGE value="chore(project):更改mapper、service的格式" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(project):更改mapper、service的格式" />
   </component>
 </project>
