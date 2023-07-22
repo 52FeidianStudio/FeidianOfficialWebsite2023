@@ -27,6 +27,17 @@ public class TestController {
         return registerService.submitRegister(registerDTO);
     }
 
+    //      设置报名表状态（是否通过）
+    @PostMapping("/isApproved")
+    public ResponseResult isApproved(@RequestBody Long registerId, @RequestBody String isApprovedFlag){
+        return registerService.isApproved(registerId, isApprovedFlag);
+    }
+
+    //      修改报名表
+    @PostMapping("/editRegister")
+    public ResponseResult editRegister(@RequestBody RegisterDTO registerDTO){
+        return registerService.editRegister(registerDTO);
+    }
     // TODO 日志
     // 正式查看
     @PostMapping("/formalView")
@@ -56,12 +67,6 @@ public class TestController {
     @PostMapping("/selectByStatus")
     public ResponseResult selectByStatus(@RequestBody String status){
         return registerService.selectByStatus(status);
-    }
-
-    //      设置报名表状态（是否通过）
-    @PostMapping("/isApproved")
-    public ResponseResult isApproved(@RequestBody Long registerId, @RequestBody String isApprovedFlag){
-        return registerService.isApproved(registerId, isApprovedFlag);
     }
 
 }

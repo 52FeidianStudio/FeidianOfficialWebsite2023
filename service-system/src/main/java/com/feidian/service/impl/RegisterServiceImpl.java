@@ -53,6 +53,15 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
 
     @Override
     public ResponseResult submitRegister(RegisterDTO registerDTO) {
+        Long userId = SecurityUtils.getUserId();
+        //根据用户查询报名表
+        LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        registerLambdaQueryWrapper.eq(Register::getUserId, userId);
+        Register tempRegister = registerMapper.selectById(registerLambdaQueryWrapper);
+        if (tempRegister != null) {
+            return ResponseResult.errorResult(400, "用户已经提交过报名表了，如果想要更改信息，请选择修改。");
+        }
+
 
         ResponseResult validateResponseResult = validate(registerDTO);
         if (validateResponseResult.getCode() == 400) {
@@ -85,6 +94,92 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
         return ResponseResult.successResult(200, "上传图片文件成功");
     }
 
+    //审核报名表
+    @Override
+    public ResponseResult isApproved(Long registerId, String isApprovedFlag) {
+        //查询审核人(即查询当前正在审核的User)
+        User auditor = selectCurrentAuditor();
+
+        //查询被查询的报名表相关信息
+        CompleteRegisterVO completeRegisterVO = selectByRegisterIdGetCompleteRegister(registerId);
+        User user = completeRegisterVO.getUser();
+        Register register = completeRegisterVO.getRegister();
+
+        if (user == null && register == null) {
+            return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
+        }
+
+        if ("2".equals(isApprovedFlag)) {
+            //更改状态为2 已通过
+            LambdaUpdateWrapper<Register> registerLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
+            registerLambdaUpdateWrapper.eq(Register::getId, registerId)
+                    .set(Register::getStatus, "2")
+                    .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
+                    .set(Register::getUpdateBy, auditor.getUsername());
+            registerMapper.update(null, registerLambdaUpdateWrapper);
+
+            register.setStatus("2"); // 更新register对象中的状态字段
+
+            //将user设置为预备成员
+            LambdaUpdateWrapper<UserRole> userRoleLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
+            userRoleLambdaUpdateWrapper.eq(UserRole::getUserId, user.getId())
+                    .set(UserRole::getRoleId, 5L)
+                    .set(UserRole::getUpdateTime, new Timestamp(System.currentTimeMillis()))
+                    .set(UserRole::getUpdateBy, auditor.getUsername());
+            ;
+            userRoleMapper.update(null, userRoleLambdaUpdateWrapper);
+
+            return ResponseResult.successResult(200, "成功修改报名表状态为已通过，并将其添加至预备成员。");
+        } else if ("3".equals(isApprovedFlag)) {
+            //更改状态为3 未通过
+            LambdaUpdateWrapper<Register> updateWrapper = new LambdaUpdateWrapper<>();
+            updateWrapper.eq(Register::getId, registerId)
+                    .set(Register::getStatus, "3")
+                    .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
+                    .set(Register::getUpdateBy, auditor.getUsername());
+            registerMapper.update(null, updateWrapper);
+
+            register.setStatus("3"); // 更新register对象中的状态字段
+
+            //不用修改UserRole，默认roleId为6 未加入
+
+            return ResponseResult.successResult(200, "成功修改报名表状态为未通过");
+        }
+        return ResponseResult.errorResult(400, "修改报名表状态失败!");
+    }
+
+    @Override
+    public ResponseResult editRegister(RegisterDTO registerDTO) {
+        Long userId = SecurityUtils.getUserId();
+        //根据用户查询报名表
+        LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        registerLambdaQueryWrapper.eq(Register::getUserId, userId);
+        Register tempRegister = registerMapper.selectById(registerLambdaQueryWrapper);
+        //根据用户Id查询用户
+        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        userLambdaQueryWrapper.eq(User::getId, userId);
+        User tempUser = userMapper.selectById(userLambdaQueryWrapper);
+
+        if (tempRegister == null) {
+            return ResponseResult.errorResult(400, "用户尚未提交过报名表，无法修改。");
+        }
+
+        if ("1".equals(tempRegister.getStatus()) || "2".equals(tempRegister.getStatus()) || "3".equals(tempRegister.getStatus())) {
+            return ResponseResult.errorResult(400, "该报名表已被审核，无法修改。");
+        }
+
+        //未审核过则更新状态和update_by等信息
+        LambdaUpdateWrapper<Register> updateWrapper = new LambdaUpdateWrapper<>();
+        updateWrapper.eq(Register::getId, tempRegister.getId())
+                .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
+                .set(Register::getUpdateBy, tempUser.getUsername())
+                .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
+                .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
+                .set(Register::getUpdateBy, tempUser.getUsername());
+        registerMapper.update(null, updateWrapper);
+
+        return ResponseResult.successResult(200, "提交报名表成功!");
+    }
 
     //一大堆查询操作
     @Override
@@ -97,7 +192,7 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
 
         if (completeRegisterVO == null) {
             return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
-        } else if ("2".equals(completeRegisterVO.getRegister().getStatus())  || "3".equals(completeRegisterVO.getRegister().getStatus()) ) {
+        } else if ("2".equals(completeRegisterVO.getRegister().getStatus()) || "3".equals(completeRegisterVO.getRegister().getStatus())) {
             //如果这张报名表已经被审核过了，直接返回审核后的报名表，不用更新报名表状态
             return ResponseResult.successResult(completeRegisterVO);
         } else {
@@ -162,60 +257,7 @@ public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> i
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 
-    //审核报名表
-    @Override
-    public ResponseResult isApproved(Long registerId, String isApprovedFlag) {
-        //查询审核人(即查询当前正在审核的User)
-        User auditor = selectCurrentAuditor();
-
-        //查询被查询的报名表相关信息
-        CompleteRegisterVO completeRegisterVO = selectByRegisterIdGetCompleteRegister(registerId);
-        User user = completeRegisterVO.getUser();
-        Register register = completeRegisterVO.getRegister();
-
-        if (user == null && register == null) {
-            return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
-        }
-
-        if ("2".equals(isApprovedFlag)) {
-            //更改状态为2 已通过
-            LambdaUpdateWrapper<Register> registerLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
-            registerLambdaUpdateWrapper.eq(Register::getId, registerId)
-                    .set(Register::getStatus, "2")
-                    .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
-                    .set(Register::getUpdateBy, auditor.getUsername());
-            registerMapper.update(null, registerLambdaUpdateWrapper);
-
-            register.setStatus("2"); // 更新register对象中的状态字段
-
-            //将user设置为预备成员
-            LambdaUpdateWrapper<UserRole> userRoleLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
-            userRoleLambdaUpdateWrapper.eq(UserRole::getUserId, user.getId())
-                    .set(UserRole::getRoleId, 5L)
-                    .set(UserRole::getUpdateTime, new Timestamp(System.currentTimeMillis()))
-                    .set(UserRole::getUpdateBy, auditor.getUsername());;
-            userRoleMapper.update(null, userRoleLambdaUpdateWrapper);
-
-            return ResponseResult.successResult(200, "成功修改报名表状态为已通过，并将其添加至预备成员。");
-        } else if ("3".equals(isApprovedFlag)) {
-            //更改状态为3 未通过
-            LambdaUpdateWrapper<Register> updateWrapper = new LambdaUpdateWrapper<>();
-            updateWrapper.eq(Register::getId, registerId)
-                    .set(Register::getStatus, "3")
-                    .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
-                    .set(Register::getUpdateBy, auditor.getUsername());
-            registerMapper.update(null, updateWrapper);
-
-            register.setStatus("3"); // 更新register对象中的状态字段
-
-            //不用修改UserRole，默认roleId为6 未加入
-
-            return ResponseResult.successResult(200, "成功修改报名表状态为未通过");
-        }
-        return ResponseResult.errorResult(400, "修改报名表状态失败!");
-    }
-
-    private User selectCurrentAuditor(){
+    private User selectCurrentAuditor() {
         //查询审核人(即查询当前正在审核的User)
         LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
         userLambdaQueryWrapper.eq(User::getId, SecurityUtils.getUserId());

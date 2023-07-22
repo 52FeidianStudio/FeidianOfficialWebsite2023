@@ -11,6 +11,10 @@ public interface RegisterService extends IService<Register> {
 
     ResponseResult submitImage(MultipartFile imageFile);
 
+    ResponseResult isApproved(Long registerId, String isApprovedFlag);
+
+    ResponseResult editRegister(RegisterDTO registerDTO);
+
     ResponseResult formalView(Long registerId);
 
     ResponseResult selectByGradeName(String gradeName);
@@ -21,5 +25,5 @@ public interface RegisterService extends IService<Register> {
 
     ResponseResult selectByStatus(String status);
 
-    ResponseResult isApproved(Long registerId, String isApprovedFlag);
+
 }
