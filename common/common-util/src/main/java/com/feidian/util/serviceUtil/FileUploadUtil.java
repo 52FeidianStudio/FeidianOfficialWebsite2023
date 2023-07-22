@@ -45,13 +45,11 @@ public class FileUploadUtil {
                 dir.mkdirs();
             }
 
-            // 生成保存文件的路径，利用UUID生成唯一标识
-
             // 将原始文件名按照路径分隔符进行拆分
             String[] pathSegments = avatarFile.getOriginalFilename().split("[\\\\/]");
             // 获取最后一个路径分段（即文件名部分）
             String fileName = pathSegments[pathSegments.length - 1];
-            //生成保存路径
+            // 生成保存文件的路径，利用UUID生成唯一标识
             String filePath = uploadDir + UUID.randomUUID() + fileName;
 
             if (filePath.length() > IMG_URL_MAX_LENGTH) {
@@ -60,7 +58,7 @@ public class FileUploadUtil {
 
             // 保存文件
             avatarFile.transferTo(new File(filePath));
-            return ResponseResult.successResult("filePath");
+            return ResponseResult.successResult(filePath);
 
         } catch (IOException e) {
             return ResponseResult.errorResult(400, "上传失败" + e.getMessage());
