@@ -10,7 +10,7 @@ import java.util.List;
 
 @Mapper
 @Repository
-public interface UserMapper {
+public interface UserMapperTwo {
 
     //   根据UserId查询User
     User selectUserByUserId(@Param("userId") Long userId);
