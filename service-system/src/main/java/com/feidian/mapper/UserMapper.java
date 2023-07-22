@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Mapper
 @Repository
-public interface UserMapper  {
+public interface UserMapperTwo {
     boolean isEmailExist(String email);
 
     boolean isPhoneExist(String phone);
