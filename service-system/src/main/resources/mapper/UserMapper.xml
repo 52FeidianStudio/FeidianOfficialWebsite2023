@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.feidian.mapper.UserMapper">
+    <!-- 插入用户数据 -->
+    <insert id="insertUser" parameterType="com.feidian.po.User">
+        INSERT INTO user (
+            username, password, name, nickname, birthday, sex, student_id,
+            grade_name, class_name, subject_id, faculty_id, department_id,
+            avatar_url, nationality, phone, email, qq, is_deleted,
+            create_time, create_by, update_time, update_by
+        )
+        VALUES (
+                   #{username}, #{password}, #{name}, #{nickname}, #{birthday},
+                   #{sex}, #{studentId}, #{gradeName}, #{className}, #{subjectId},
+                   #{facultyId}, #{departmentId}, #{avatarUrl}, #{nationality},
+                   #{phone}, #{email}, #{qq}, #{isDeleted}, #{createTime},
+                   #{createBy}, #{updateTime}, #{updateBy}
+               )
+    </insert>
+
+    <select id="isEmailExist" resultType="boolean">
+        SELECT COUNT(1) > 0
+        FROM user
+        WHERE email = #{email}
+    </select>
+
+    <select id="isPhoneExist" resultType="boolean">
+        SELECT COUNT(1) > 0
+        FROM user
+        WHERE phone = #{phone}
+    </select>
+
+    <!-- 在UserMapper.xml文件中添加resultMap -->
+    <resultMap id="UserResultMap" type="com.feidian.po.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="nickname" column="nickname"/>
+        <result property="birthday" column="birthday"/>
+        <result property="sex" column="sex"/>
+        <result property="studentId" column="student_id"/>
+        <result property="gradeName" column="grade_name"/>
+        <result property="className" column="class_name"/>
+        <result property="subjectId" column="subject_id"/>
+        <result property="facultyId" column="faculty_id"/>
+        <result property="departmentId" column="department_id"/>
+        <result property="avatarUrl" column="avatar_url"/>
+        <result property="nationality" column="nationality"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="qq" column="qq"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+    </resultMap>
+
+    <!-- 使用resultMap来映射查询结果 -->
+    <select id="selectUserByUsername" resultMap="UserResultMap">
+        select * from user where username = #{username}
+    </select>
+
+
+</mapper>
