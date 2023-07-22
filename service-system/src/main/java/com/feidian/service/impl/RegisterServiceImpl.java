@@ -4,7 +4,7 @@ package com.feidian.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.baomidou.mybatisplus.extension.api.R;
+
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.feidian.dto.RegisterDTO;
 import com.feidian.mapper.RegisterMapper;
@@ -13,12 +13,13 @@ import com.feidian.mapper.UserRoleMapper;
 import com.feidian.po.Register;
 import com.feidian.po.User;
 import com.feidian.po.UserRole;
+import com.feidian.responseResult.ResponseResult;
+import com.feidian.util.RedisCache;
 import com.feidian.util.SecurityUtils;
+import com.feidian.util.serviceUtil.FileUploadUtil;
 import com.feidian.vo.CompleteRegisterVO;
 import com.feidian.vo.SectionalRegisterVO;
-import feidian.responseResult.ResponseResult;
-import feidian.util.RedisCache;
-import feidian.util.serviceUtil.FileUploadUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.feidian.service.RegisterService;
