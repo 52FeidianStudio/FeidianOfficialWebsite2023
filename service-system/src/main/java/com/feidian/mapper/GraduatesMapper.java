@@ -2,6 +2,7 @@ package com.feidian.mapper;
 
 import com.feidian.po.Graduates;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 
 /**
@@ -10,6 +11,8 @@ import org.apache.ibatis.annotations.Mapper;
  * @author makejava
  * @since 2023-07-21 11:23:32
  */
+@Mapper
+@Repository
 public interface GraduatesMapper  {
     void insertGraduate(Graduates graduate);
 
