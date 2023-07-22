@@ -4,20 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):新增了修改报名表的功能，下一阶段准备按项目要求，全部替换回mybatis。">
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(admin):增加了毕业生相关的三个接口">
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/constants/RedisConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/RegexPatterns.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/RegexUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/StandardPasswordUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/LoginFormDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/LoginUserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterUserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/UserInfoVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/PermissionMapper.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/UserRoleMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/po/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/po/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/PermissionMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserRoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserRoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -34,7 +47,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="admin" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,7 +92,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Develop/jerbrains/idea/idea projects/FeidianOfficialWebsite2023/service-system/src/main/resources/mapper",
+    "last_opened_file_path": "D:/java/WebSite/FeidianOfficialWebsite2023/service-system/src/main/resources/mapper",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,8 +110,11 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.feidian.vo" />
+      <recent name="com.feidian.dto" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.feidian.bo" />
       <recent name="com.feiidan.vo" />
       <recent name="com.feiidan.bo" />
     </key>
@@ -119,7 +135,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.WebsiteFrontApplication" />
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
@@ -272,12 +287,12 @@
       <option name="project" value="LOCAL" />
       <updated>1690010192573</updated>
     </task>
-    <task id="LOCAL-00020" summary="chore(project):更改mapper、service的格式">
-      <created>1690012001976</created>
+    <task id="LOCAL-00020" summary="feat(admin):增加了毕业生相关的三个接口">
+      <created>1690015646321</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1690012001976</updated>
+      <updated>1690015646321</updated>
     </task>
     <option name="localTasksCounter" value="21" />
     <servers />
@@ -328,7 +343,7 @@
     <MESSAGE value="feat(common-util):优化了文件上传的工具类" />
     <MESSAGE value="feat(service-system):优化了查询审核人信息的方法" />
     <MESSAGE value="feat(service-system):新增了修改报名表的功能，下一阶段准备按项目要求，全部替换回mybatis。" />
-    <MESSAGE value="chore(project):更改mapper、service的格式" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore(project):更改mapper、service的格式" />
+    <MESSAGE value="feat(admin):增加了毕业生相关的三个接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(admin):增加了毕业生相关的三个接口" />
   </component>
 </project>

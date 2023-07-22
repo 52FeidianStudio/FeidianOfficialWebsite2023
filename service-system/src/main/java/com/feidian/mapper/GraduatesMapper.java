@@ -1,10 +1,8 @@
 package com.feidian.mapper;
 
-
-import com.feidian.bo.GraduatesBO;
+import com.feidian.po.Graduates;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
 
 /**
  * (Graduates)表数据库访问层
@@ -12,9 +10,14 @@ import java.util.List;
  * @author makejava
  * @since 2023-07-21 11:23:32
  */
-@Mapper
-public interface GraduatesMapper{
+public interface GraduatesMapper  {
+    void insertGraduate(Graduates graduate);
 
-    List<GraduatesBO> getGraduatesMessage();
+    Graduates getGraduateById(Long id);
+
+    void updateGraduate(Graduates graduate);
+
+
+
 }
 
