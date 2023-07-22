@@ -1,8 +1,6 @@
-package com.megumi.service.impl;
+package com.feidian.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.feidian.mapper.UserMapper;
-import com.feidian.po.User;
+
 import com.feidian.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +11,6 @@ import org.springframework.stereotype.Service;
  * @since 2023-07-21 10:57:50
  */
 @Service("userService")
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+public class UserServiceImpl  implements UserService {
 
 }

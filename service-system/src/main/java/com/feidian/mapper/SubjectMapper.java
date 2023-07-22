@@ -1,8 +1,8 @@
 package com.feidian.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.feidian.po.Subject;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * (Subject)表数据库访问层
@@ -10,7 +10,9 @@ import com.feidian.po.Subject;
  * @author makejava
  * @since 2023-07-21 11:28:12
  */
-public interface SubjectMapper extends BaseMapper<Subject> {
+@Mapper
+@Repository
+public interface SubjectMapper{
 
 }
 
