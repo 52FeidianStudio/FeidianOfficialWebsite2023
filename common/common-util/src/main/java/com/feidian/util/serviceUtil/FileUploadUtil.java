@@ -15,23 +15,23 @@ public class FileUploadUtil {
     //图片文件Url长度上限
     private static final int IMG_URL_MAX_LENGTH = 255;
 
-    public static ResponseResult uploadAvatar(MultipartFile avatarFile){
+    public static ResponseResult uploadAvatar(MultipartFile avatarFile) {
 
         if (avatarFile.isEmpty()) {
-            return ResponseResult.errorResult(400,"未选择文件");
+            return ResponseResult.errorResult(400, "未选择文件");
         }
 
         //根据文件拓展名判断文件是否合法
         String fileExtension = getFileExtension(avatarFile.getOriginalFilename());
         boolean isValidExtension = false;
-        for (String allowedFileFormat : Arrays.asList(SUPPORTED_IMAGE_EXTENSIONS)){
-            if (fileExtension.equals(allowedFileFormat)){
+        for (String allowedFileFormat : Arrays.asList(SUPPORTED_IMAGE_EXTENSIONS)) {
+            if (fileExtension.equals(allowedFileFormat)) {
                 isValidExtension = true;
                 break;
             }
         }
-        if(!isValidExtension){
-            return ResponseResult.errorResult(400,"文件格式不支持");
+        if (!isValidExtension) {
+            return ResponseResult.errorResult(400, "文件格式不支持");
         }
 
         //文件保存在服务器上的目录地址
@@ -49,7 +49,7 @@ public class FileUploadUtil {
             String filePath = uploadDir + UUID.randomUUID() + avatarFile.getOriginalFilename();
 
             if (filePath.length() > IMG_URL_MAX_LENGTH) {
-                return ResponseResult.errorResult(400,"头像URL超出长度限制");
+                return ResponseResult.errorResult(400, "头像URL超出长度限制");
             }
 
             // 保存文件
@@ -57,7 +57,7 @@ public class FileUploadUtil {
             return ResponseResult.successResult("filePath");
 
         } catch (IOException e) {
-            return ResponseResult.errorResult(400,"上传失败" + e.getMessage());
+            return ResponseResult.errorResult(400, "上传失败" + e.getMessage());
         }
     }
 

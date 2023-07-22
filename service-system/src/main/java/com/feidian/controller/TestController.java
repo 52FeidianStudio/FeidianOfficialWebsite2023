@@ -74,4 +74,5 @@ public class TestController {
         return registerService.isApproved(registerId, isApprovedFlag);
     }
 
+    //
 }

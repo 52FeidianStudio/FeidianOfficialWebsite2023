@@ -13,7 +13,13 @@ import org.springframework.stereotype.Component;
 @TableName(value = "user_role")
 public class UserRole {
 
-  private Long userId;
-  private Long roleId;
-  
+  private long userId;
+  private long roleId;
+
+  private long isDeleted;
+  private java.sql.Timestamp createTime;
+  private String createBy;
+  private java.sql.Timestamp updateTime;
+  private String updateBy;
+
 }

@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):新增了一大堆查询">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):修复了merge之后一些小bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/FileUploadUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/FileUploadUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/po/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/po/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/TestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +68,10 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -214,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689942418667</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix(service-system):修复了merge之后一些小bug">
+      <created>1689991599734</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689991599734</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +272,7 @@
     <MESSAGE value="feat(service-system):初步新增了根据条件筛选的四个接口" />
     <MESSAGE value="feat(model):完善了SectionalRegisterVO" />
     <MESSAGE value="feat(service-system):新增了一大堆查询" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(service-system):新增了一大堆查询" />
+    <MESSAGE value="fix(service-system):修复了merge之后一些小bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修复了merge之后一些小bug" />
   </component>
 </project>
