@@ -1,11 +1,6 @@
 package com.feidian.service.impl;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.feidian.dto.RegisterDTO;
 import com.feidian.mapper.RegisterMapper;
 import com.feidian.mapper.UserMapper;
@@ -20,6 +15,7 @@ import com.feidian.util.serviceUtil.FileUploadUtil;
 import com.feidian.vo.CompleteRegisterVO;
 import com.feidian.vo.SectionalRegisterVO;
 
+import io.micrometer.core.instrument.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.feidian.service.RegisterService;
@@ -31,7 +27,7 @@ import java.util.List;
 
 
 @Service("registerService")
-public class RegisterServiceImpl extends ServiceImpl<RegisterMapper, Register> implements RegisterService {
+public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
     private RegisterMapper registerMapper;

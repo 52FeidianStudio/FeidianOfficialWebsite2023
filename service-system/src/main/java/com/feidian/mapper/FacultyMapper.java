@@ -1,8 +1,8 @@
 package com.feidian.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.feidian.po.Faculty;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * (Faculty)表数据库访问层
@@ -10,7 +10,9 @@ import com.feidian.po.Faculty;
  * @author makejava
  * @since 2023-07-21 11:20:09
  */
-public interface FacultyMapper extends BaseMapper<Faculty> {
+@Mapper
+@Repository
+public interface FacultyMapper  {
 
 }
 
