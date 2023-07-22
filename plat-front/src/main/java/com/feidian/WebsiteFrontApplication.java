@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication(scanBasePackages = "com.feidian")
-//@PropertySource("classpath:service-system.yml")
 @MapperScan("com.feidian.mapper")
 public class WebsiteFrontApplication {
     public static void main(String[] args) {

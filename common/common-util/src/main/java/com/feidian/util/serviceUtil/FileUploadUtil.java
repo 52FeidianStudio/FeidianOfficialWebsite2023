@@ -36,7 +36,6 @@ public class FileUploadUtil {
 
         //文件保存在服务器上的目录地址
         String uploadDir = "http://182.254.242.96:3333//www//wwwroot//FeidianOfficialWebsite2023//image//";
-
         try {
             // 定义保存路径
             // 创建保存目录（如果不存在）
@@ -54,7 +53,7 @@ public class FileUploadUtil {
 
             // 保存文件
             avatarFile.transferTo(new File(filePath));
-            return ResponseResult.successResult("filePath");
+            return ResponseResult.successResult(filePath);
 
         } catch (IOException e) {
             return ResponseResult.errorResult(400,"上传失败" + e.getMessage());
