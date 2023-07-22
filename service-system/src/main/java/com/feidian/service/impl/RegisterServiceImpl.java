@@ -67,10 +67,9 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     public ResponseResult submitRegister(RegisterDTO registerDTO) {
         Long userId = SecurityUtils.getUserId();
-        //根据用户查询报名表
-        LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        registerLambdaQueryWrapper.eq(Register::getUserId, userId);
-        Register tempRegister = registerMapper.selectById(registerLambdaQueryWrapper);
+
+        Register tempRegister = registerMapper.selectRegisterByUserId(userId);
+
         if (tempRegister != null) {
             return ResponseResult.errorResult(400, "用户已经提交过报名表了，如果想要更改信息，请选择修改。");
         }
@@ -90,7 +89,7 @@ public class RegisterServiceImpl implements RegisterService {
                 "0", registerDTO.getReason(), imageUrl, 0L, currentTimestamp,
                 SecurityUtils.getLoginUser().getUsername(), currentTimestamp, SecurityUtils.getLoginUser().getUsername());
 
-        registerMapper.insert(register);
+        registerMapper.insertRegister(register);
 
         return ResponseResult.successResult(200, "提交报名表成功!");
     }
@@ -124,35 +123,27 @@ public class RegisterServiceImpl implements RegisterService {
 
         if ("2".equals(isApprovedFlag)) {
             //更改状态为2 已通过
-            LambdaUpdateWrapper<Register> registerLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
-            registerLambdaUpdateWrapper.eq(Register::getId, registerId)
-                    .set(Register::getStatus, "2")
-                    .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
-                    .set(Register::getUpdateBy, auditor.getUsername());
-            registerMapper.update(null, registerLambdaUpdateWrapper);
-
-            register.setStatus("2"); // 更新register对象中的状态字段
+            register.setStatus("2");// 更新register对象中的状态字段
+            register.setUpdateBy(auditor.getUsername());
+            register.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+            registerMapper.updateStatus(register);
 
             //将user设置为预备成员
-            LambdaUpdateWrapper<UserRole> userRoleLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
-            userRoleLambdaUpdateWrapper.eq(UserRole::getUserId, user.getId())
-                    .set(UserRole::getRoleId, 5L)
-                    .set(UserRole::getUpdateTime, new Timestamp(System.currentTimeMillis()))
-                    .set(UserRole::getUpdateBy, auditor.getUsername());
-            ;
-            userRoleMapper.update(null, userRoleLambdaUpdateWrapper);
+            UserRole userRole = new UserRole();
+            userRole.setUserId(register.getUserId());
+            userRole.setRoleId(5L);
+            userRole.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+            userRole.setUpdateBy(auditor.getUsername());
+
+            userRoleMapper.updateUserRole(userRole);
 
             return ResponseResult.successResult(200, "成功修改报名表状态为已通过，并将其添加至预备成员。");
         } else if ("3".equals(isApprovedFlag)) {
             //更改状态为3 未通过
-            LambdaUpdateWrapper<Register> updateWrapper = new LambdaUpdateWrapper<>();
-            updateWrapper.eq(Register::getId, registerId)
-                    .set(Register::getStatus, "3")
-                    .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
-                    .set(Register::getUpdateBy, auditor.getUsername());
-            registerMapper.update(null, updateWrapper);
-
-            register.setStatus("3"); // 更新register对象中的状态字段
+            register.setStatus("3");// 更新register对象中的状态字段
+            register.setUpdateBy(auditor.getUsername());
+            register.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+            registerMapper.updateStatus(register);
 
             //不用修改UserRole，默认roleId为6 未加入
 
@@ -165,13 +156,10 @@ public class RegisterServiceImpl implements RegisterService {
     public ResponseResult editRegister(RegisterDTO registerDTO) {
         Long userId = SecurityUtils.getUserId();
         //根据用户查询报名表
-        LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        registerLambdaQueryWrapper.eq(Register::getUserId, userId);
-        Register tempRegister = registerMapper.selectById(registerLambdaQueryWrapper);
+        Register tempRegister = registerMapper.selectRegisterByUserId(userId);
+
         //根据用户Id查询用户
-        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        userLambdaQueryWrapper.eq(User::getId, userId);
-        User tempUser = userMapper.selectById(userLambdaQueryWrapper);
+        User tempUser = userMapper.selectUserByUserId(userId);
 
         if (tempRegister == null) {
             return ResponseResult.errorResult(400, "用户尚未提交过报名表，无法修改。");
@@ -181,15 +169,16 @@ public class RegisterServiceImpl implements RegisterService {
             return ResponseResult.errorResult(400, "该报名表已被审核，无法修改。");
         }
 
-        //未审核过则更新状态和update_by等信息
-        LambdaUpdateWrapper<Register> updateWrapper = new LambdaUpdateWrapper<>();
-        updateWrapper.eq(Register::getId, tempRegister.getId())
-                .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
-                .set(Register::getUpdateBy, tempUser.getUsername())
-                .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
-                .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
-                .set(Register::getUpdateBy, tempUser.getUsername());
-        registerMapper.update(null, updateWrapper);
+        //更新报名表信息
+        tempRegister.setResume(registerDTO.getResume());
+        tempRegister.setDesireDepartmentId(registerDTO.getDesireDepartmentId());
+        tempRegister.setDirection(registerDTO.getDirection());
+        tempRegister.setArrangement(registerDTO.getArrangement());
+        tempRegister.setReason(registerDTO.getReason());
+        tempRegister.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+        tempRegister.setUpdateBy(tempUser.getUsername());
+        //TODO 检验修改是否合法
+        registerMapper.updateContent(tempRegister);
 
         return ResponseResult.successResult(200, "修改报名表成功!");
     }
@@ -209,15 +198,11 @@ public class RegisterServiceImpl implements RegisterService {
             //如果这张报名表已经被审核过了，直接返回审核后的报名表，不用更新报名表状态
             return ResponseResult.successResult(completeRegisterVO);
         } else {
-            //未审核过则更新状态和update_by等信息
-            LambdaUpdateWrapper<Register> updateWrapper = new LambdaUpdateWrapper<>();
-            updateWrapper.eq(Register::getId, registerId)
-                    .set(Register::getStatus, "1")
-                    .set(Register::getUpdateTime, new Timestamp(System.currentTimeMillis()))
-                    .set(Register::getUpdateBy, auditor.getUsername());
-            registerMapper.update(null, updateWrapper);
-
-            completeRegisterVO.getRegister().setStatus("1"); // 更新register对象中的状态字段
+            //未审核过则更新状态为1 已查看并更新update_by等信息
+            completeRegisterVO.getRegister().setStatus("1");// 更新register对象中的状态字段
+            completeRegisterVO.getRegister().setUpdateBy(auditor.getUsername());
+            completeRegisterVO.getRegister().setUpdateTime(new Timestamp(System.currentTimeMillis()));
+            registerMapper.updateStatus(completeRegisterVO.getRegister());
 
             return ResponseResult.successResult(completeRegisterVO);
         }
@@ -226,10 +211,7 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     public ResponseResult selectByGradeName(String gradeName) {
         //根据年级查询用户
-        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        userLambdaQueryWrapper.eq(User::getGradeName, gradeName);
-        List<User> userList = userMapper.selectList(userLambdaQueryWrapper);
-
+        List<User> userList = userMapper.selectUserListByGradeName(gradeName);
         List<SectionalRegisterVO> sectionalRegisterVOList = selectByUserGetSectionalRegisterVO(userList);
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
@@ -237,56 +219,38 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     public ResponseResult selectBySubjectId(Long subjectId) {
         //根据专业查询用户
-        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        userLambdaQueryWrapper.eq(User::getSubjectId, subjectId);
-        List<User> userList = userMapper.selectList(userLambdaQueryWrapper);
-
+        List<User> userList = userMapper.selectUserListBySubjectId(subjectId);
         List<SectionalRegisterVO> sectionalRegisterVOList = selectByUserGetSectionalRegisterVO(userList);
-
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 
     @Override
     public ResponseResult selectByDesireDepartmentId(Long desireDepartmentId) {
         //根据申请组别查询报名表
-        LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        registerLambdaQueryWrapper.eq(Register::getDesireDepartmentId, desireDepartmentId);
-        List<Register> registerList = registerMapper.selectList(registerLambdaQueryWrapper);
-
+        List<Register> registerList = registerMapper.selectByDesireDepartmentId(desireDepartmentId);
         List<SectionalRegisterVO> sectionalRegisterVOList = selectByRegisterGetSectionalRegisterVO(registerList);
-
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 
     @Override
     public ResponseResult selectByStatus(String status) {
         //根据报名表状态查询报名表
-        LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        registerLambdaQueryWrapper.eq(Register::getStatus, status);
-        List<Register> registerList = registerMapper.selectList(registerLambdaQueryWrapper);
-
+        List<Register> registerList = registerMapper.selectByStatus(status);
         List<SectionalRegisterVO> sectionalRegisterVOList = selectByRegisterGetSectionalRegisterVO(registerList);
-
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 
     private User selectCurrentAuditor() {
         //查询审核人(即查询当前正在审核的User)
-        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        userLambdaQueryWrapper.eq(User::getId, SecurityUtils.getUserId());
-        User auditor = userMapper.selectById(userLambdaQueryWrapper);
+        User auditor = userMapper.selectUserByUserId(SecurityUtils.getUserId());
         return auditor;
     }
 
     private CompleteRegisterVO selectByRegisterIdGetCompleteRegister(Long registerId) {
         //查询报名表
-        LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        registerLambdaQueryWrapper.eq(Register::getId, registerId);
-        Register register = registerMapper.selectById(registerLambdaQueryWrapper);
+        Register register = registerMapper.selectRegisterByRegisterId(registerId);
         //查询用户
-        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        userLambdaQueryWrapper.eq(User::getId, register.getUserId());
-        User user = userMapper.selectById(userLambdaQueryWrapper);
+        User user = userMapper.selectUserByUserId(register.getUserId());
 
         if (register != null && user != null) {
             return new CompleteRegisterVO(user, register);
@@ -299,9 +263,7 @@ public class RegisterServiceImpl implements RegisterService {
         List<SectionalRegisterVO> sectionalRegisterVOList = new ArrayList<>();
         for (User u : userList) {
             //根据用户查询报名表
-            LambdaQueryWrapper<Register> registerLambdaQueryWrapper = new LambdaQueryWrapper<>();
-            registerLambdaQueryWrapper.eq(Register::getUserId, u.getId());
-            Register register = registerMapper.selectById(registerLambdaQueryWrapper);
+            Register register = registerMapper.selectRegisterByUserId(u.getId());
             if (register != null) {
                 SectionalRegisterVO sectionalRegisterVO = new SectionalRegisterVO(
                         u.getId(), register.getId(), u.getName(), u.getNickname(),
@@ -317,9 +279,7 @@ public class RegisterServiceImpl implements RegisterService {
         List<SectionalRegisterVO> sectionalRegisterVOList = new ArrayList<>();
         for (Register r : registerList) {
             //根据报名表查询用户
-            LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
-            userLambdaQueryWrapper.eq(User::getId, r.getUserId());
-            User user = userMapper.selectById(userLambdaQueryWrapper);
+            User user = userMapper.selectUserByUserId(r.getUserId());
             if (user != null) {
                 SectionalRegisterVO sectionalRegisterVO = new SectionalRegisterVO(
                         user.getId(), r.getId(), user.getName(), user.getNickname(),
