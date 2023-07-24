@@ -133,6 +133,10 @@
         select * from user where username = #{username}
     </select>
 
+    <select id="selectUserIdByPhone" resultType="long">
+    select id from user
+    where phone = #{phone} and is_deleted = 0
+    </select>
 
 
 </mapper>

@@ -1,12 +1,13 @@
 package com.feidian.controller;
 
+import com.feidian.dto.AddGraduateDTO;
+import com.feidian.dto.EditGraduateDTO;
 import com.feidian.dto.PageDTO;
 import com.feidian.service.GraduatesService;
 import com.feidian.responseResult.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/graduate")
@@ -16,5 +17,26 @@ public class GraduatesController {
     @GetMapping("/getMessage")
     public ResponseResult getMessage(PageDTO pageDTO){
         return graduatesService.getMessage(pageDTO);
+    }
+
+    // 添加毕业生去向信息
+    @PostMapping("/add")
+    @PreAuthorize("hasAuthority('ADD_GRADUATE')")
+    public ResponseResult addGraduateInformation(@RequestBody AddGraduateDTO addGraduateDTO){
+        return graduatesService.addGraduateInformation(addGraduateDTO);
+    }
+
+    // 编辑毕业生去向信息
+    @PostMapping("/edit")
+    @PreAuthorize("hasAuthority('EDIT_GRADUATE')")
+    public ResponseResult editGraduateInformation(@RequestBody EditGraduateDTO editGraduateDTO){
+        return graduatesService.editGraduateInformation(editGraduateDTO);
+    }
+
+    // 删除毕业生去向信息
+    @DeleteMapping("/delete/{graduateId}")
+    @PreAuthorize("hasAuthority('DELETE_GRADUATE')")
+    public ResponseResult deleteGraduateInformation(@PathVariable("graduateId") Long id){
+        return graduatesService.deleteGraduateInformation(id);
     }
 }
