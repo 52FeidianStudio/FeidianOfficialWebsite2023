@@ -12,4 +12,8 @@ import com.feidian.responseResult.ResponseResult;
  */
 public interface DepartmentService {
     ResponseResult editDepartmentIntroduction(EditDepartmentIntroductionDTO dto);
+
+    ResponseResult getAllName();
+
+    ResponseResult getByName(String name);
 }

@@ -11,6 +11,19 @@
         select id, is_deleted from department where id = #{id}
     </select>
 
+    <select id="getAllName" resultType="java.lang.String">
+        select department_name
+        from department
+        where is_deleted = 0
+    </select>
+
+    <select id="getByName" resultType="java.lang.String">
+        select introduction
+        from department
+        where department_name = #{name}
+          and is_deleted = 0
+    </select>
+
     <!-- 更新Department介绍信息 -->
     <update id="updateDepartment">
         update department

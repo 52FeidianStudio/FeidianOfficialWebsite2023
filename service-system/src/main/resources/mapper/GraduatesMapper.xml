@@ -66,6 +66,17 @@
             create_by = #{createBy}
         where id = #{id}
     </update>
+    <select id="getGraduatesMessage" resultMap="GraduatesMap">
+        select g.name, f.faculty_name, s.subject_name, d.department_name, g.city, g.company
+        from graduates g,
+             faculty f,
+             department d,
+             subject s
+        where g.is_deleted = 0
+          and g.faculty_id = f.id
+          and g.department_id = d.id
+          and g.subject_id = s.id
+    </select>
 
 
 </mapper>

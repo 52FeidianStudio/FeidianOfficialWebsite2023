@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="将前台方面mp实现的接口代码改成mybatis形式的代码">
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/ForgetPasswordService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/ForgetPasswordServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/GraduatesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/GraduatesServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/ForgetPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/ForgetPasswordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/DepartmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/DepartmentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/GraduatesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/GraduatesMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/DepartmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/DepartmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/DepartmentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/GraduatesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/GraduatesMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Mybatis Mapper" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Mybatis Mapper" />
       </list>
     </option>
   </component>
@@ -46,7 +53,7 @@
     <option name="vmOptions" value="-DarchetypeCatalog=internal" />
   </component>
   <component name="ProjectId" id="2SohXKw9YGmoWHMy8SE7C7qTlqT" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -269,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690012001976</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="1">
+      <created>1690184037298</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1690184037298</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,6 +333,7 @@
     <MESSAGE value="feat(service-system):优化了查询审核人信息的方法" />
     <MESSAGE value="feat(service-system):新增了修改报名表的功能，下一阶段准备按项目要求，全部替换回mybatis。" />
     <MESSAGE value="chore(project):更改mapper、service的格式" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore(project):更改mapper、service的格式" />
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
 </project>
