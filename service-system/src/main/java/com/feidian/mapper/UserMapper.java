@@ -21,6 +21,8 @@ public interface UserMapper {
     //   根据专业查询出一个UserList
     List<User> selectUserListBySubjectId(@Param("subjectId") Long subjectId);
 
+    //   根据register查询出一个User
+    User selectUserByRegisterId(Long registerId);
 
     //  TODO
     //   多表联查 根据registerId查询User和Register并封装成一个CompleteRegisterVO

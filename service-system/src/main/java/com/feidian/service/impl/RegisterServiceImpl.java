@@ -2,7 +2,6 @@ package com.feidian.service.impl;
 
 
 import com.feidian.dto.RegisterDTO;
-import com.feidian.mapper.ComplexQueryMapper;
 import com.feidian.mapper.RegisterMapper;
 import com.feidian.mapper.UserMapper;
 import com.feidian.mapper.UserRoleMapper;
@@ -23,7 +22,6 @@ import com.feidian.service.RegisterService;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -38,9 +36,6 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
     private UserRoleMapper userRoleMapper;
-
-    @Autowired
-    private ComplexQueryMapper complexQueryMapper;
 
     @Autowired
     private RedisCache redisCache;
@@ -117,7 +112,7 @@ public class RegisterServiceImpl implements RegisterService {
         User auditor = selectCurrentAuditor();
 
         //查询被查询的报名表相关信息
-        CompleteRegisterVO completeRegisterVO = complexQueryMapper.selectCompleteRegisterByRegisterId(registerId);
+        CompleteRegisterVO completeRegisterVO = registerMapper.selectCompleteRegisterVOByRegisterId(registerId);
         User user = completeRegisterVO.getUser();
         Register register = completeRegisterVO.getRegister();
 
@@ -158,12 +153,17 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Override
     public ResponseResult editRegister(RegisterDTO registerDTO) {
-        Long userId = SecurityUtils.getUserId();
-        //根据用户查询报名表
-        Register tempRegister = registerMapper.selectRegisterByUserId(userId);
+        //根据registerId查询当前报名用户
+        User registerUser = userMapper.selectUserByRegisterId(registerDTO.getRegisterId());
+        //比对编辑用户是否是报名表的提交者
+        User tempUser = SecurityUtils.getLoginUser().getUser();
+        if (registerUser.getId() != tempUser.getId()){
+            return ResponseResult.errorResult(408,"您没有编辑这份报名表的权限");
+        }
 
-        //根据用户Id查询用户
-        User tempUser = userMapper.selectUserByUserId(userId);
+        //根据用户查询报名表
+        Register tempRegister = registerMapper.selectRegisterByUserId(tempUser.getId());
+
 
         if (tempRegister == null) {
             return ResponseResult.errorResult(400, "用户尚未提交过报名表，无法修改。");
@@ -194,7 +194,7 @@ public class RegisterServiceImpl implements RegisterService {
         User auditor = selectCurrentAuditor();
 
         //查询被查看的报名表和报名人
-        CompleteRegisterVO completeRegisterVO = complexQueryMapper.selectCompleteRegisterByRegisterId(registerId);
+        CompleteRegisterVO completeRegisterVO = registerMapper.selectCompleteRegisterVOByRegisterId(registerId);
 
         if (completeRegisterVO == null) {
             return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
@@ -216,7 +216,7 @@ public class RegisterServiceImpl implements RegisterService {
     public ResponseResult selectByGradeName(String gradeName) {
         //根据年级查询用户
         List<User> userList = userMapper.selectUserListByGradeName(gradeName);
-        List<SectionalRegisterVO> sectionalRegisterVOList = complexQueryMapper.selectSectionalRegisterVOByUser(userList);
+        List<SectionalRegisterVO> sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByUser(userList);
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 
@@ -224,16 +224,15 @@ public class RegisterServiceImpl implements RegisterService {
     public ResponseResult selectBySubjectId(Long subjectId) {
         //根据专业查询用户
         List<User> userList = userMapper.selectUserListBySubjectId(subjectId);
-        List<SectionalRegisterVO> sectionalRegisterVOList = complexQueryMapper.selectSectionalRegisterVOByUser(userList);
+        List<SectionalRegisterVO> sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByUser(userList);
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 
     @Override
     public ResponseResult selectByDesireDepartmentId(Long desireDepartmentId) {
         //根据申请组别查询报名表
-
         List<Register> registerList = registerMapper.selectByDesireDepartmentId(desireDepartmentId);
-        List<SectionalRegisterVO> sectionalRegisterVOList = complexQueryMapper.selectSectionalRegisterVOByRegister(registerList);
+        List<SectionalRegisterVO> sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerList);
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 
@@ -241,7 +240,7 @@ public class RegisterServiceImpl implements RegisterService {
     public ResponseResult selectByStatus(String status) {
         //根据报名表状态查询报名表
         List<Register> registerList = registerMapper.selectByStatus(status);
-        List<SectionalRegisterVO> sectionalRegisterVOList = complexQueryMapper.selectSectionalRegisterVOByRegister(registerList);
+        List<SectionalRegisterVO> sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerList);
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 

@@ -1,6 +1,9 @@
 package com.feidian.mapper;
 
 import com.feidian.po.Register;
+import com.feidian.po.User;
+import com.feidian.vo.CompleteRegisterVO;
+import com.feidian.vo.SectionalRegisterVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -33,9 +36,18 @@ public interface RegisterMapper {
     int updateContent(Register register);
 
 
-    //  TODO
     //   多表联查 根据registerId查询User和Register并封装成一个CompleteRegisterVO
+    CompleteRegisterVO selectCompleteRegisterVOByRegisterId(Long registerId);
+
     //   多表联查 根据userId查询User和Register并封装成一个SectionalRegisterVO
+    List<SectionalRegisterVO> selectSectionalRegisterVOByUser(List<User> userList);
+
     //   多表联查 根据registerId查询User和Register并封装成一个SectionalRegisterVO
+    List<SectionalRegisterVO> selectSectionalRegisterVOByRegister(List<Register> registerList);
+
+
+
+
+
 
 }

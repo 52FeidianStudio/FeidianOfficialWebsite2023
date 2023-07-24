@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class RegisterDTO {
 
+    //id
+    private Long registerId;
     //个人简介
     private String resume;
     //想要申请的组别

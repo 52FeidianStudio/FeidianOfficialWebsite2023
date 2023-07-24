@@ -4,29 +4,29 @@
 
     <!-- 定义User的映射关系 -->
     <resultMap id="UserBaseResultMap" type="com.feidian.po.User">
-        <id property="id" column="id" />
-        <result property="username" column="username" />
-        <result property="password" column="password" />
-        <result property="name" column="name" />
-        <result property="nickname" column="nickname" />
-        <result property="birthday" column="birthday" />
-        <result property="sex" column="sex" />
-        <result property="studentId" column="studentId" />
-        <result property="gradeName" column="gradeName" />
-        <result property="className" column="className" />
-        <result property="subjectId" column="subjectId" />
-        <result property="facultyId" column="facultyId" />
-        <result property="departmentId" column="departmentId" />
-        <result property="avatarUrl" column="avatarUrl" />
-        <result property="nationality" column="nationality" />
-        <result property="phone" column="phone" />
-        <result property="email" column="email" />
-        <result property="qq" column="qq" />
-        <result property="isDeleted" column="isDeleted" />
-        <result property="createTime" column="createTime" />
-        <result property="createBy" column="createBy" />
-        <result property="updateTime" column="updateTime" />
-        <result property="updateBy" column="updateBy" />
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="nickname" column="nickname"/>
+        <result property="birthday" column="birthday"/>
+        <result property="sex" column="sex"/>
+        <result property="studentId" column="studentId"/>
+        <result property="gradeName" column="gradeName"/>
+        <result property="className" column="className"/>
+        <result property="subjectId" column="subjectId"/>
+        <result property="facultyId" column="facultyId"/>
+        <result property="departmentId" column="departmentId"/>
+        <result property="avatarUrl" column="avatarUrl"/>
+        <result property="nationality" column="nationality"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="qq" column="qq"/>
+        <result property="isDeleted" column="isDeleted"/>
+        <result property="createTime" column="createTime"/>
+        <result property="createBy" column="createBy"/>
+        <result property="updateTime" column="updateTime"/>
+        <result property="updateBy" column="updateBy"/>
     </resultMap>
 
     <!-- 根据UserId查询用户信息 -->
@@ -49,5 +49,12 @@
         FROM user
         WHERE subject_id = #{subjectId}
     </select>
+
+    <!-- 根据registerId查询User -->
+    <select id="selectUserByRegisterId" parameterType="long" resultMap="UserBaseResultMap">
+        SELECT u.*
+        FROM user u
+                 JOIN register r ON u.id = r.user_id
+        WHERE r.id = #{registerId}</select>
 
 </mapper>

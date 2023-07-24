@@ -53,6 +53,50 @@
         WHERE status = #{status}
     </select>
 
+    <!-- 多表联查 根据registerId查询User和Register并封装成一个CompleteRegisterVO -->
+    <select id="selectCompleteRegisterVOByRegisterId" parameterType="long" resultMap="CompleteRegisterVOMap">
+        SELECT u.*, r.*
+        FROM user u
+                 JOIN register r ON u.id = r.user_id
+        WHERE r.id = #{registerId}
+    </select>
+
+    <resultMap id="CompleteRegisterVOMap" type="com.feidian.vo.CompleteRegisterVO">
+        <result property="user" columnPrefix="u" javaType="com.feidian.po.User" resultMap="UserBaseResultMap"/>
+        <result property="register" columnPrefix="r" javaType="com.feidian.po.Register" resultMap="RegisterBaseResultMap"/>
+    </resultMap>
+
+
+    <!-- 多表联查 根据userId查询User和Register并封装成一个SectionalRegisterVO -->
+    <select id="selectSectionalRegisterVOByUser" parameterType="long" resultMap="SectionalRegisterVOMap">
+        SELECT u.*, r.*
+        FROM user u
+                 JOIN register r ON u.id = r.user_id
+        WHERE u.id = #{userId}
+    </select>
+
+    <!-- 多表联查 根据registerId查询User和Register并封装成一个SectionalRegisterVO -->
+    <select id="selectSectionalRegisterVOByRegister" parameterType="long" resultMap="SectionalRegisterVOMap">
+        SELECT u.*, r.*
+        FROM user u
+                 JOIN register r ON u.id = r.user_id
+        WHERE r.id = #{registerId}
+    </select>
+
+    <resultMap id="SectionalRegisterVOMap" type="com.feidian.vo.SectionalRegisterVO">
+        <result property="userId" column="user_id"/>
+        <result property="registerId" column="id"/>
+        <result property="name" column="name"/>
+        <result property="nickname" column="nickname"/>
+        <result property="avatarUrl" column="avatar_url"/>
+        <result property="subjectId" column="subject_id"/>
+        <result property="gradeName" column="grade_name"/>
+        <result property="desireDepartmentId" column="desire_department_id"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+
+
     <!-- 添加报名表 -->
     <insert id="insertRegister" parameterType="com.feidian.po.Register">
         INSERT INTO register (user_id, resume, desire_department_id, direction, arrangement, status, reason, img_url, is_deleted, create_time, create_by, update_time, update_by)
