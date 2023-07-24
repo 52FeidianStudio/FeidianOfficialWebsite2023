@@ -50,6 +50,28 @@
         WHERE subject_id = #{subjectId}
     </select>
 
+    <!-- 根据年级或者专业查询出 UserList -->
+    <select id="selectUserListByGradeNameOrSubjectId" parameterType="map" resultMap="UserBaseResultMap">
+        SELECT *
+        FROM user
+        WHERE
+        <if test="gradeName != null">
+            grade_name = #{gradeName}
+        </if>
+        <if test="subjectId != null">
+            <if test="gradeName != null">OR</if>
+            subject_id = #{subjectId}
+        </if>
+    </select>
+
+    <!-- 根据registerId查询User -->
+    <select id="selectUserByRegisterId" parameterType="long" resultMap="UserBaseResultMap">
+        SELECT u.*
+        FROM user u
+                 JOIN register r ON u.id = r.user_id
+        WHERE r.id = #{registerId}
+    </select>
+
     <!-- 插入用户数据 -->
     <insert id="insertUser" parameterType="com.feidian.po.User">
         INSERT INTO user (
@@ -111,4 +133,9 @@
         select * from user where username = #{username}
     </select>
 
+
+
 </mapper>
+
+
+

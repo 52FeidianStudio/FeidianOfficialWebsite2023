@@ -20,11 +20,10 @@ public interface RegisterMapper {
     // 根据报名表ID查询报名表
     Register selectRegisterByRegisterId(@Param("registerId") Long registerId);
 
-    // 根据申请组别查询报名表
-    List<Register> selectByDesireDepartmentId(@Param("desireDepartmentId") Long desireDepartmentId);
 
-    // 根据报名表状态查询报名表
-    List<Register> selectByStatus(@Param("status") String status);
+    // 根据申请组别或报名表状态查询报名表
+    List<Register> selectByDesireDepartmentIdOrStatus(@Param("desireDepartmentId") Long desireDepartmentId, @Param("status") String status);
+
 
     // 添加报名表
     int insertRegister(Register register);

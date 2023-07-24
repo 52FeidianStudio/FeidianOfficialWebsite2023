@@ -1,5 +1,6 @@
 package com.feidian.service;
 
+import com.feidian.dto.QueryRegisterDTO;
 import com.feidian.dto.RegisterDTO;
 import com.feidian.responseResult.ResponseResult;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,12 +18,5 @@ public interface RegisterService {
 
     ResponseResult viewRegister(Long registerId);
 
-    ResponseResult selectByGradeName(String gradeName);
-
-    ResponseResult selectBySubjectId(Long subjectId);
-
-    ResponseResult selectByDesireDepartmentId(Long desireDepartmentId);
-
-    ResponseResult selectByStatus(String status);
-
+    ResponseResult selectByQueryRegister(QueryRegisterDTO queryRegisterDTO);
 }

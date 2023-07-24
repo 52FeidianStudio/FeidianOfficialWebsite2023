@@ -1,6 +1,7 @@
 package com.feidian.service.impl;
 
 
+import com.feidian.dto.QueryRegisterDTO;
 import com.feidian.dto.RegisterDTO;
 import com.feidian.mapper.RegisterMapper;
 import com.feidian.mapper.UserMapper;
@@ -22,6 +23,7 @@ import com.feidian.service.RegisterService;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -208,35 +210,22 @@ public class RegisterServiceImpl implements RegisterService {
         return ResponseResult.successResult(completeRegisterVO);
     }
 
-    @Override
-    public ResponseResult selectByGradeName(String gradeName) {
-        //根据年级查询用户
-        List<User> userList = userMapper.selectUserListByGradeName(gradeName);
-        List<SectionalRegisterVO> sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByUser(userList);
-        return ResponseResult.successResult(sectionalRegisterVOList);
-    }
 
+    //按年级、专业、申请组别、报名表状态筛选
     @Override
-    public ResponseResult selectBySubjectId(Long subjectId) {
-        //根据专业查询用户
-        List<User> userList = userMapper.selectUserListBySubjectId(subjectId);
-        List<SectionalRegisterVO> sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByUser(userList);
-        return ResponseResult.successResult(sectionalRegisterVOList);
-    }
+    public ResponseResult selectByQueryRegister(QueryRegisterDTO queryRegisterDTO) {
+        List<SectionalRegisterVO> sectionalRegisterVOList = new ArrayList<>();
 
-    @Override
-    public ResponseResult selectByDesireDepartmentId(Long desireDepartmentId) {
-        //根据申请组别查询报名表
-        List<Register> registerList = registerMapper.selectByDesireDepartmentId(desireDepartmentId);
-        List<SectionalRegisterVO> sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerList);
-        return ResponseResult.successResult(sectionalRegisterVOList);
-    }
+        if (queryRegisterDTO.getGradeName() != null && queryRegisterDTO.getSubjectId() != null) {
+            // 根据年级或专业查询用户
+            List<User> userList = userMapper.selectUserListByGradeNameOrSubjectId(queryRegisterDTO.getGradeName(), queryRegisterDTO.getSubjectId());
+            sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByUser(userList);
+        } else if (queryRegisterDTO.getDesireDepartmentId() != null && queryRegisterDTO.getStatus() != null) {
+            // 根据申请组别查询报名表
+            List<Register> registerList = registerMapper.selectByDesireDepartmentIdOrStatus(queryRegisterDTO.getDesireDepartmentId(), queryRegisterDTO.getStatus());
+            sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerList);
+        }
 
-    @Override
-    public ResponseResult selectByStatus(String status) {
-        //根据报名表状态查询报名表
-        List<Register> registerList = registerMapper.selectByStatus(status);
-        List<SectionalRegisterVO> sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerList);
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 

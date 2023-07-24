@@ -39,19 +39,20 @@
         LIMIT 1
     </select>
 
-    <!-- 根据申请组别查询报名表 -->
-    <select id="selectByDesireDepartmentId" parameterType="long" resultMap="RegisterBaseResultMap">
+    <!-- 根据申请组别或者报名表状态查询报名表-->
+    <select id="selectByDesireDepartmentIdOrStatus" resultMap="RegisterBaseResultMap">
         SELECT *
         FROM register
-        WHERE desire_department_id = #{desireDepartmentId}
+        WHERE
+        <if test="desireDepartmentId != null">
+            desire_department_id = #{desireDepartmentId}
+        </if>
+        <if test="status != null">
+            <if test="status != null">OR</if>
+            status = #{status}
+        </if>
     </select>
 
-    <!-- 根据报名表状态查询报名表 -->
-    <select id="selectByStatus" parameterType="string" resultMap="RegisterBaseResultMap">
-        SELECT *
-        FROM register
-        WHERE status = #{status}
-    </select>
 
     <!-- 多表联查 根据registerId查询User和Register并封装成一个CompleteRegisterVO -->
     <select id="selectCompleteRegisterVOByRegisterId" parameterType="long" resultMap="CompleteRegisterVOMap">
@@ -125,6 +126,7 @@
                  JOIN register r ON u.id = r.user_id
         WHERE r.id = #{registerId}
     </select>
+
 
     <resultMap id="SectionalRegisterVOMap" type="com.feidian.vo.SectionalRegisterVO">
         <result property="userId" column="user_id"/>
