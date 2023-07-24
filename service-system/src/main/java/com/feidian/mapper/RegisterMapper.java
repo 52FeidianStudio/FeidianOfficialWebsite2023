@@ -46,8 +46,4 @@ public interface RegisterMapper {
     List<SectionalRegisterVO> selectSectionalRegisterVOByRegister(List<Register> registerList);
 
 
-
-
-
-
 }

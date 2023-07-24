@@ -61,10 +61,53 @@
         WHERE r.id = #{registerId}
     </select>
 
+    <!-- 定义 CompleteRegisterVO 的 resultMap -->
     <resultMap id="CompleteRegisterVOMap" type="com.feidian.vo.CompleteRegisterVO">
-        <result property="user" columnPrefix="u" javaType="com.feidian.po.User" resultMap="UserBaseResultMap"/>
-        <result property="register" columnPrefix="r" javaType="com.feidian.po.Register" resultMap="RegisterBaseResultMap"/>
+        <!-- 使用 association 来映射 User 对象 -->
+        <association property="user" javaType="com.feidian.po.User">
+            <id property="id" column="u_id"/>
+            <result property="username" column="u_username"/>
+            <result property="password" column="u_password"/>
+            <result property="name" column="u_name"/>
+            <result property="nickname" column="u_nickname"/>
+            <result property="birthday" column="u_birthday"/>
+            <result property="sex" column="u_sex"/>
+            <result property="studentId" column="u_studentId"/>
+            <result property="gradeName" column="u_gradeName"/>
+            <result property="className" column="u_className"/>
+            <result property="subjectId" column="u_subjectId"/>
+            <result property="facultyId" column="u_facultyId"/>
+            <result property="departmentId" column="u_departmentId"/>
+            <result property="avatarUrl" column="u_avatarUrl"/>
+            <result property="nationality" column="u_nationality"/>
+            <result property="phone" column="u_phone"/>
+            <result property="email" column="u_email"/>
+            <result property="qq" column="u_qq"/>
+            <result property="isDeleted" column="u_isDeleted"/>
+            <result property="createTime" column="u_createTime"/>
+            <result property="createBy" column="u_createBy"/>
+            <result property="updateTime" column="u_updateTime"/>
+            <result property="updateBy" column="u_updateBy"/>
+        </association>
+        <!-- 使用 association 来映射 Register 对象 -->
+        <association property="register" javaType="com.feidian.po.Register">
+            <id column="r_id" property="id"/>
+            <result column="r_user_id" property="userId"/>
+            <result column="r_resume" property="resume"/>
+            <result column="r_desire_department_id" property="desireDepartmentId"/>
+            <result column="r_direction" property="direction"/>
+            <result column="r_arrangement" property="arrangement"/>
+            <result column="r_status" property="status"/>
+            <result column="r_reason" property="reason"/>
+            <result column="r_img_url" property="imgUrl"/>
+            <result column="r_is_deleted" property="isDeleted"/>
+            <result column="r_create_time" property="createTime"/>
+            <result column="r_create_by" property="createBy"/>
+            <result column="r_update_time" property="updateTime"/>
+            <result column="r_update_by" property="updateBy"/>
+        </association>
     </resultMap>
+
 
 
     <!-- 多表联查 根据userId查询User和Register并封装成一个SectionalRegisterVO -->

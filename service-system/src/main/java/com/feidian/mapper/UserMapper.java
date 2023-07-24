@@ -24,9 +24,4 @@ public interface UserMapper {
     //   根据register查询出一个User
     User selectUserByRegisterId(Long registerId);
 
-    //  TODO
-    //   多表联查 根据registerId查询User和Register并封装成一个CompleteRegisterVO
-    //   多表联查 根据userId查询User和Register并封装成一个SectionalRegisterVO
-    //   多表联查 根据registerId查询User和Register并封装成一个SectionalRegisterVO
-
 }
