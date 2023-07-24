@@ -3,6 +3,21 @@
 <mapper namespace="com.feidian.mapper.GraduatesMapper">
 
 
+    <!--查询毕业生信息的map-->
+    <resultMap id="GraduatesMap" type="com.feidian.bo.GraduatesBO">
+        <id column="faculty_id" property="facultyId"/>
+        <result column="name" property="name"/>
+        <result column="subject_id" property="subjectId"/>
+        <result column="department_id" property="departmentId"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="faculty_name" property="faculty.facultyName"/>
+        <result column="department_name" property="department.departmentName"/>
+        <result column="subject_name" property="subject.subjectName"/>
+    </resultMap>
 
     <insert id="insertGraduate">
         insert into graduates (name, faculty_id, subject_id, department_id, city, company, is_deleted, create_time, create_by)
