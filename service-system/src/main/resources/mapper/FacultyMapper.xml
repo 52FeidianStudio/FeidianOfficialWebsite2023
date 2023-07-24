@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.feidian.mapper.FacultyMapper">
+    <select id="getAllName" resultType="java.lang.String">
+        select faculty_name
+        from faculty
+        where is_deleted = 0
+    </select>
+    <select id="getSubjectNameByFaculty" resultType="java.lang.String">
+        select s.subject_name
+        from subject s,
+             faculty f
+        where s.faculty_id = f.id
+          and f.faculty_name = #{name}
+    </select>
+</mapper>

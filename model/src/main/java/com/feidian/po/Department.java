@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class Department {
 
   private Long id;
-  private String department;
+  private String departmentName;
   private String introduction;
   
   private Long isDeleted;

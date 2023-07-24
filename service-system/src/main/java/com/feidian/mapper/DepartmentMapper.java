@@ -4,6 +4,8 @@ package com.feidian.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * (Department)表数据库访问层
  *
@@ -14,5 +16,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DepartmentMapper  {
 
+     List<String> getAllName();
+
+     String getByName(String name);
 }
 

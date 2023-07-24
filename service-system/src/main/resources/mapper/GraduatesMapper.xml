@@ -13,16 +13,16 @@
         <result column="create_by" property="createBy"/>
         <result column="update_time" property="updateTime"/>
         <result column="update_by" property="updateBy"/>
-        <result column="faculty" property="faculty.faculty"/>
-        <result column="department" property="department.department"/>
-        <result column="subject" property="subject.subject"/>
+        <result column="faculty_name" property="faculty.facultyName"/>
+        <result column="department_name" property="department.departmentName"/>
+        <result column="subject_name" property="subject.subjectName"/>
 
 
     </resultMap>
 
 
     <select id="getGraduatesMessage" resultMap="GraduatesMap">
-        select name, f.faculty, s.subject, d.department, city, company
+        select g.name, f.faculty_name, s.subject_name, d.department_name, g.city, g.company
         from graduates g,
              faculty f,
              department d,

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class Subject {
 
   private Long id;
-  private String subject;
+  private String subjectName;
   private Long facultyId;
   
   private Long isDeleted;

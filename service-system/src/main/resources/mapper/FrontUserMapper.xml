@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.feidian.mapper.FrontUserMapper">
+    <update id="updateUser">
+        update `user`
+        set `name`        = #{name},
+            nickname      = #{nickname},
+            birthday      = #{birthday},
+            sex           = #{sex},
+            student_id    = #{studentId},
+            grade_name    = #{gradeName},
+            class_name    = #{className},
+            subject_id    = #{subjectId},
+            faculty_id    = #{facultyId},
+            department_id =#{departmentId},
+            avatar_url    = #{avatarUrl},
+            nationality   = #{ nationality},
+            phone         = #{phone},
+            email         = #{email},
+            qq            = #{qq}
+    </update>
+
+
+    <select id="getMessageById" resultType="com.feidian.vo.FrontUserVO">
+        select u.`name`,
+               u.nickname,
+               u.birthday,
+               u.sex,
+               u.student_id,
+               u.grade_name,
+               u.class_name,
+               s.subject_name,
+               f.faculty_name,
+               d.department_name,
+               avatar_url,
+               nationality,
+               phone,
+               email,
+               qq
+        from `user` u,subject s,faculty f,department d
+        where id = #{userId} and u.subject_id = s.id and u.faculty_id = f.id and u.department_id = d.id
+    </select>
+    <select id="getDIdByName" resultType="java.lang.Long">
+        select id from department where department_name = #{departmentName}
+    </select>
+    <select id="getFIdByName" resultType="java.lang.Long">
+        select id from faculty where  faculty_name = #{facultyName}
+    </select>
+    <select id="getSIdByName" resultType="java.lang.Long">
+        select id from subject where subject_name = #{subjectName}
+    </select>
+</mapper>
