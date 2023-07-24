@@ -2,6 +2,7 @@ package com.feidian.service.impl;
 
 
 import com.feidian.dto.RegisterDTO;
+import com.feidian.mapper.ComplexQueryMapper;
 import com.feidian.mapper.RegisterMapper;
 import com.feidian.mapper.UserMapper;
 import com.feidian.mapper.UserRoleMapper;
@@ -37,6 +38,9 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
     private UserRoleMapper userRoleMapper;
+
+    @Autowired
+    private ComplexQueryMapper complexQueryMapper;
 
     @Autowired
     private RedisCache redisCache;
@@ -113,7 +117,7 @@ public class RegisterServiceImpl implements RegisterService {
         User auditor = selectCurrentAuditor();
 
         //查询被查询的报名表相关信息
-        CompleteRegisterVO completeRegisterVO = selectByRegisterIdGetCompleteRegister(registerId);
+        CompleteRegisterVO completeRegisterVO = complexQueryMapper.selectCompleteRegisterByRegisterId(registerId);
         User user = completeRegisterVO.getUser();
         Register register = completeRegisterVO.getRegister();
 
@@ -190,7 +194,7 @@ public class RegisterServiceImpl implements RegisterService {
         User auditor = selectCurrentAuditor();
 
         //查询被查看的报名表和报名人
-        CompleteRegisterVO completeRegisterVO = selectByRegisterIdGetCompleteRegister(registerId);
+        CompleteRegisterVO completeRegisterVO = complexQueryMapper.selectCompleteRegisterByRegisterId(registerId);
 
         if (completeRegisterVO == null) {
             return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
@@ -212,7 +216,7 @@ public class RegisterServiceImpl implements RegisterService {
     public ResponseResult selectByGradeName(String gradeName) {
         //根据年级查询用户
         List<User> userList = userMapper.selectUserListByGradeName(gradeName);
-        List<SectionalRegisterVO> sectionalRegisterVOList = selectByUserGetSectionalRegisterVO(userList);
+        List<SectionalRegisterVO> sectionalRegisterVOList = complexQueryMapper.selectSectionalRegisterVOByUser(userList);
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 
@@ -220,15 +224,16 @@ public class RegisterServiceImpl implements RegisterService {
     public ResponseResult selectBySubjectId(Long subjectId) {
         //根据专业查询用户
         List<User> userList = userMapper.selectUserListBySubjectId(subjectId);
-        List<SectionalRegisterVO> sectionalRegisterVOList = selectByUserGetSectionalRegisterVO(userList);
+        List<SectionalRegisterVO> sectionalRegisterVOList = complexQueryMapper.selectSectionalRegisterVOByUser(userList);
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 
     @Override
     public ResponseResult selectByDesireDepartmentId(Long desireDepartmentId) {
         //根据申请组别查询报名表
+
         List<Register> registerList = registerMapper.selectByDesireDepartmentId(desireDepartmentId);
-        List<SectionalRegisterVO> sectionalRegisterVOList = selectByRegisterGetSectionalRegisterVO(registerList);
+        List<SectionalRegisterVO> sectionalRegisterVOList = complexQueryMapper.selectSectionalRegisterVOByRegister(registerList);
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 
@@ -236,7 +241,7 @@ public class RegisterServiceImpl implements RegisterService {
     public ResponseResult selectByStatus(String status) {
         //根据报名表状态查询报名表
         List<Register> registerList = registerMapper.selectByStatus(status);
-        List<SectionalRegisterVO> sectionalRegisterVOList = selectByRegisterGetSectionalRegisterVO(registerList);
+        List<SectionalRegisterVO> sectionalRegisterVOList = complexQueryMapper.selectSectionalRegisterVOByRegister(registerList);
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 
@@ -244,51 +249,6 @@ public class RegisterServiceImpl implements RegisterService {
         //查询审核人(即查询当前正在审核的User)
         User auditor = userMapper.selectUserByUserId(SecurityUtils.getUserId());
         return auditor;
-    }
-
-    private CompleteRegisterVO selectByRegisterIdGetCompleteRegister(Long registerId) {
-        //查询报名表
-        Register register = registerMapper.selectRegisterByRegisterId(registerId);
-        //查询用户
-        User user = userMapper.selectUserByUserId(register.getUserId());
-
-        if (register != null && user != null) {
-            return new CompleteRegisterVO(user, register);
-        } else {
-            return null;
-        }
-    }
-
-    private List<SectionalRegisterVO> selectByUserGetSectionalRegisterVO(List<User> userList) {
-        List<SectionalRegisterVO> sectionalRegisterVOList = new ArrayList<>();
-        for (User u : userList) {
-            //根据用户查询报名表
-            Register register = registerMapper.selectRegisterByUserId(u.getId());
-            if (register != null) {
-                SectionalRegisterVO sectionalRegisterVO = new SectionalRegisterVO(
-                        u.getId(), register.getId(), u.getName(), u.getNickname(),
-                        u.getAvatarUrl(), u.getSubjectId(), u.getGradeName(),
-                        register.getDesireDepartmentId(), register.getStatus());
-                sectionalRegisterVOList.add(sectionalRegisterVO);
-            }
-        }
-        return sectionalRegisterVOList;
-    }
-
-    private List<SectionalRegisterVO> selectByRegisterGetSectionalRegisterVO(List<Register> registerList) {
-        List<SectionalRegisterVO> sectionalRegisterVOList = new ArrayList<>();
-        for (Register r : registerList) {
-            //根据报名表查询用户
-            User user = userMapper.selectUserByUserId(r.getUserId());
-            if (user != null) {
-                SectionalRegisterVO sectionalRegisterVO = new SectionalRegisterVO(
-                        user.getId(), r.getId(), user.getName(), user.getNickname(),
-                        user.getAvatarUrl(), user.getSubjectId(), user.getGradeName(),
-                        r.getDesireDepartmentId(), r.getStatus());
-                sectionalRegisterVOList.add(sectionalRegisterVO);
-            }
-        }
-        return sectionalRegisterVOList;
     }
 
     private ResponseResult validate(RegisterDTO registerDTO) {

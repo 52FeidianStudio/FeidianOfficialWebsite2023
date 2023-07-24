@@ -6,7 +6,7 @@
 <mapper namespace="com.feidian.mapper.RegisterMapper">
 
     <!-- 定义结果映射 -->
-    <resultMap id="BaseResultMap" type="com.feidian.po.Register">
+    <resultMap id="RegisterBaseResultMap" type="com.feidian.po.Register">
         <id column="id" property="id"/>
         <result column="user_id" property="userId"/>
         <result column="resume" property="resume"/>
@@ -40,14 +40,14 @@
     </select>
 
     <!-- 根据申请组别查询报名表 -->
-    <select id="selectByDesireDepartmentId" parameterType="long" resultMap="BaseResultMap">
+    <select id="selectByDesireDepartmentId" parameterType="long" resultMap="RegisterBaseResultMap">
         SELECT *
         FROM register
         WHERE desire_department_id = #{desireDepartmentId}
     </select>
 
     <!-- 根据报名表状态查询报名表 -->
-    <select id="selectByStatus" parameterType="string" resultMap="BaseResultMap">
+    <select id="selectByStatus" parameterType="string" resultMap="RegisterBaseResultMap">
         SELECT *
         FROM register
         WHERE status = #{status}

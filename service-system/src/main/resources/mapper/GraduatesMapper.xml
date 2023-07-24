@@ -5,7 +5,7 @@
 
 
     <insert id="insertGraduate">
-        insert into graduates (name, faculty_id, subject, department_id, city, company, is_deleted, create_time, create_by)
+        insert into graduates (name, faculty_id, subject_id, department_id, city, company, is_deleted, create_time, create_by)
         values (#{name}, #{facultyId}, #{subject}, #{departmentId}, #{city}, #{company}, #{isDeleted}, #{createTime}, #{createBy})
     </insert>
 
