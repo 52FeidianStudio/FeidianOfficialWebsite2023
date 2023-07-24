@@ -1,6 +1,7 @@
 package com.feidian.mapper;
 
 
+import com.feidian.po.Department;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +15,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DepartmentMapper  {
 
+    Department getDepartmentById(Long id);
+
+    void updateDepartment(Department department);
 }
 

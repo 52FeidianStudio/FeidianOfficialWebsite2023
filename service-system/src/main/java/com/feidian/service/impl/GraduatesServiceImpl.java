@@ -130,6 +130,10 @@ public class GraduatesServiceImpl implements GraduatesService {
         // 步骤 1：检查数据库中是否存在提供的 graduateId
         Graduates existingGraduate = graduatesMapper.getGraduateById(graduateId);
 
+        if(existingGraduate.getIsDeleted() ==null&&existingGraduate.getIsDeleted()==1){
+            ResponseResult.errorResult(HttpCodeEnum.NOT_GRADUATE);
+        }
+
 
         // 步骤 2：使用 DTO 中非空的字段更新现有毕业生信息
         String name = editGraduateDTO.getName();

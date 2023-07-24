@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.feidian.mapper.DepartmentMapper">
+
+    <!-- 根据id查询Department -->
+    <resultMap id="DepartmentResultMap" type="com.feidian.po.Department">
+        <id property="id" column="id" />
+        <result property="isDeleted" column="is_deleted" />
+    </resultMap>
+    <select id="getDepartmentById" resultMap="DepartmentResultMap">
+        select id, is_deleted from department where id = #{id}
+    </select>
+
+    <!-- 更新Department介绍信息 -->
+    <update id="updateDepartment">
+        update department
+        set introduction = #{introduction},
+            update_time = #{updateTime}
+        where id = #{id}
+    </update>
+
+
+</mapper>
