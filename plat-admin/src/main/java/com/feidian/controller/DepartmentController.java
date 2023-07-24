@@ -15,7 +15,7 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     @PostMapping("/edit")
-    @PreAuthorize("hasAuthority('test')")
+    @PreAuthorize("hasAuthority('EDIT_DEPARTMENT')")
     public ResponseResult editDepartmentIntroduction(@RequestBody EditDepartmentIntroductionDTO dto){
         return departmentService.editDepartmentIntroduction(dto);
     }

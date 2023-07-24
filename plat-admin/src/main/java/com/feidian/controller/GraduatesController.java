@@ -16,21 +16,21 @@ public class GraduatesController {
 
     // 添加毕业生去向信息
     @PostMapping("/add")
-    @PreAuthorize("hasAuthority('test')")
+    @PreAuthorize("hasAuthority('ADD_GRADUATE')")
     public ResponseResult addGraduateInformation(@RequestBody AddGraduateDTO addGraduateDTO){
         return graduatesService.addGraduateInformation(addGraduateDTO);
     }
 
     // 编辑毕业生去向信息
     @PostMapping("/edit")
-    @PreAuthorize("hasAuthority('test')")
+    @PreAuthorize("hasAuthority('EDIT_GRADUATE')")
     public ResponseResult editGraduateInformation(@RequestBody EditGraduateDTO editGraduateDTO){
         return graduatesService.editGraduateInformation(editGraduateDTO);
     }
 
     // 删除毕业生去向信息
     @PostMapping("/delete/{graduateId}")
-    @PreAuthorize("hasAuthority('test')")
+    @PreAuthorize("hasAuthority('DELETE_GRADUATE')")
     public ResponseResult deleteGraduateInformation(@PathVariable("graduateId") Long id){
         return graduatesService.deleteGraduateInformation(id);
     }

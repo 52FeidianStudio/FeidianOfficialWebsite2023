@@ -19,7 +19,7 @@ public class RoleController {
 
     // 查看所有用户的等级
     @PostMapping("/view")
-    @PreAuthorize("hasAuthority('test')")
+    @PreAuthorize("hasAuthority('VIEW_ALL_ROLE')")
     public ResponseResult viewAllRoleInformation(){
         return roleService.viewAllRoleInformation();
     }
@@ -33,7 +33,7 @@ public class RoleController {
 
     // 直接创建新用户并赋予等级
     @PostMapping("/add")
-    @PreAuthorize("hasAuthority('test')")
+    @PreAuthorize("hasAuthority('ADD_NEW_USER')")
     public ResponseResult addRole(@RequestBody AddRoleDTO dto){
         return roleService.addRole(dto);
     }
