@@ -2,6 +2,7 @@ package com.feidian.mapper;
 
 
 import com.feidian.po.User;
+import com.feidian.po.UserRole;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -28,6 +29,10 @@ public interface UserMapper {
     User selectUserByUsername(String username);
 
     void insertUser(User user);
+
+    long selectUserIdByPhone(String phone);
+
+
 
 
     //  TODO

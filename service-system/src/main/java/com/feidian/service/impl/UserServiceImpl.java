@@ -68,44 +68,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseResult registerUser(RegisterUserDTO registerUserDTO) {
-        // 进行非空判断
-        // TODO 到时拿注释插件来优化一下
-        if (!StringUtils.hasText(registerUserDTO.getUsername())) {
-            throw new SystemException(HttpCodeEnum.USERNAME_NOT_NULL); // 抛出用户名不能为空的异常
-        }
-        if (!StringUtils.hasText(registerUserDTO.getPassword())) {
-            throw new SystemException(HttpCodeEnum.PASSWORD_NOT_NULL); // 抛出密码不能为空的异常
-        }
-        if (!StringUtils.hasText(registerUserDTO.getName())) {
-            throw new SystemException(HttpCodeEnum.NAME_NOT_NULL); // 抛出姓名不能为空的异常
-        }
-        if (!StringUtils.hasText(registerUserDTO.getBirthday())) {
-            throw new SystemException(HttpCodeEnum.BIRTHDAY_NOT_NULL); // 抛出生日不能为空的异常
-        }
-        if (!StringUtils.hasText(registerUserDTO.getSex())) {
-            throw new SystemException(HttpCodeEnum.INVALID_SEX); // 抛出无效性别的异常
-        }
-        if (registerUserDTO.getStudentId() <= 0) {
-            throw new SystemException(HttpCodeEnum.INVALID_STUDENT_ID); // 抛出无效学号的异常
-        }
-        if (registerUserDTO.getFacultyId() <= 0) {
-            throw new SystemException(HttpCodeEnum.FACULTY_NOT_NULL); // 抛出学院不能为空的异常
-        }
-        if (registerUserDTO.getDepartmentId() <= 0) {
-            throw new SystemException(HttpCodeEnum.DEPARTMENT_NOT_NULL); // 抛出部门不能为空的异常
-        }
-        if (!StringUtils.hasText(registerUserDTO.getNationality())) {
-            throw new SystemException(HttpCodeEnum.NATIONALITY_NOT_NULL); // 抛出民族不能为空的异常
-        }
-        if (!StringUtils.hasText(registerUserDTO.getPhone())) {
-            throw new SystemException(HttpCodeEnum.PHONE_NOT_NULL); // 抛出联系电话不能为空的异常
-        }
-        if (!StringUtils.hasText(registerUserDTO.getEmail())) {
-            throw new SystemException(HttpCodeEnum.EMAIL_NOT_NULL); // 抛出邮箱不能为空的异常
-        }
-        if (!StringUtils.hasText(registerUserDTO.getQq())) {
-            throw new SystemException(HttpCodeEnum.QQ_NOT_NULL); // 抛出QQ号不能为空的异常
-        }
 
 
         // 对数据进行是否已经存在的判断
@@ -126,7 +88,6 @@ public class UserServiceImpl implements UserService {
 
         // 验证邮箱
         EmailUtil.sendEmail(registerUserDTO.getEmail());
-
 
         User user= BeanCopyUtils.copyProperty(registerUserDTO,User.class);
         // 获取当前时间

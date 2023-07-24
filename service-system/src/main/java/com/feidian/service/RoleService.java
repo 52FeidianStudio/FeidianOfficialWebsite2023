@@ -1,6 +1,10 @@
 package com.feidian.service;
 
 
+import com.feidian.dto.AddGraduateDTO;
+import com.feidian.dto.AddRoleDTO;
+import com.feidian.responseResult.ResponseResult;
+
 /**
  * (Role)表服务接口
  *
@@ -9,4 +13,7 @@ package com.feidian.service;
  */
 public interface RoleService  {
 
+    ResponseResult addRole(AddRoleDTO dto);
+
+    ResponseResult viewAllRoleInformation();
 }
