@@ -1,8 +1,11 @@
 package com.feidian.mapper;
 
+import com.feidian.bo.GraduatesBO;
 import com.feidian.po.Graduates;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 
 /**
@@ -21,6 +24,6 @@ public interface GraduatesMapper  {
     void updateGraduate(Graduates graduate);
 
 
-
+    List<GraduatesBO> getGraduatesMessage();
 }
 
