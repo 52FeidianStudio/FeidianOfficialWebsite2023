@@ -9,11 +9,13 @@ public interface RegisterService {
 
     ResponseResult submitImage(MultipartFile imageFile);
 
-    ResponseResult isApproved(Long registerId, String isApprovedFlag);
-
     ResponseResult editRegister(RegisterDTO registerDTO);
 
-    ResponseResult formalView(Long registerId);
+    ResponseResult examineRegister(Long registerId);
+
+    ResponseResult isApproved(Long registerId, String isApprovedFlag);
+
+    ResponseResult viewRegister(Long registerId);
 
     ResponseResult selectByGradeName(String gradeName);
 

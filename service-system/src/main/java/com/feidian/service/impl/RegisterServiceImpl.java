@@ -89,7 +89,68 @@ public class RegisterServiceImpl implements RegisterService {
         return ResponseResult.successResult(200, "上传图片文件成功");
     }
 
+    @Override
+    public ResponseResult editRegister(RegisterDTO registerDTO) {
+        //根据registerId查询当前报名用户
+        User registerUser = userMapper.selectUserByRegisterId(registerDTO.getRegisterId());
+        //比对编辑用户是否是报名表的提交者
+        User tempUser = SecurityUtils.getLoginUser().getUser();
+        if (registerUser.getId() != tempUser.getId()) {
+            return ResponseResult.errorResult(408, "您没有编辑这份报名表的权限");
+        }
+
+        //根据用户查询报名表
+        Register tempRegister = registerMapper.selectRegisterByUserId(tempUser.getId());
+
+
+        if (tempRegister == null) {
+            return ResponseResult.errorResult(400, "用户尚未提交过报名表，无法修改。");
+        }
+
+        if ("1".equals(tempRegister.getStatus()) || "2".equals(tempRegister.getStatus()) || "3".equals(tempRegister.getStatus())) {
+            return ResponseResult.errorResult(400, "该报名表已被审核，无法修改。");
+        }
+
+        //更新报名表信息
+        tempRegister.setResume(registerDTO.getResume());
+        tempRegister.setDesireDepartmentId(registerDTO.getDesireDepartmentId());
+        tempRegister.setDirection(registerDTO.getDirection());
+        tempRegister.setArrangement(registerDTO.getArrangement());
+        tempRegister.setReason(registerDTO.getReason());
+        tempRegister.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+        tempRegister.setUpdateBy(tempUser.getUsername());
+        //TODO 检验修改是否合法
+        registerMapper.updateContent(tempRegister);
+
+        return ResponseResult.successResult(200, "修改报名表成功!");
+    }
+
+
     //审核报名表
+    @Override
+    public ResponseResult examineRegister(Long registerId) {
+        //查询审核人(即查询当前正在审核的User)
+        User auditor = selectCurrentAuditor();
+
+        //查询被查看的报名表和报名人
+        CompleteRegisterVO completeRegisterVO = registerMapper.selectCompleteRegisterVOByRegisterId(registerId);
+
+        if (completeRegisterVO == null) {
+            return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
+        } else if ("2".equals(completeRegisterVO.getRegister().getStatus()) || "3".equals(completeRegisterVO.getRegister().getStatus())) {
+            //如果这张报名表已经被审核过了，直接返回审核后的报名表，不用更新报名表状态
+            return ResponseResult.successResult(completeRegisterVO);
+        } else {
+            //未审核过则更新状态为1 已查看并更新update_by等信息
+            completeRegisterVO.getRegister().setStatus("1");// 更新register对象中的状态字段
+            completeRegisterVO.getRegister().setUpdateBy(auditor.getUsername());
+            completeRegisterVO.getRegister().setUpdateTime(new Timestamp(System.currentTimeMillis()));
+            registerMapper.updateStatus(completeRegisterVO.getRegister());
+
+            return ResponseResult.successResult(completeRegisterVO);
+        }
+    }
+
     @Override
     public ResponseResult isApproved(Long registerId, String isApprovedFlag) {
         //查询审核人(即查询当前正在审核的User)
@@ -135,65 +196,16 @@ public class RegisterServiceImpl implements RegisterService {
         return ResponseResult.errorResult(400, "修改报名表状态失败!");
     }
 
-    @Override
-    public ResponseResult editRegister(RegisterDTO registerDTO) {
-        //根据registerId查询当前报名用户
-        User registerUser = userMapper.selectUserByRegisterId(registerDTO.getRegisterId());
-        //比对编辑用户是否是报名表的提交者
-        User tempUser = SecurityUtils.getLoginUser().getUser();
-        if (registerUser.getId() != tempUser.getId()){
-            return ResponseResult.errorResult(408,"您没有编辑这份报名表的权限");
-        }
-
-        //根据用户查询报名表
-        Register tempRegister = registerMapper.selectRegisterByUserId(tempUser.getId());
-
-
-        if (tempRegister == null) {
-            return ResponseResult.errorResult(400, "用户尚未提交过报名表，无法修改。");
-        }
-
-        if ("1".equals(tempRegister.getStatus()) || "2".equals(tempRegister.getStatus()) || "3".equals(tempRegister.getStatus())) {
-            return ResponseResult.errorResult(400, "该报名表已被审核，无法修改。");
-        }
-
-        //更新报名表信息
-        tempRegister.setResume(registerDTO.getResume());
-        tempRegister.setDesireDepartmentId(registerDTO.getDesireDepartmentId());
-        tempRegister.setDirection(registerDTO.getDirection());
-        tempRegister.setArrangement(registerDTO.getArrangement());
-        tempRegister.setReason(registerDTO.getReason());
-        tempRegister.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-        tempRegister.setUpdateBy(tempUser.getUsername());
-        //TODO 检验修改是否合法
-        registerMapper.updateContent(tempRegister);
-
-        return ResponseResult.successResult(200, "修改报名表成功!");
-    }
 
     //一大堆查询操作
     @Override
-    public ResponseResult formalView(Long registerId) {
-        //查询审核人(即查询当前正在审核的User)
-        User auditor = selectCurrentAuditor();
-
+    public ResponseResult viewRegister(Long registerId) {
         //查询被查看的报名表和报名人
         CompleteRegisterVO completeRegisterVO = registerMapper.selectCompleteRegisterVOByRegisterId(registerId);
-
         if (completeRegisterVO == null) {
             return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
-        } else if ("2".equals(completeRegisterVO.getRegister().getStatus()) || "3".equals(completeRegisterVO.getRegister().getStatus())) {
-            //如果这张报名表已经被审核过了，直接返回审核后的报名表，不用更新报名表状态
-            return ResponseResult.successResult(completeRegisterVO);
-        } else {
-            //未审核过则更新状态为1 已查看并更新update_by等信息
-            completeRegisterVO.getRegister().setStatus("1");// 更新register对象中的状态字段
-            completeRegisterVO.getRegister().setUpdateBy(auditor.getUsername());
-            completeRegisterVO.getRegister().setUpdateTime(new Timestamp(System.currentTimeMillis()));
-            registerMapper.updateStatus(completeRegisterVO.getRegister());
-
-            return ResponseResult.successResult(completeRegisterVO);
         }
+        return ResponseResult.successResult(completeRegisterVO);
     }
 
     @Override
