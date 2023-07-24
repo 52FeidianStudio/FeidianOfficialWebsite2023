@@ -10,7 +10,6 @@ import com.feidian.enums.HttpCodeEnum;
 import com.feidian.exception.SystemException;
 import com.feidian.mapper.PermissionMapper;
 import com.feidian.mapper.UserMapper;
-import com.feidian.mapper.UserMapperTwo;
 import com.feidian.po.User;
 import com.feidian.responseResult.ResponseResult;
 import com.feidian.service.UserService;
@@ -62,7 +61,7 @@ public class UserServiceImpl implements UserService {
     private RedisCache redisCache;
 
     @Autowired
-    UserMapperTwo userMapperTwo;
+    UserMapper userMapper;
 
     @Autowired
     private PermissionMapper permissionMapper;
@@ -110,10 +109,10 @@ public class UserServiceImpl implements UserService {
 
 
         // 对数据进行是否已经存在的判断
-        if(userMapperTwo.isEmailExist(registerUserDTO.getEmail())){
+        if(userMapper.isEmailExist(registerUserDTO.getEmail())){
             throw new SystemException(HttpCodeEnum.EMAIL_EXIST);
         }
-        if(userMapperTwo.isPhoneExist(registerUserDTO.getPhone())){
+        if(userMapper.isPhoneExist(registerUserDTO.getPhone())){
             throw new SystemException(HttpCodeEnum.PHONE_EXIST);
         }
 
@@ -138,7 +137,7 @@ public class UserServiceImpl implements UserService {
         String encodePassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodePassword);
         //存入数据库
-        userMapperTwo.insertUser(user);
+        userMapper.insertUser(user);
 
         return ResponseResult.successResult();
 
@@ -151,7 +150,7 @@ public class UserServiceImpl implements UserService {
             throw new SystemException(HttpCodeEnum.EMAIL_NOT_NULL);
         }
         // 验证邮箱是否存在
-        if(userMapperTwo.isEmailExist(email)){
+        if(userMapper.isEmailExist(email)){
             throw new SystemException(HttpCodeEnum.EMAIL_EXIST);
         }
         // 验证邮箱格式是否正确
