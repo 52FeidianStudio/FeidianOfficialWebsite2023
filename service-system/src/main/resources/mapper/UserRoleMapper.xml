@@ -26,10 +26,18 @@
         WHERE user_id = #{userId}
     </update>
 
-    <select id="selectByUserId" resultMap="UserRoleBaseResultMap">
-        SELECT *
-        FROM user_role
-        WHERE user_id = #{userId}
+    <insert id="createUserRole">
+        insert into user_role(role_id, user_id, create_time, create_by, is_deleted)
+        values(#{roleId}, #{userId}, #{createTime}, #{createBy}, #{isDeleted})
+    </insert>
+
+    <select id="selectAllUserRole" resultType="com.feidian.vo.UserRoleVO">
+        select
+            user_id, role_id
+        from
+            user_role
+        where
+            is_deleted = 0
     </select>
 
 </mapper>
