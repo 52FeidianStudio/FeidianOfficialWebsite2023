@@ -22,14 +22,14 @@ public class GraduatesController {
     }
 
     // 编辑毕业生去向信息
-    @PostMapping("/add")
+    @PostMapping("/edit")
     @PreAuthorize("hasAuthority('test')")
     public ResponseResult editGraduateInformation(@RequestBody EditGraduateDTO editGraduateDTO){
         return graduatesService.editGraduateInformation(editGraduateDTO);
     }
 
     // 删除毕业生去向信息
-    @PostMapping("/graduate/delete/{graduateId}")
+    @PostMapping("/delete/{graduateId}")
     @PreAuthorize("hasAuthority('test')")
     public ResponseResult deleteGraduateInformation(@PathVariable("graduateId") Long id){
         return graduatesService.deleteGraduateInformation(id);
