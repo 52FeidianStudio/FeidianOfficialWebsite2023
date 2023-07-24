@@ -26,4 +26,10 @@
         WHERE user_id = #{userId}
     </update>
 
+    <select id="selectByUserId" resultMap="UserRoleBaseResultMap">
+        SELECT *
+        FROM user_role
+        WHERE user_id = #{userId}
+    </select>
+
 </mapper>

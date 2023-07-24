@@ -39,46 +39,22 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //根据用户名查询用户信息
-        User user = userMapper.selectUserByUserName(username);
+        User user = userMapper.selectUserByUsername(username);
         //如果查询不到数据就通过抛出异常来给出提示
-        if(Objects.isNull(user)){
+        if (Objects.isNull(user)) {
             throw new RuntimeException("用户名或密码错误");
         }
-
-        //测试写法
-        //List<String> list = new ArrayList<>(Arrays.asList("test","admin"));
 
         //查询对应的权限信息并将其封装成一个list集合
         Long userId = user.getId();
         List<String> authenticationList = new ArrayList<>();
-        // 查询用户角色
-        LambdaQueryWrapper<UserRole> userRoleWrapper = new LambdaQueryWrapper<>();
-        userRoleWrapper.eq(UserRole::getUserId, userId);
-        List<UserRole> userRoles = userRoleMapper.selectList(userRoleWrapper);
 
-        List<Long> roleIds = userRoles.stream()
-                .map(UserRole::getRoleId)
-                .collect(Collectors.toList());
+        // 查询权限菜单
+        List<String> permsList = permissionMapper.selectPermsByUserId(userId);
 
-        if (!roleIds.isEmpty()) {
-            // 查询角色权限
-            LambdaQueryWrapper<RolePermission> roleMenuWrapper = new LambdaQueryWrapper<>();
-            roleMenuWrapper.in(RolePermission::getRoleId, roleIds);
-            List<RolePermission> roleMenus = rolePermissionMapper.selectList(roleMenuWrapper);
-
-            List<Long> menuIds = roleMenus.stream()
-                    .map(RolePermission::getPermissionId)
-                    .collect(Collectors.toList());
-
-            // 查询权限菜单
-            LambdaQueryWrapper<Permission> menuWrapper = new LambdaQueryWrapper<>();
-            menuWrapper.in(Permission::getId, menuIds);
-            List<Permission> menus = permissionMapper.selectList(menuWrapper);
-
-            // 用户权限菜单
-            for (Permission menu : menus) {
-                authenticationList.add(menu.getPermissionName());
-            }
+        // 用户权限菜单
+        for (String permission : permsList) {
+            authenticationList.add(permission);
         }
 
         //把数据封装成UserDetails返回
