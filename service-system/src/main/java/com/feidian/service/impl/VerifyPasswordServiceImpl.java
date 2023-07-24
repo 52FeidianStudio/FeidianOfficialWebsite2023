@@ -21,7 +21,7 @@ public class VerifyPasswordServiceImpl implements VerifyPasswordService {
         if(StringUtils.isBlank(verifyPasswordDTO.getCode())){
             throw new SystemException(HttpCodeEnum.CODE_NULL);
         }
-        if(verifyPasswordDTO.getCode().equals(redisTemplate.opsForValue().get(verifyPasswordDTO.getAddress()))){
+        if(verifyPasswordDTO.getCode().equals(redisTemplate.opsForValue().get("forget:" + verifyPasswordDTO.getAddress()))){
            verifyPasswordMapper.updatePassword(verifyPasswordDTO.getPassword(),verifyPasswordDTO.getAddress());
            return ResponseResult.successResult();
         }else{

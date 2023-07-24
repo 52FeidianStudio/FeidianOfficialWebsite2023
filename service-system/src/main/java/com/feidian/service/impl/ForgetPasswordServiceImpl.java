@@ -74,7 +74,7 @@ public class ForgetPasswordServiceImpl implements ForgetPasswordService {
             // 真正的发送邮件操作
             mailSender.send(mailMessage);
             // 验证码由保存到session 优化为 缓存到Redis中，并且设置验证码的有效时间为 5分钟
-            redisTemplate.opsForValue().set(address, code, 5, TimeUnit.MINUTES);
+            redisTemplate.opsForValue().set( "forget:"+address, code, 5, TimeUnit.MINUTES);
             return ResponseResult.successResult("验证码发送成功，请及时查看!");
         }
         return ResponseResult.errorResult(505,"验证码发送失败，请重新输入!");
