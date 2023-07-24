@@ -41,7 +41,9 @@ public enum HttpCodeEnum {
     COMPANY_NOT_NULL(400, "公司不能为空"),
     ISDELETED_NOT_NULL(400, "是否删除不能为空"),
     CREATETIME_NOT_NULL(400, "创建时间不能为空"),
-    CREATEBY_NOT_NULL(400, "创建者不能为空");
+    CREATEBY_NOT_NULL(400, "创建者不能为空"),
+    DEPARTMENT_IS_DELETE(400,"没有该部门" ),
+    NOT_GRADUATE(400,"没有该毕业生" );
 
 
 

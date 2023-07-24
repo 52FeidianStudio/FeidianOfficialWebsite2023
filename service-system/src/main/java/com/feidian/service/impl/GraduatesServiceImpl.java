@@ -64,57 +64,7 @@ public class GraduatesServiceImpl implements GraduatesService {
 
     @Override
     public ResponseResult addGraduateInformation(AddGraduateDTO addGraduateDTO) {
-        // 先把数据取出
-        String name = addGraduateDTO.getName();
-        Long facultyId = addGraduateDTO.getFacultyId();
-        Long subjectId = addGraduateDTO.getSubjectId();
-        Long departmentId = addGraduateDTO.getDepartmentId();
-        String city = addGraduateDTO.getCity();
-        String company = addGraduateDTO.getCompany();
-        Long isDeleted = addGraduateDTO.getIsDeleted();
-        java.sql.Timestamp createTime = addGraduateDTO.getCreateTime();
-        String createBy = addGraduateDTO.getCreateBy();
-
-        // 对数据进行非空判断
-        if (StringUtils.isBlank(name)) {
-            throw new SystemException(HttpCodeEnum.NAME_NOT_NULL);
-        }
-        if (facultyId == null) {
-            throw new SystemException(HttpCodeEnum.FACULTYID_NOT_NULL);
-        }
-        if (subjectId == null) {
-            throw new SystemException(HttpCodeEnum.SUBJECT_NOT_NULL);
-        }
-        if (departmentId == null) {
-            throw new SystemException(HttpCodeEnum.DEPARTMENTID_NOT_NULL);
-        }
-        if (StringUtils.isBlank(city)) {
-            throw new SystemException(HttpCodeEnum.CITY_NOT_NULL);
-        }
-        if (StringUtils.isBlank(company)) {
-            throw new SystemException(HttpCodeEnum.COMPANY_NOT_NULL);
-        }
-        if (isDeleted == null) {
-            throw new SystemException(HttpCodeEnum.ISDELETED_NOT_NULL);
-        }
-        if (createTime == null) {
-            throw new SystemException(HttpCodeEnum.CREATETIME_NOT_NULL);
-        }
-        if (StringUtils.isBlank(createBy)) {
-            throw new SystemException(HttpCodeEnum.CREATEBY_NOT_NULL);
-        }
-
-        // 创建并设置数据
-        Graduates graduate = new Graduates();
-        graduate.setName(name);
-        graduate.setFacultyId(facultyId);
-        graduate.setSubjectId(subjectId);
-        graduate.setDepartmentId(departmentId);
-        graduate.setCity(city);
-        graduate.setCompany(company);
-        graduate.setIsDeleted(isDeleted);
-        graduate.setCreateTime(createTime);
-        graduate.setCreateBy(createBy);
+        Graduates graduate = addGraduate(addGraduateDTO);
 
         // 存入数据库
         graduatesMapper.insertGraduate(graduate);
@@ -125,10 +75,48 @@ public class GraduatesServiceImpl implements GraduatesService {
 
     @Override
     public ResponseResult editGraduateInformation(EditGraduateDTO editGraduateDTO) {
+        Graduates updateGraduate = updateGraduate(editGraduateDTO);
+
+        // 执行数据库更新操作
+        graduatesMapper.updateGraduate(updateGraduate);
+        return ResponseResult.successResult();
+    }
+
+    @Override
+    public ResponseResult deleteGraduateInformation(Long id) {
+        // 检查数据库中是否存在提供的 graduateId
+        Graduates graduates = graduatesMapper.getGraduateById(id);
+
+        // 逻辑删除
+        graduates.setIsDeleted(SystemConstants.DELETE);
+
+        return ResponseResult.successResult();
+    }
+
+    private Graduates addGraduate(AddGraduateDTO addGraduateDTO){
+        // 创建并设置数据
+        Graduates graduate = new Graduates();
+        graduate.setName(addGraduateDTO.getName());
+        graduate.setFacultyId(addGraduateDTO.getFacultyId());
+        graduate.setSubjectId(addGraduateDTO.getSubjectId());
+        graduate.setCity(addGraduateDTO.getCity());
+        graduate.setCompany(addGraduateDTO.getCompany());
+        graduate.setIsDeleted(SystemConstants.NOT_DELETED);
+        graduate.setCreateTime(new java.sql.Timestamp(System.currentTimeMillis()));
+        graduate.setCreateBy(addGraduateDTO.getCreateBy());
+
+        return graduate;
+    }
+
+    private Graduates updateGraduate(EditGraduateDTO editGraduateDTO){
         Long graduateId = editGraduateDTO.getGraduateId();
 
         // 步骤 1：检查数据库中是否存在提供的 graduateId
         Graduates existingGraduate = graduatesMapper.getGraduateById(graduateId);
+
+        if(existingGraduate.getIsDeleted() ==null&&existingGraduate.getIsDeleted()==1){
+            ResponseResult.errorResult(HttpCodeEnum.NOT_GRADUATE);
+        }
 
 
         // 步骤 2：使用 DTO 中非空的字段更新现有毕业生信息
@@ -165,20 +153,7 @@ public class GraduatesServiceImpl implements GraduatesService {
         // 步骤 3：将 updateTime 字段更新为当前时间戳
         existingGraduate.setUpdateTime(new java.sql.Timestamp(System.currentTimeMillis()));
 
-        // 步骤 4：执行数据库更新操作
-        graduatesMapper.updateGraduate(existingGraduate);
-        return ResponseResult.successResult();
-    }
-
-    @Override
-    public ResponseResult deleteGraduateInformation(Long id) {
-        // 步骤 1：检查数据库中是否存在提供的 graduateId
-        Graduates graduates = graduatesMapper.getGraduateById(id);
-
-        // 逻辑删除
-        graduates.setIsDeleted(SystemConstants.DELETE);
-
-        return ResponseResult.successResult();
+        return existingGraduate;
     }
 
 

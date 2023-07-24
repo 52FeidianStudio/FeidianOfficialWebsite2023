@@ -1,10 +1,9 @@
 package com.feidian.mapper;
 
 
+import com.feidian.po.Department;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * (Department)表数据库访问层
@@ -16,8 +15,8 @@ import java.util.List;
 @Repository
 public interface DepartmentMapper  {
 
-     List<String> getAllName();
+    Department getDepartmentById(Long id);
 
-     String getByName(String name);
+    void updateDepartment(Department department);
 }
 
