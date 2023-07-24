@@ -1,5 +1,9 @@
 spring:
-
+  mail:
+    host: smtp.163.com  # 发送邮件的服务器地址
+    username: thep5390@163.com # 开启 IMAP/SMTP服务 的qq邮箱的账号
+    password: JZPEWUHAXKPQLZBW  # 开启 IMAP/SMTP服务 获得的授权码,而不是qq邮箱的登录密码
+    default-encoding: UTF-8
   server:
     port: 8080
 

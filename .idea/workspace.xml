@@ -4,17 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="将前台方面mp实现的接口代码改成mybatis形式的代码">
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/ForgetPasswordService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/ForgetPasswordServiceImpl.java" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="1">
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/VerifyPasswordDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/ForgetPasswordMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/VerifyPasswordMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/VerifyPasswordService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/VerifyPasswordServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/ForgetPasswordMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/VerifyPasswordMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/enums/HttpCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/enums/HttpCodeEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/ForgetPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/ForgetPasswordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/DepartmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/DepartmentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/GraduatesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/GraduatesMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/DepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/DepartmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/DepartmentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/GraduatesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/GraduatesMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/FrontUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/FrontUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/ForgetPasswordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/ForgetPasswordServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +28,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Mybatis Mapper" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="Mybatis Mapper" />
       </list>
     </option>
   </component>
@@ -91,6 +95,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.feidian.controller" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.feidian.bo" />
       <recent name="com.feiidan.vo" />
@@ -283,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690184037298</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="1">
+      <created>1690187900205</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1690187900205</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
