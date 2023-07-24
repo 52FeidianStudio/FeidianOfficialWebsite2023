@@ -1,6 +1,7 @@
 package com.feidian.service;
 
 
+import com.feidian.responseResult.ResponseResult;
 
 /**
  * (Department)表服务接口
@@ -10,4 +11,7 @@ package com.feidian.service;
  */
 public interface DepartmentService {
 
+    ResponseResult getAllName();
+
+    ResponseResult getByName(String name);
 }

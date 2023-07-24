@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class Faculty {
 
   private Long id;
-  private String faculty;
+  private String facultyName;
   
   private Long isDeleted;
   private java.sql.Timestamp createTime;
