@@ -2,7 +2,7 @@ package com.feidian.service.impl;
 import com.feidian.bo.GraduatesBO;
 import com.feidian.dto.PageDTO;
 import com.feidian.mapper.GraduatesMapper;
-import com.feidian.po.Graduates;
+
 import com.feidian.service.GraduatesService;
 import com.feidian.responseResult.ResponseResult;
 
