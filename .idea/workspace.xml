@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(mapper):把相同的接口合起来了">
-      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/EditDepartmentIntroductionDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/DepartmentMapper.xml" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(admin):增加了一个关于组别的接口">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/enums/HttpCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/enums/HttpCodeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-admin/src/main/java/com/feidian/controller/DepartmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/DepartmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/DepartmentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/DepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/DepartmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/constants/SystemConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/constants/SystemConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/AddGraduateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/AddGraduateDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/GraduatesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/GraduatesServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -301,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690163127719</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="feat(admin):增加了一个关于组别的接口">
+      <created>1690164807208</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1690164807208</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +355,7 @@
     <MESSAGE value="feat(admin):增加了毕业生相关的三个接口" />
     <MESSAGE value="fix(service-system):修改了UserMapperTwo" />
     <MESSAGE value="fix(mapper):把相同的接口合起来了" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(mapper):把相同的接口合起来了" />
+    <MESSAGE value="feat(admin):增加了一个关于组别的接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(admin):增加了一个关于组别的接口" />
   </component>
 </project>
