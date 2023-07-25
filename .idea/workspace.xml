@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):删去了冗余的配置文件">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):删去了冗余的controller">
+      <change afterPath="$PROJECT_DIR$/service-system/src/test/java/com/feidian/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,8 +43,6 @@
     <setting file="file://$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/UploadController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/UserController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/service-system/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/FacultyController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/PermissionController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/RegisterController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/DepartmentService.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/UserService.java" root0="FORCE_HIGHLIGHTING" />
@@ -112,7 +111,23 @@
       <recent name="com.feiidan.bo" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.WebsiteFrontApplication">
+    <configuration name="test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.feidian.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.feidian" />
+      <option name="MAIN_CLASS_NAME" value="com.feidian.test" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WebsiteFrontApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="plat-front" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.feidian.WebsiteFrontApplication" />
@@ -129,7 +144,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
-        <item itemvalue="Spring Boot.WebsiteFrontApplication" />
+        <item itemvalue="JUnit.test.test" />
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
@@ -151,6 +166,7 @@
       <workItem from="1690180033641" duration="6728000" />
       <workItem from="1690194452317" duration="1241000" />
       <workItem from="1690247119704" duration="407000" />
+      <workItem from="1690249795742" duration="623000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -382,6 +398,7 @@
     <MESSAGE value="feat(admin):增加了一个关于组别的接口" />
     <MESSAGE value="feat(admin):把耦合的代码改了" />
     <MESSAGE value="feat(admin):实现了两个关于权限等级的接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(admin):实现了两个关于权限等级的接口" />
+    <MESSAGE value="fix(service-system):删去了冗余的controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):删去了冗余的controller" />
   </component>
 </project>
