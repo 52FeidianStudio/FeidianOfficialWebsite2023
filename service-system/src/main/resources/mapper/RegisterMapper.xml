@@ -44,13 +44,17 @@
         SELECT *
         FROM register
         WHERE
-        <if test="desireDepartmentId != null">
-            desire_department_id = #{desireDepartmentId}
-        </if>
-        <if test="status != null">
-            <if test="status != null">OR</if>
-            status = #{status}
-        </if>
+        <choose>
+            <when test="desireDepartmentId != null">
+                desire_department_id = #{desireDepartmentId}
+            </when>
+            <when test="status != null">
+                status = #{status}
+            </when>
+            <otherwise>
+                <!-- 如果desireDepartmentId和status都为null，则不拼接任何条件，返回所有数据 -->
+            </otherwise>
+        </choose>
     </select>
 
 

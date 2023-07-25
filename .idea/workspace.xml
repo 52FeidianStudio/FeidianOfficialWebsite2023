@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):修改了一些细节">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="chore(service-system):转移了registerController的位置">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/filter/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/test/java/com/feidian/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/test/java/com/feidian/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +43,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/model/src/main/java/com/feidian/dto/AddGraduateDTO.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/GraduatesController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/RegisterController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/UploadController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/UserController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/service-system/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/RegisterController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/DepartmentService.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/UserService.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/DepartmentServiceImpl.java" root0="FORCE_HIGHLIGHTING" />
@@ -380,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690253850784</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="chore(service-system):转移了registerController的位置">
+      <created>1690268670880</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1690268670880</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,7 +420,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="chore(model):新增LoginUser用于认证授权" />
     <MESSAGE value="feat(model):新增AvatarVO用于返回给前端头像" />
     <MESSAGE value="feat(model):给po层添加了一一与数据库对应的javaBean类" />
     <MESSAGE value="fix(security):将UserLogin替换成了LoginUser，让security模块依赖了model模块。" />
@@ -436,7 +444,8 @@
     <MESSAGE value="fix(service-system):删去了冗余的controller" />
     <MESSAGE value="feat(service-system):新增单元测试，开始利用ApiFox进行测试" />
     <MESSAGE value="fix(service-system):修改了一些细节" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修改了一些细节" />
+    <MESSAGE value="chore(service-system):转移了registerController的位置" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(service-system):转移了registerController的位置" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -452,9 +461,9 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/common/security/src/main/java/com/feidian/filter/JwtAuthenticationFilter.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
+          <line>216</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

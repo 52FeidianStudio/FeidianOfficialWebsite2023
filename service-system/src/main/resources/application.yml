@@ -25,17 +25,6 @@ logging:
   level:
     com.feidian: debug #设置日志级别
 
-mybatis-plus:
-  configuration:
-  #    # 日志
-      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  global-config:
-    db-config:
-      logic-delete-field: delFlag
-      logic-delete-value: 1
-      logic-not-delete-value: 0
-      id-type: auto
-
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml # mapper映射文件路径
   type-aliases-package: com.feidian.bo   # 配置哪个包下的类有默认的别名

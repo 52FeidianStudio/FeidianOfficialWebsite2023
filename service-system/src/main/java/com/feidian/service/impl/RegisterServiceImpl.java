@@ -216,11 +216,11 @@ public class RegisterServiceImpl implements RegisterService {
     public ResponseResult selectByQueryRegister(QueryRegisterDTO queryRegisterDTO) {
         List<SectionalRegisterVO> sectionalRegisterVOList = new ArrayList<>();
 
-        if (queryRegisterDTO.getGradeName() != null && queryRegisterDTO.getSubjectId() != null) {
+        if (queryRegisterDTO.getGradeName() != null || queryRegisterDTO.getSubjectId() != null) {
             // 根据年级或专业查询用户
             List<User> userList = userMapper.selectUserListByGradeNameOrSubjectId(queryRegisterDTO.getGradeName(), queryRegisterDTO.getSubjectId());
             sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByUser(userList);
-        } else if (queryRegisterDTO.getDesireDepartmentId() != null && queryRegisterDTO.getStatus() != null) {
+        } else if (queryRegisterDTO.getDesireDepartmentId() != null || queryRegisterDTO.getStatus() != null) {
             // 根据申请组别查询报名表
             List<Register> registerList = registerMapper.selectByDesireDepartmentIdOrStatus(queryRegisterDTO.getDesireDepartmentId(), queryRegisterDTO.getStatus());
             sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerList);

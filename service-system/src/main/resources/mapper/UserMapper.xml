@@ -51,18 +51,23 @@
     </select>
 
     <!-- 根据年级或者专业查询出 UserList -->
-    <select id="selectUserListByGradeNameOrSubjectId" parameterType="map" resultMap="UserBaseResultMap">
+    <select id="selectUserListByGradeNameOrSubjectId" resultMap="UserBaseResultMap">
         SELECT *
         FROM user
         WHERE
-        <if test="gradeName != null">
-            grade_name = #{gradeName}
-        </if>
-        <if test="subjectId != null">
-            <if test="gradeName != null">OR</if>
-            subject_id = #{subjectId}
-        </if>
+        <choose>
+            <when test="gradeName != null">
+                grade_name = #{gradeName}
+            </when>
+            <when test="subjectId != null">
+                subject_id = #{subjectId}
+            </when>
+            <otherwise>
+                <!-- 如果gradeName和subjectId都为null，则不拼接任何条件，返回所有数据 -->
+            </otherwise>
+        </choose>
     </select>
+
 
     <!-- 根据registerId查询User -->
     <select id="selectUserByRegisterId" parameterType="long" resultMap="UserBaseResultMap">
