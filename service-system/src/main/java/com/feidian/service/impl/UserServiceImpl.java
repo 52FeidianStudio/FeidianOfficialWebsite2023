@@ -151,7 +151,7 @@ public class UserServiceImpl implements UserService {
     public ResponseResult login(LoginUserDTO loginUserDTO) {
         String password = loginUserDTO.getPassword();
         String encode = passwordEncoder.encode(password);
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginUserDTO.getUserName(),loginUserDTO.getPassword());
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginUserDTO.getUsername(),loginUserDTO.getPassword());
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         // 判断是否认证通过
         if(Objects.isNull(authenticate)){
