@@ -151,16 +151,16 @@ public class UserServiceImpl implements UserService {
     public ResponseResult login(LoginUserDTO loginUserDTO) {
         String password = loginUserDTO.getPassword();
         String encode = passwordEncoder.encode(password);
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginUserDTO.getUserName(),loginUserDTO.getPassword());
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginUserDTO.getUsername(),loginUserDTO.getPassword());
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         // 判断是否认证通过
         if(Objects.isNull(authenticate)){
             throw new RuntimeException("用户名或密码错误");
         }
         // 获取userid 生成token
-        User user =(User) authenticate.getPrincipal();
-        List<String> permissionKeyList =  permissionMapper.selectPermsByUserId(user.getId());
-        LoginUser loginUser=new LoginUser(user,permissionKeyList);
+        LoginUser loginUser =(LoginUser) authenticate.getPrincipal();
+        List<String> permissionKeyList =  permissionMapper.selectPermsByUserId(loginUser.getUser().getId());
+        loginUser.setPermissions(permissionKeyList);
         long id = loginUser.getUser().getId();
         String userId = String.valueOf(id);
         String jwt = JwtUtil.createJWT(userId);

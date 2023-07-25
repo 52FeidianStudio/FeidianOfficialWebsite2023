@@ -6,15 +6,11 @@ import com.feidian.dto.RegisterUserDTO;
 import com.feidian.responseResult.ResponseResult;
 import com.feidian.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
 @RestController
-@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -37,7 +33,7 @@ public class UserController {
      * @return 返回 ResponseResult 对象，表示发送邮箱验证码结果
      */
     @PostMapping("/sendEmail")
-    public ResponseResult sendEmail(@RequestBody String email, HttpSession session){
+    public ResponseResult sendEmail(@RequestParam("email") String email, HttpSession session){
         return userService.sendEmail(email, session);
     }
 

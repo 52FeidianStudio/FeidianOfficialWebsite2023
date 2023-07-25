@@ -5,10 +5,7 @@ import com.feidian.responseResult.ResponseResult;
 import com.feidian.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/role")
@@ -18,7 +15,7 @@ public class RoleController {
     private RoleService roleService;
 
     // 查看所有用户的等级
-    @PostMapping("/view")
+    @GetMapping("/view")
     @PreAuthorize("hasAuthority('VIEW_ALL_ROLE')")
     public ResponseResult viewAllRoleInformation(){
         return roleService.viewAllRoleInformation();
