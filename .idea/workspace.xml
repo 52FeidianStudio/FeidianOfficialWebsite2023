@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):新增单元测试，开始利用ApiFox进行测试">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):修改了一些细节">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/LoginUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/LoginUserDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,6 +170,9 @@
       <workItem from="1690194452317" duration="1241000" />
       <workItem from="1690247119704" duration="407000" />
       <workItem from="1690249795742" duration="3426000" />
+      <workItem from="1690253827674" duration="160000" />
+      <workItem from="1690253994618" duration="156000" />
+      <workItem from="1690254265406" duration="345000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -354,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690250463275</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fix(service-system):修改了一些细节">
+      <created>1690253850784</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1690253850784</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +394,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="chore(service-system):第一次尝试提交到分支" />
     <MESSAGE value="chore(model):新增LoginUser用于认证授权" />
     <MESSAGE value="feat(model):新增AvatarVO用于返回给前端头像" />
     <MESSAGE value="feat(model):给po层添加了一一与数据库对应的javaBean类" />
@@ -410,19 +418,20 @@
     <MESSAGE value="feat(admin):实现了两个关于权限等级的接口" />
     <MESSAGE value="fix(service-system):删去了冗余的controller" />
     <MESSAGE value="feat(service-system):新增单元测试，开始利用ApiFox进行测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(service-system):新增单元测试，开始利用ApiFox进行测试" />
+    <MESSAGE value="fix(service-system):修改了一些细节" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修改了一些细节" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java</url>
-          <line>153</line>
+          <line>154</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java</url>
-          <line>162</line>
+          <line>163</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
