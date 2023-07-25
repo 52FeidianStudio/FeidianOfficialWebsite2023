@@ -21,4 +21,7 @@ public class FrontUserController {
     public ResponseResult getMessage(){
         return frontUserService.getMessage();
     }
+
+
+
 }
