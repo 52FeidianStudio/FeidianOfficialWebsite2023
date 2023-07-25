@@ -4,24 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):修改了一些细节">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="忘记密码修改接口">
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/ForgetPasswordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/ForgetPasswordServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="Interface" />
         <option value="Mybatis Mapper" />
-        <option value="Class" />
       </list>
     </option>
   </component>
@@ -31,35 +28,17 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature-model" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/model/src/main/java/com/feidian/dto/AddGraduateDTO.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/GraduatesController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/UploadController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/UserController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/service-system/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/controller/RegisterController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/DepartmentService.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/UserService.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/DepartmentServiceImpl.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="localRepository" value="D:\openRepository" />
-        <option name="useMavenConfig" value="true" />
-        <option name="userSettingsFile" value="D:\Develop\Maven\Maven\apache-maven-3.3.9\conf\settings.xml" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="MavenRunner">
     <option name="jreName" value="#JAVA_HOME" />
@@ -83,7 +62,9 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Develop/jerbrains/idea/idea projects/FeidianOfficialWebsite2023/service-system/src/main/resources/mapper&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -92,8 +73,8 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.sjhy.plugin.ui.TemplateSettingForm&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;c06cf393e8873f752ee68ee8eb698473&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;6b0220546ff6a37a027628f30c177643&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -101,36 +82,17 @@
     ]
   }
 }</component>
-  <component name="ReactorSettings">
-    <option name="notificationShown" value="true" />
-  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.feidian.vo" />
-      <recent name="com.feidian.dto" />
+      <recent name="com.feidian.controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.feidian.bo" />
       <recent name="com.feiidan.vo" />
       <recent name="com.feiidan.bo" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.WebsiteFrontApplication">
-    <configuration name="test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="service-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.feidian.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.feidian" />
-      <option name="MAIN_CLASS_NAME" value="com.feidian.test" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="WebsiteFrontApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="plat-front" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.feidian.WebsiteFrontApplication" />
@@ -147,7 +109,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
-        <item itemvalue="JUnit.test.test" />
+        <item itemvalue="Spring Boot.WebsiteFrontApplication" />
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
@@ -165,14 +127,9 @@
       <workItem from="1689818881203" duration="1461000" />
       <workItem from="1689901566944" duration="1338000" />
       <workItem from="1689987858706" duration="3101000" />
-      <workItem from="1690161156682" duration="741000" />
-      <workItem from="1690180033641" duration="6728000" />
-      <workItem from="1690194452317" duration="1241000" />
-      <workItem from="1690247119704" duration="407000" />
-      <workItem from="1690249795742" duration="3426000" />
-      <workItem from="1690253827674" duration="160000" />
-      <workItem from="1690253994618" duration="156000" />
-      <workItem from="1690254265406" duration="345000" />
+      <workItem from="1690025678837" duration="1702000" />
+      <workItem from="1690104367927" duration="16000" />
+      <workItem from="1690161040439" duration="9436000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -307,63 +264,35 @@
       <option name="project" value="LOCAL" />
       <updated>1690010192573</updated>
     </task>
-    <task id="LOCAL-00020" summary="feat(admin):增加了毕业生相关的三个接口">
-      <created>1690015646321</created>
+    <task id="LOCAL-00020" summary="chore(project):更改mapper、service的格式">
+      <created>1690012001976</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1690015646321</updated>
+      <updated>1690012001976</updated>
     </task>
-    <task id="LOCAL-00021" summary="fix(service-system):修改了UserMapperTwo">
-      <created>1690025171268</created>
+    <task id="LOCAL-00021" summary="1">
+      <created>1690184037298</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1690025171268</updated>
+      <updated>1690184037298</updated>
     </task>
-    <task id="LOCAL-00022" summary="fix(mapper):把相同的接口合起来了">
-      <created>1690163127719</created>
+    <task id="LOCAL-00022" summary="1">
+      <created>1690187900205</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1690163127719</updated>
+      <updated>1690187900205</updated>
     </task>
-    <task id="LOCAL-00023" summary="feat(admin):增加了一个关于组别的接口">
-      <created>1690164807208</created>
+    <task id="LOCAL-00023" summary="忘记密码修改接口">
+      <created>1690196853804</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1690164807208</updated>
+      <updated>1690196853804</updated>
     </task>
-    <task id="LOCAL-00024" summary="feat(admin):把耦合的代码改了">
-      <created>1690169508051</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1690169508051</updated>
-    </task>
-    <task id="LOCAL-00025" summary="feat(admin):实现了两个关于权限等级的接口">
-      <created>1690186106850</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1690186106851</updated>
-    </task>
-    <task id="LOCAL-00026" summary="feat(service-system):新增单元测试，开始利用ApiFox进行测试">
-      <created>1690250463275</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1690250463275</updated>
-    </task>
-    <task id="LOCAL-00027" summary="fix(service-system):修改了一些细节">
-      <created>1690253850784</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1690253850784</updated>
-    </task>
-    <option name="localTasksCounter" value="28" />
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,6 +323,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="refactor(project):重构各个pom文件" />
+    <MESSAGE value="chore(service-system):第一次尝试提交到分支" />
     <MESSAGE value="chore(model):新增LoginUser用于认证授权" />
     <MESSAGE value="feat(model):新增AvatarVO用于返回给前端头像" />
     <MESSAGE value="feat(model):给po层添加了一一与数据库对应的javaBean类" />
@@ -410,31 +341,9 @@
     <MESSAGE value="feat(common-util):优化了文件上传的工具类" />
     <MESSAGE value="feat(service-system):优化了查询审核人信息的方法" />
     <MESSAGE value="feat(service-system):新增了修改报名表的功能，下一阶段准备按项目要求，全部替换回mybatis。" />
-    <MESSAGE value="feat(admin):增加了毕业生相关的三个接口" />
-    <MESSAGE value="fix(service-system):修改了UserMapperTwo" />
-    <MESSAGE value="fix(mapper):把相同的接口合起来了" />
-    <MESSAGE value="feat(admin):增加了一个关于组别的接口" />
-    <MESSAGE value="feat(admin):把耦合的代码改了" />
-    <MESSAGE value="feat(admin):实现了两个关于权限等级的接口" />
-    <MESSAGE value="fix(service-system):删去了冗余的controller" />
-    <MESSAGE value="feat(service-system):新增单元测试，开始利用ApiFox进行测试" />
-    <MESSAGE value="fix(service-system):修改了一些细节" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修改了一些细节" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java</url>
-          <line>154</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java</url>
-          <line>163</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="chore(project):更改mapper、service的格式" />
+    <MESSAGE value="1" />
+    <MESSAGE value="忘记密码修改接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="忘记密码修改接口" />
   </component>
 </project>
