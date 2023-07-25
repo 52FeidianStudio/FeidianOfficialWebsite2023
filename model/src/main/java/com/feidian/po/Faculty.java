@@ -13,7 +13,6 @@ public class Faculty {
 
   private Long id;
   private String facultyName;
-  
   private Long isDeleted;
   private java.sql.Timestamp createTime;
   private String createBy;

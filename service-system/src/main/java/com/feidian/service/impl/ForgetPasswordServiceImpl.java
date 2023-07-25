@@ -34,15 +34,10 @@ public class ForgetPasswordServiceImpl implements ForgetPasswordService {
         String address = forgetPasswordDTO.getAddress();
         String username = forgetPasswordDTO.getUsername();
         //验证用户名和邮箱是否匹配
-        //写一个通过用户名查邮箱的接口
         if(StringUtils.isBlank(username)){
             throw new SystemException(HttpCodeEnum.USERNAME_NOT_NULL);
         }else if(StringUtils.isBlank(address)){
             throw new SystemException(HttpCodeEnum.EMAIL_NOT_NULL);
-        }
-        // 对数据进行是否已经存在的判断
-        if(userMapper.isEmailExist(address)){
-            throw new SystemException(HttpCodeEnum.EMAIL_EXIST);
         }
         String email = forgetPasswordMapper.getEmailByUsername(username);
         //TODO 判断用户名邮箱是否匹配，发送验证码，验证验证码是否正确

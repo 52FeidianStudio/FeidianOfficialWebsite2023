@@ -19,6 +19,7 @@ public class FrontUserController {
     //查看个人信息
     @GetMapping("/getMessage")
     public ResponseResult getMessage(){
+
         return frontUserService.getMessage();
     }
 
