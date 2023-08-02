@@ -3,14 +3,19 @@ package com.feidian.service.impl;
 
 import cn.hutool.core.util.RandomUtil;
 import com.feidian.bo.LoginUser;
+import com.feidian.constants.SystemConstants;
 import com.feidian.dto.LoginFormDTO;
 import com.feidian.dto.LoginUserDTO;
 import com.feidian.dto.RegisterUserDTO;
+import com.feidian.dto.SubjectDTO;
 import com.feidian.enums.HttpCodeEnum;
 import com.feidian.exception.SystemException;
 import com.feidian.mapper.PermissionMapper;
+import com.feidian.mapper.SubjectMapper;
 import com.feidian.mapper.UserMapper;
+import com.feidian.mapper.UserRoleMapper;
 import com.feidian.po.User;
+import com.feidian.po.UserRole;
 import com.feidian.responseResult.ResponseResult;
 import com.feidian.service.UserService;
 import com.feidian.util.BeanCopyUtils;
@@ -64,11 +69,30 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Autowired
+    UserRoleMapper userRoleMapper;
+
+    @Autowired
     private PermissionMapper permissionMapper;
+
+    @Autowired
+    private SubjectMapper subjectMapper;
 
     @Override
     public ResponseResult registerUser(RegisterUserDTO registerUserDTO) {
 
+        // 1.校验邮箱
+        String email = registerUserDTO.getEmail();
+        // 验证邮箱格式是否正确
+        if (RegexUtils.isEmailInvalid(email)) {
+            throw new SystemException(HttpCodeEnum.EMAIL_NOT_FORMAT);
+        }
+        // 3.从redis获取验证码并校验
+        String cacheCode = stringRedisTemplate.opsForValue().get(LOGIN_CODE_KEY + email);
+        String code = registerUserDTO.getCode();
+        if (cacheCode == null || !cacheCode.equals(code)) {
+            // 不一致，报错
+            throw new SystemException(HttpCodeEnum.CODE_ERR);
+        }
 
         // 对数据进行是否已经存在的判断
         if(userMapper.isEmailExist(registerUserDTO.getEmail())){
@@ -82,24 +106,19 @@ public class UserServiceImpl implements UserService {
         if(!StandardPasswordUtil.isPasswordStandardized(registerUserDTO.getPassword())){
             throw new SystemException(HttpCodeEnum.PASSWORD_NOT_STANDARDIZED);
         }
+        // 电话是否符合规范
         if (!phoneFormat(registerUserDTO.getPhone())) {
             throw new SystemException(HttpCodeEnum.PHONE_NOT_FORMAT);
         }
 
-        // 验证邮箱
-        EmailUtil.sendEmail(registerUserDTO.getEmail());
 
-        User user= BeanCopyUtils.copyProperty(registerUserDTO,User.class);
-        // 获取当前时间
-        Date now = new Date();
-        // 设置gmt_create字段值
-        user.setCreateTime(new java.sql.Timestamp(now.getTime()));
-        //对密码进行加密
-        String encodePassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodePassword);
+        User user = encapsulationUser(registerUserDTO);
+
         //存入数据库
         userMapper.insertUser(user);
 
+        // 设置默认的角色到user_role表里
+        addRole(user);
         return ResponseResult.successResult();
 
     }
@@ -124,7 +143,8 @@ public class UserServiceImpl implements UserService {
         EmailUtil.sendEmail(email,code);
 
         // 保存验证吗到redis
-        stringRedisTemplate.opsForValue().set(LOGIN_CODE_KEY+email,code, Long.parseLong(LOGIN_CODE_KEY), TimeUnit.MINUTES);
+        stringRedisTemplate.opsForValue().set(LOGIN_CODE_KEY + email, code, 5, TimeUnit.MINUTES);
+//        stringRedisTemplate.opsForValue().set(LOGIN_CODE_KEY+email,code, Long.parseLong(LOGIN_CODE_KEY), TimeUnit.MINUTES);
         return ResponseResult.successResult();
     }
 
@@ -143,6 +163,9 @@ public class UserServiceImpl implements UserService {
             // 不一致，报错
             throw new SystemException(HttpCodeEnum.CODE_ERR);
         }
+
+
+
 
         return ResponseResult.successResult();
     }
@@ -196,5 +219,71 @@ public class UserServiceImpl implements UserService {
         final Pattern regex = Pattern.compile("^1\\d{10}$");
         boolean isMatch = regex.matcher(phone).matches();
         return isMatch;
+    }
+
+
+    /**
+     * 封装 RegisterUserDTO 到 User 对象
+     *
+     * @param registerUserDTO 待封装的 RegisterUserDTO 对象
+     * @return 封装后的 User 对象
+     */
+    public User encapsulationUser(RegisterUserDTO registerUserDTO) {
+        // 将 RegisterUserDTO 对象的属性复制到 User 对象中
+        User user = BeanCopyUtils.copyProperty(registerUserDTO, User.class);
+
+        // 获取专业名称并查询对应的学院ID和专业ID
+        String subject = registerUserDTO.getSubject();
+        List<Long> ids = subjectMapper.selectIdAndFacultyIdBySubjectName(subject);
+
+        // 设置学院ID和专业ID的，从上面查到的集合得出来
+        user.setFacultyId(ids.get(2));
+        user.setSubjectId(ids.get(1));
+
+        // 根据部门名称设置部门ID
+        String department = registerUserDTO.getDepartment();
+        long departmentId = 0L;
+        switch (department) {
+            case "前端":
+                departmentId = 1L;
+                break;
+            case "后端":
+                departmentId = 2L;
+                break;
+            case "ios":
+                departmentId = 3L;
+                break;
+            case "信息安全":
+                departmentId = 4L;
+                break;
+        }
+        user.setDepartmentId(departmentId);
+
+        // 获取当前时间
+        Date now = new Date();
+        // 设置gmt_create字段值
+        user.setCreateTime(new java.sql.Timestamp(now.getTime()));
+        //对密码进行加密
+        String encodePassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodePassword);
+        user.setIsDeleted(SystemConstants.NOT_DELETED);
+
+
+        return user;
+    }
+
+
+    public void addRole(User user){
+        // 再把刚建立的UserId找出来，因为phone字段建立索引了，所以用它来查
+        long userId= userMapper.selectUserIdByPhone(user.getPhone());
+
+        UserRole userRole= new UserRole();
+        userRole.setRoleId(6L);
+        userRole.setUserId(userId);
+        Date now = new Date();
+        userRole.setCreateTime(new java.sql.Timestamp(now.getTime()));
+        userRole.setCreateBy(user.getUsername());
+        userRole.setIsDeleted(SystemConstants.NOT_DELETED);
+        userRoleMapper.createUserRole(userRole);
     }
 }

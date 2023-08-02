@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(admin):把各方法的相关权限写上去了">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(front):把发送邮箱接口改了">
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/SubjectDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/SubjectMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/filter/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/LoginUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/LoginUserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plat-admin/src/main/java/com/feidian/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-admin/src/main/java/com/feidian/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterUserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-admin/src/main/java/com/feidian/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/SubjectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/SubjectMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Mybatis Mapper" />
         <option value="Class" />
+        <option value="Mybatis Mapper" />
       </list>
     </option>
   </component>
@@ -114,8 +113,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.feidian.vo" />
       <recent name="com.feidian.dto" />
+      <recent name="com.feidian.vo" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.feiidan.vo" />
@@ -164,7 +163,8 @@
       <workItem from="1690180033641" duration="6728000" />
       <workItem from="1690254910678" duration="1125000" />
       <workItem from="1690256050123" duration="1531000" />
-      <workItem from="1690267738167" duration="2455000" />
+      <workItem from="1690267738167" duration="10603000" />
+      <workItem from="1690944639250" duration="2909000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -341,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690186106851</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fix(front):把发送邮箱接口改了">
+      <created>1690270245000</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1690270245000</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,21 +403,12 @@
     <MESSAGE value="feat(admin):增加了一个关于组别的接口" />
     <MESSAGE value="feat(admin):把耦合的代码改了" />
     <MESSAGE value="feat(admin):实现了两个关于权限等级的接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(admin):实现了两个关于权限等级的接口" />
+    <MESSAGE value="fix(front):把发送邮箱接口改了" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(front):把发送邮箱接口改了" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java</url>
-          <line>161</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/UserController.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/RegexUtils.java</url>
           <line>17</line>
@@ -424,6 +422,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserMapper.java</url>
+          <line>32</line>
+          <properties class="com.feidian.mapper.UserMapper" method="selectUserIdByPhone">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
