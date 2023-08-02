@@ -14,10 +14,17 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
+    /**
+     * 编辑部门介绍信息
+     *
+     * @param dto 包含待编辑部门介绍信息的DTO
+     * @return ResponseResult 表示操作结果的响应对象
+     */
     @PostMapping("/edit")
     @PreAuthorize("hasAuthority('EDIT_DEPARTMENT')")
-    public ResponseResult editDepartmentIntroduction(@RequestBody EditDepartmentIntroductionDTO dto){
+    public ResponseResult editDepartmentIntroduction(@RequestBody EditDepartmentIntroductionDTO dto) {
         return departmentService.editDepartmentIntroduction(dto);
     }
 }
+
 

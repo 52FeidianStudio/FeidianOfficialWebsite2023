@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(front):把注册逻辑给改了，需要经过验证码验证才能通过注册">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/UserRoleVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/UserRoleVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/UserRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/UserRoleMapper.xml" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(admin):修改了查看所有权限角色的bug">
+      <change beforePath="$PROJECT_DIR$/plat-admin/src/main/java/com/feidian/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-admin/src/main/java/com/feidian/controller/DepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-admin/src/main/java/com/feidian/controller/GraduatesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-admin/src/main/java/com/feidian/controller/GraduatesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/GraduatesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/GraduatesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-admin/src/main/java/com/feidian/controller/RoleController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +162,7 @@
       <workItem from="1690254910678" duration="1125000" />
       <workItem from="1690256050123" duration="1531000" />
       <workItem from="1690267738167" duration="10603000" />
-      <workItem from="1690944639250" duration="4905000" />
+      <workItem from="1690944639250" duration="5977000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -352,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690948603354</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fix(admin):修改了查看所有权限角色的bug">
+      <created>1690956509479</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1690956509479</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +391,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="chore(service-system):第一次尝试提交到分支" />
     <MESSAGE value="chore(model):新增LoginUser用于认证授权" />
     <MESSAGE value="feat(model):新增AvatarVO用于返回给前端头像" />
     <MESSAGE value="feat(model):给po层添加了一一与数据库对应的javaBean类" />
@@ -408,7 +415,8 @@
     <MESSAGE value="feat(admin):实现了两个关于权限等级的接口" />
     <MESSAGE value="fix(front):把发送邮箱接口改了" />
     <MESSAGE value="fix(front):把注册逻辑给改了，需要经过验证码验证才能通过注册" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(front):把注册逻辑给改了，需要经过验证码验证才能通过注册" />
+    <MESSAGE value="fix(admin):修改了查看所有权限角色的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(admin):修改了查看所有权限角色的bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -19,24 +19,5 @@ public class GraduatesController {
         return graduatesService.getMessage(pageDTO);
     }
 
-    // 添加毕业生去向信息
-    @PostMapping("/add")
-    @PreAuthorize("hasAuthority('ADD_GRADUATE')")
-    public ResponseResult addGraduateInformation(@RequestBody AddGraduateDTO addGraduateDTO){
-        return graduatesService.addGraduateInformation(addGraduateDTO);
-    }
 
-    // 编辑毕业生去向信息
-    @PostMapping("/edit")
-    @PreAuthorize("hasAuthority('EDIT_GRADUATE')")
-    public ResponseResult editGraduateInformation(@RequestBody EditGraduateDTO editGraduateDTO){
-        return graduatesService.editGraduateInformation(editGraduateDTO);
-    }
-
-    // 删除毕业生去向信息
-    @DeleteMapping("/delete/{graduateId}")
-    @PreAuthorize("hasAuthority('DELETE_GRADUATE')")
-    public ResponseResult deleteGraduateInformation(@PathVariable("graduateId") Long id){
-        return graduatesService.deleteGraduateInformation(id);
-    }
 }
