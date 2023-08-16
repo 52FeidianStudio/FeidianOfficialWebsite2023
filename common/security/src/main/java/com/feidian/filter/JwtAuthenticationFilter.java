@@ -30,7 +30,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         //获取请求头中的token
-        String token = request.getHeader("token");
+        String token = request.getHeader("Authorization");
         //如果token为空， 则直接放行，认证登录
         if(!StringUtils.hasText(token))      {
             filterChain.doFilter(request,response);

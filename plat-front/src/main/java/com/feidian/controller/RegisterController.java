@@ -41,8 +41,8 @@ public class RegisterController {
     // 正式查看（未审核的报名表会被修改状态为已查看）
     @PreAuthorize("hasAuthority('EXAMINE_REGISTER')")
     @PostMapping("/examineRegister")
-    public ResponseResult examineRegister(@RequestBody Long registerId) {
-        return registerService.examineRegister(registerId);
+    public ResponseResult examineRegister(@RequestBody RegisterOperDTO registerOperDTO) {
+        return registerService.examineRegister(registerOperDTO.getRegisterId());
     }
 
 
