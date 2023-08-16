@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):修复了根据条件筛选的bug，但还没完全修复。">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/filter/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/RegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/application-deploy.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-system/src/main/resources/application-develop.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature-registrationSystem" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -398,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690269587391</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fix(service-system):修改细节">
+      <created>1692153838755</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1692153838755</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,7 +436,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(model):给po层添加了一一与数据库对应的javaBean类" />
     <MESSAGE value="fix(security):将UserLogin替换成了LoginUser，让security模块依赖了model模块。" />
     <MESSAGE value="feat(service-system):新增了上传报名表的功能" />
     <MESSAGE value="feat(service-system):删去了冗余的RegisterController" />
@@ -454,7 +460,8 @@
     <MESSAGE value="fix(service-system):修改了一些细节" />
     <MESSAGE value="chore(service-system):转移了registerController的位置" />
     <MESSAGE value="fix(service-system):修复了根据条件筛选的bug，但还没完全修复。" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修复了根据条件筛选的bug，但还没完全修复。" />
+    <MESSAGE value="fix(service-system):修改细节" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修改细节" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
