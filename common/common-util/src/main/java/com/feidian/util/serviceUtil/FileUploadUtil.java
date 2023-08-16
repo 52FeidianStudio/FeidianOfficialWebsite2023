@@ -35,7 +35,7 @@ public class FileUploadUtil {
         }
 
         //文件保存在服务器上的目录地址
-        String uploadDir = "http://182.254.242.96:3333//www//wwwroot//FeidianOfficialWebsite2023//image//";
+        String uploadDir = "//www//wwwroot//FeidianOfficialWebsite2023//image//";
         try {
             // 定义保存路径
             // 创建保存目录（如果不存在）

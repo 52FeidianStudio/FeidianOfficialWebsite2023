@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="refactor(service-system):修改pom文件准备打包">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="refactor(service-system):修改yml文件准备打包">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plat-front/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/FileUploadUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/FileUploadUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +204,7 @@
       <workItem from="1691654996684" duration="1073000" />
       <workItem from="1692150409429" duration="1135000" />
       <workItem from="1692154785467" duration="2121000" />
-      <workItem from="1692169554395" duration="1117000" />
+      <workItem from="1692169554395" duration="5052000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -424,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692156329524</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="refactor(service-system):修改yml文件准备打包">
+      <created>1692170921733</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1692170921733</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +461,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(service-system):新增了上传报名表的功能" />
     <MESSAGE value="feat(service-system):删去了冗余的RegisterController" />
     <MESSAGE value="feat(common-util):再次修改了上传文件的返回值类型，方便后续操作。" />
     <MESSAGE value="feat(service-system):新增上传大头照、上传报名表、正式查看的功能（查看后会修改报名表状态）" />
@@ -480,7 +485,8 @@
     <MESSAGE value="fix(service-system):修复了根据条件筛选的bug，但还没完全修复。" />
     <MESSAGE value="fix(service-system):修改细节" />
     <MESSAGE value="refactor(service-system):修改pom文件准备打包" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(service-system):修改pom文件准备打包" />
+    <MESSAGE value="refactor(service-system):修改yml文件准备打包" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(service-system):修改yml文件准备打包" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

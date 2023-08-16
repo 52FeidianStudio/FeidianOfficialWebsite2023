@@ -88,7 +88,7 @@ public class RegisterServiceImpl implements RegisterService {
         String key = SecurityUtils.getLoginUser().getUsername();
         redisCache.setCacheObject(key, submitImageResponseResult.getData());
 
-        return ResponseResult.successResult(200, "上传图片文件成功");
+        return ResponseResult.successResult(200,"图片上传成功");
     }
 
     @Override
