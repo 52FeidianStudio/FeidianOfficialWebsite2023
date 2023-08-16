@@ -34,7 +34,7 @@ public class ForgetPasswordServiceImpl implements ForgetPasswordService {
     @Override
     public ResponseResult forgetPassword(ForgetPasswordDTO forgetPasswordDTO) {
 
-        String address = forgetPasswordDTO.getAddress();
+        String address = forgetPasswordDTO.getEmail();
         String username = forgetPasswordDTO.getUsername();
         //验证用户名和邮箱是否匹配
         if(StringUtils.isBlank(username)){

@@ -25,10 +25,10 @@ public class VerifyPasswordServiceImpl implements VerifyPasswordService {
         if(StringUtils.isBlank(verifyPasswordDTO.getCode())){
             throw new SystemException(HttpCodeEnum.CODE_NULL);
         }
-        if(verifyPasswordDTO.getCode().equals(redisCache.getCacheObject("forget:" + verifyPasswordDTO.getAddress()))){
+        if(verifyPasswordDTO.getCode().equals(redisCache.getCacheObject("forget:" + verifyPasswordDTO.getEmail()))){
             //对密码加密
             verifyPasswordDTO.setPassword(passwordEncoder.encode(verifyPasswordDTO.getPassword()));
-           verifyPasswordMapper.updatePassword(verifyPasswordDTO.getPassword(),verifyPasswordDTO.getAddress());
+           verifyPasswordMapper.updatePassword(verifyPasswordDTO.getPassword(),verifyPasswordDTO.getEmail());
            return ResponseResult.successResult();
         }else{
             throw new SystemException(HttpCodeEnum.CODE_ERR);

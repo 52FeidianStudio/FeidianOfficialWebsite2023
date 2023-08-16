@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99d09a5c-7290-4ee5-b268-939b0ad44342" name="Changes" comment="">
+    <list default="true" id="99d09a5c-7290-4ee5-b268-939b0ad44342" name="Changes" comment="fix():测接口">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/ForgetPasswordDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/ForgetPasswordDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/VerifyPasswordDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/VerifyPasswordDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/ForgetPasswordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/ForgetPasswordServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/VerifyPasswordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/VerifyPasswordServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/SubjectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/SubjectMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/test/java/com/feidian/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/test/java/com/feidian/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="MIXED" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/model/src/main/java/com/feidian/dto/AddGraduateDTO.java" root0="FORCE_HIGHLIGHTING" />
@@ -87,7 +86,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Develop/jerbrains/idea/idea projects/FeidianOfficialWebsite2023/service-system/src/main/resources/mapper",
+    "last_opened_file_path": "D:/develop/IdeaProjects/FeidianOfficialWebsite2023",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -197,6 +196,7 @@
       <workItem from="1691654996684" duration="1073000" />
       <workItem from="1692150409429" duration="1135000" />
       <workItem from="1692154651740" duration="7885000" />
+      <workItem from="1692179495504" duration="612000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -418,7 +418,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature-registrationSystem" />
+                        <option value="feature-model" />
                       </list>
                     </value>
                   </entry>

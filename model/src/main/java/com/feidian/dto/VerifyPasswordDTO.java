@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VerifyPasswordDTO {
-    private String address;
+    private String email;
     private String code;
     private String password;
 }

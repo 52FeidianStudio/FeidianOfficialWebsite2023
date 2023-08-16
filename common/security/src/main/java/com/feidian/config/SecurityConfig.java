@@ -50,6 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/faculty/getAllName").anonymous()
                 .antMatchers("/subject/getSubjectNameByFaculty").anonymous()
                 .antMatchers("/department/getByName").anonymous()
+                .antMatchers("/forgetPassword").anonymous()
+                .antMatchers("/verifyProcess").anonymous()
 //                .antMatchers("/logout").authenticated()
 //                .antMatchers("/addComment").authenticated()
 //                .antMatchers("/user/userInfo").authenticated()
