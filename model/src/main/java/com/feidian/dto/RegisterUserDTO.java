@@ -23,6 +23,9 @@ public class RegisterUserDTO {
     @NotBlank(message = "昵称不能为空")
     private String nickname; // 昵称
 
+    @NotBlank(message = "年级不能为空")
+    private String gradeName; // 昵称
+
     @NotBlank(message = "生日不能为空")
     private String birthday; // 生日（格式：YYYY-MM-DD）
 
@@ -38,11 +41,9 @@ public class RegisterUserDTO {
     @NotBlank(message = "专业不能为空")
     private String subject; // 专业
 
-    @NotBlank(message = "学院ID不能为空")
-    private long facultyId; // 学院ID
 
-    @NotBlank(message = "想加入的部门ID不能为空")
-    private long departmentId; // 想加入的部门ID
+    @NotBlank(message = "想加入的部门不能为空")
+    private String department; // 想加入的部门
 
     @NotBlank(message = "民族不能为空")
     private String nationality; // 民族
@@ -55,5 +56,8 @@ public class RegisterUserDTO {
 
     @NotBlank(message = "QQ号不能为空")
     private String qq; // QQ号
+
+    @NotBlank(message = "验证码不能为空")
+    private String code; // 验证码
 
 }
