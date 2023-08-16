@@ -13,6 +13,7 @@ import com.feidian.util.serviceUtil.VerifyCode;
 import io.micrometer.core.instrument.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -27,6 +28,8 @@ public class ForgetPasswordServiceImpl implements ForgetPasswordService {
     private ForgetPasswordMapper forgetPasswordMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public ResponseResult forgetPassword(ForgetPasswordDTO forgetPasswordDTO) {
@@ -48,6 +51,7 @@ public class ForgetPasswordServiceImpl implements ForgetPasswordService {
 
         redisCache.setCacheObject("forget:" + address,code);
         EmailUtil.sendEmail(address,code);
+        System.out.println(passwordEncoder.encode("@Soososoo123"));
         return ResponseResult.successResult();
     }
 

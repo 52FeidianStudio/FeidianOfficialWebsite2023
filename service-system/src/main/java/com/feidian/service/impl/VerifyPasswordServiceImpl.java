@@ -6,8 +6,10 @@ import com.feidian.mapper.VerifyPasswordMapper;
 import com.feidian.responseResult.ResponseResult;
 import com.feidian.service.VerifyPasswordService;
 import com.feidian.util.RedisCache;
+import com.feidian.util.serviceUtil.Base64Util;
 import io.micrometer.core.instrument.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,12 +18,16 @@ public class VerifyPasswordServiceImpl implements VerifyPasswordService {
     private RedisCache redisCache;
     @Autowired
     private VerifyPasswordMapper verifyPasswordMapper;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     @Override
     public ResponseResult verifyProcess(VerifyPasswordDTO verifyPasswordDTO) {
         if(StringUtils.isBlank(verifyPasswordDTO.getCode())){
             throw new SystemException(HttpCodeEnum.CODE_NULL);
         }
         if(verifyPasswordDTO.getCode().equals(redisCache.getCacheObject("forget:" + verifyPasswordDTO.getAddress()))){
+            //对密码加密
+            verifyPasswordDTO.setPassword(passwordEncoder.encode(verifyPasswordDTO.getPassword()));
            verifyPasswordMapper.updatePassword(verifyPasswordDTO.getPassword(),verifyPasswordDTO.getAddress());
            return ResponseResult.successResult();
         }else{

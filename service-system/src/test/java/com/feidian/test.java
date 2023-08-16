@@ -3,14 +3,16 @@ package com.feidian;
 import com.feidian.util.serviceUtil.EmailUtil;
 import com.feidian.util.serviceUtil.VerifyCode;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 public class test {
-
+@Autowired
+private PasswordEncoder passwordEncoder;
     @Test
     public void test(){
-        String str = "$2a$10$OgBm1.98uj.9TznI6p/jsuXOjXjmgfirTRukyxMNHPguPYQ0.EjSC(String)";
-        System.out.println(str.length());
+        System.out.println(passwordEncoder.encode("@Soososoo123"));
     }
 
     @Test

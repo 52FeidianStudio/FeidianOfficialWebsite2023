@@ -238,8 +238,8 @@ public class UserServiceImpl implements UserService {
         List<Long> ids = subjectMapper.selectIdAndFacultyIdBySubjectName(subject);
 
         // 设置学院ID和专业ID的，从上面查到的集合得出来
-        user.setFacultyId(ids.get(2));
-        user.setSubjectId(ids.get(1));
+        user.setFacultyId(ids.get(1));
+        user.setSubjectId(ids.get(0));
 
         // 根据部门名称设置部门ID
         String department = registerUserDTO.getDepartment();
