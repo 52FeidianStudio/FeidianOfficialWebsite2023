@@ -36,20 +36,6 @@
         WHERE id = #{userId}
     </select>
 
-    <!-- 根据年级查询出一个UserList -->
-    <select id="selectUserListByGradeName" parameterType="string" resultMap="UserBaseResultMap">
-        SELECT *
-        FROM user
-        WHERE grade_name = #{gradeName}
-    </select>
-
-    <!-- 根据专业查询出一个UserList -->
-    <select id="selectUserListBySubjectId" parameterType="long" resultMap="UserBaseResultMap">
-        SELECT *
-        FROM user
-        WHERE subject_id = #{subjectId}
-    </select>
-
     <!-- 根据年级或者专业查询出 UserList -->
     <select id="selectUserListByGradeNameOrSubjectId" resultMap="UserBaseResultMap">
         SELECT *
@@ -142,7 +128,6 @@
     select id from user
     where phone = #{phone} and is_deleted = 0
     </select>
-
 
 </mapper>
 

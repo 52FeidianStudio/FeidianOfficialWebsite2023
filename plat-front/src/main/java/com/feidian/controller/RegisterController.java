@@ -1,16 +1,15 @@
 package com.feidian.controller;
 
-import com.feidian.dto.QueryRegisterDTO;
-import com.feidian.dto.RegisterDTO;
+import com.feidian.dto.RegisterOperDTO;
+import com.feidian.dto.RegisterFormDTO;
 import com.feidian.responseResult.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.feidian.service.RegisterService;
 import org.springframework.web.multipart.MultipartFile;
 
-@Controller
+@RestController
 @RequestMapping("/register")
 public class RegisterController {
 
@@ -27,15 +26,15 @@ public class RegisterController {
     //上传报名表
     @PreAuthorize("hasAuthority('SUBMIT_REGISTER_FORM')")
     @PostMapping("/submitRegister")
-    public ResponseResult submitRegister(@RequestBody RegisterDTO registerDTO) {
-        return registerService.submitRegister(registerDTO);
+    public ResponseResult submitRegister(@RequestBody RegisterFormDTO registerFormDTO) {
+        return registerService.submitRegister(registerFormDTO);
     }
 
     //      修改报名表
     @PreAuthorize("hasAuthority('EDIT_REGISTER_CONTENT')")
     @PostMapping("/editRegister")
-    public ResponseResult editRegister(@RequestBody RegisterDTO registerDTO) {
-        return registerService.editRegister(registerDTO);
+    public ResponseResult editRegister(@RequestBody RegisterFormDTO registerFormDTO) {
+        return registerService.editRegister(registerFormDTO);
     }
 
 
@@ -50,23 +49,23 @@ public class RegisterController {
     //      设置报名表状态（是否通过）
     @PreAuthorize("hasAuthority('EXAMINE_REGISTER')")
     @PostMapping("/isApproved")
-    public ResponseResult isApproved(@RequestBody Long registerId, @RequestBody String isApprovedFlag) {
-        return registerService.isApproved(registerId, isApprovedFlag);
+    public ResponseResult isApproved(@RequestBody RegisterOperDTO registerOperDTO) {
+        return registerService.isApproved(registerOperDTO.getRegisterId(), registerOperDTO.getIsApprovedFlag());
     }
 
 
     // 查看
     @PreAuthorize("hasAuthority('VIEW_REGISTER_BY_FILTER')")
     @PostMapping("/viewRegister")
-    public ResponseResult viewRegister(@RequestBody Long registerId) {
-        return registerService.viewRegister(registerId);
+    public ResponseResult viewRegister(@RequestBody RegisterOperDTO registerOperDTO) {
+        return registerService.viewRegister(registerOperDTO.getRegisterId());
     }
 
     //      按年级、专业、申请组别、报名表状态筛选
     @PreAuthorize("hasAuthority('VIEW_REGISTER_BY_FILTER')")
     @PostMapping("/selectByQueryRegister")
-    public ResponseResult selectByQueryRegister(@RequestBody QueryRegisterDTO queryRegisterDTO) {
-        return registerService.selectByQueryRegister(queryRegisterDTO);
+    public ResponseResult selectByQueryRegister(@RequestBody RegisterOperDTO registerOperDTO) {
+        return registerService.selectByQueryRegister(registerOperDTO);
     }
 
 }

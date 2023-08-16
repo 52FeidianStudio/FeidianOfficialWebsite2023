@@ -1,8 +1,8 @@
 package com.feidian.service.impl;
 
 
-import com.feidian.dto.QueryRegisterDTO;
-import com.feidian.dto.RegisterDTO;
+import com.feidian.dto.RegisterOperDTO;
+import com.feidian.dto.RegisterFormDTO;
 import com.feidian.mapper.RegisterMapper;
 import com.feidian.mapper.UserMapper;
 import com.feidian.mapper.UserRoleMapper;
@@ -50,7 +50,7 @@ public class RegisterServiceImpl implements RegisterService {
 
 
     @Override
-    public ResponseResult submitRegister(RegisterDTO registerDTO) {
+    public ResponseResult submitRegister(RegisterFormDTO registerFormDTO) {
         Long userId = SecurityUtils.getUserId();
 
         Register tempRegister = registerMapper.selectRegisterByUserId(userId);
@@ -60,7 +60,7 @@ public class RegisterServiceImpl implements RegisterService {
         }
 
 
-        ResponseResult validateResponseResult = validate(registerDTO);
+        ResponseResult validateResponseResult = validate(registerFormDTO);
         if (validateResponseResult.getCode() == 400) {
             return validateResponseResult;
         }
@@ -69,9 +69,9 @@ public class RegisterServiceImpl implements RegisterService {
         String imageUrl = redisCache.getCacheObject(key);
         Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
         //默认刚开始状态为 0 已提交
-        Register register = new Register(0L, SecurityUtils.getUserId(), registerDTO.getResume(),
-                registerDTO.getDesireDepartmentId(), registerDTO.getDirection(), registerDTO.getArrangement(),
-                "0", registerDTO.getReason(), imageUrl, 0L, currentTimestamp,
+        Register register = new Register(0L, SecurityUtils.getUserId(), registerFormDTO.getResume(),
+                registerFormDTO.getDesireDepartmentId(), registerFormDTO.getDirection(), registerFormDTO.getArrangement(),
+                "0", registerFormDTO.getReason(), imageUrl, 0L, currentTimestamp,
                 SecurityUtils.getLoginUser().getUsername(), currentTimestamp, SecurityUtils.getLoginUser().getUsername());
 
         registerMapper.insertRegister(register);
@@ -92,9 +92,9 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     @Override
-    public ResponseResult editRegister(RegisterDTO registerDTO) {
+    public ResponseResult editRegister(RegisterFormDTO registerFormDTO) {
         //根据registerId查询当前报名用户
-        User registerUser = userMapper.selectUserByRegisterId(registerDTO.getRegisterId());
+        User registerUser = userMapper.selectUserByRegisterId(registerFormDTO.getRegisterId());
         //比对编辑用户是否是报名表的提交者
         User tempUser = SecurityUtils.getLoginUser().getUser();
         if (registerUser.getId() != tempUser.getId()) {
@@ -114,11 +114,11 @@ public class RegisterServiceImpl implements RegisterService {
         }
 
         //更新报名表信息
-        tempRegister.setResume(registerDTO.getResume());
-        tempRegister.setDesireDepartmentId(registerDTO.getDesireDepartmentId());
-        tempRegister.setDirection(registerDTO.getDirection());
-        tempRegister.setArrangement(registerDTO.getArrangement());
-        tempRegister.setReason(registerDTO.getReason());
+        tempRegister.setResume(registerFormDTO.getResume());
+        tempRegister.setDesireDepartmentId(registerFormDTO.getDesireDepartmentId());
+        tempRegister.setDirection(registerFormDTO.getDirection());
+        tempRegister.setArrangement(registerFormDTO.getArrangement());
+        tempRegister.setReason(registerFormDTO.getReason());
         tempRegister.setUpdateTime(new Timestamp(System.currentTimeMillis()));
         tempRegister.setUpdateBy(tempUser.getUsername());
         //TODO 检验修改是否合法
@@ -213,17 +213,31 @@ public class RegisterServiceImpl implements RegisterService {
 
     //按年级、专业、申请组别、报名表状态筛选
     @Override
-    public ResponseResult selectByQueryRegister(QueryRegisterDTO queryRegisterDTO) {
+    public ResponseResult selectByQueryRegister(RegisterOperDTO registerOperDTO) {
         List<SectionalRegisterVO> sectionalRegisterVOList = new ArrayList<>();
 
-        if (queryRegisterDTO.getGradeName() != null || queryRegisterDTO.getSubjectId() != null) {
-            // 根据年级或专业查询用户
-            List<User> userList = userMapper.selectUserListByGradeNameOrSubjectId(queryRegisterDTO.getGradeName(), queryRegisterDTO.getSubjectId());
-            sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByUser(userList);
-        } else if (queryRegisterDTO.getDesireDepartmentId() != null || queryRegisterDTO.getStatus() != null) {
-            // 根据申请组别查询报名表
-            List<Register> registerList = registerMapper.selectByDesireDepartmentIdOrStatus(queryRegisterDTO.getDesireDepartmentId(), queryRegisterDTO.getStatus());
-            sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerList);
+        try {
+            if (registerOperDTO.getGradeName() != null || registerOperDTO.getSubjectId() != null) {
+                // 根据年级或专业查询用户
+                List<User> userList = userMapper.selectUserListByGradeNameOrSubjectId(registerOperDTO.getGradeName(), registerOperDTO.getSubjectId());
+                List<Long> userIdList = new ArrayList<>();
+                for (User tempUser : userList) {
+                    userIdList.add(tempUser.getId());
+                }
+                if (userIdList.isEmpty()) return ResponseResult.errorResult(400, "数据库中没有相关报名表");
+                sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByUser(userIdList);
+            } else if (registerOperDTO.getDesireDepartmentId() != null || registerOperDTO.getStatus() != null) {
+                // 根据申请组别查询报名表
+                List<Register> registerList = registerMapper.selectByDesireDepartmentIdOrStatus(registerOperDTO.getDesireDepartmentId(), registerOperDTO.getStatus());
+                List<Long> registerIdList = new ArrayList<>();
+                for (Register tempRegister : registerList) {
+                    registerIdList.add(tempRegister.getId());
+                }
+                if (registerIdList.isEmpty()) return ResponseResult.errorResult(400, "数据库中没有相关报名表");
+                sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerIdList);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("查询失败原因:" + e.getMessage());
         }
 
         return ResponseResult.successResult(sectionalRegisterVOList);
@@ -235,36 +249,36 @@ public class RegisterServiceImpl implements RegisterService {
         return auditor;
     }
 
-    private ResponseResult validate(RegisterDTO registerDTO) {
-        if (registerDTO == null) {
+    private ResponseResult validate(RegisterFormDTO registerFormDTO) {
+        if (registerFormDTO == null) {
             return ResponseResult.errorResult(400, "注册信息不能为空");
         }
 
-        if (StringUtils.isBlank(registerDTO.getResume()) ||
-                registerDTO.getDesireDepartmentId() == null ||
-                StringUtils.isBlank(registerDTO.getDirection()) ||
-                StringUtils.isBlank(registerDTO.getArrangement()) ||
-                StringUtils.isBlank(registerDTO.getReason())) {
+        if (StringUtils.isBlank(registerFormDTO.getResume()) ||
+                registerFormDTO.getDesireDepartmentId() == null ||
+                StringUtils.isBlank(registerFormDTO.getDirection()) ||
+                StringUtils.isBlank(registerFormDTO.getArrangement()) ||
+                StringUtils.isBlank(registerFormDTO.getReason())) {
             return ResponseResult.errorResult(400, "有必填信息未填");
         }
 
-        if (registerDTO.getDesireDepartmentId() != null && String.valueOf(registerDTO.getDesireDepartmentId()).length() > DESIRE_DEPARTMENT_ID_MAX_LENGTH) {
+        if (registerFormDTO.getDesireDepartmentId() != null && String.valueOf(registerFormDTO.getDesireDepartmentId()).length() > DESIRE_DEPARTMENT_ID_MAX_LENGTH) {
             return ResponseResult.errorResult(400, "想要申请的组别超出长度限制");
         }
 
-        if (registerDTO.getResume() != null && registerDTO.getResume().length() > RESUME_MAX_LENGTH) {
+        if (registerFormDTO.getResume() != null && registerFormDTO.getResume().length() > RESUME_MAX_LENGTH) {
             return ResponseResult.errorResult(400, "个人简介超出长度限制");
         }
 
-        if (registerDTO.getDirection() != null && registerDTO.getDirection().length() > DIRECTION_MAX_LENGTH) {
+        if (registerFormDTO.getDirection() != null && registerFormDTO.getDirection().length() > DIRECTION_MAX_LENGTH) {
             return ResponseResult.errorResult(400, "发展方向超出长度限制");
         }
 
-        if (registerDTO.getArrangement() != null && registerDTO.getArrangement().length() > ARRANGEMENT_MAX_LENGTH) {
+        if (registerFormDTO.getArrangement() != null && registerFormDTO.getArrangement().length() > ARRANGEMENT_MAX_LENGTH) {
             return ResponseResult.errorResult(400, "大学四年的整体规划超出长度限制");
         }
 
-        if (registerDTO.getReason() != null && registerDTO.getReason().length() > REASON_MAX_LENGTH) {
+        if (registerFormDTO.getReason() != null && registerFormDTO.getReason().length() > REASON_MAX_LENGTH) {
             return ResponseResult.errorResult(400, "对你所选方向的了解以及为什么想选择此方向超出长度限制");
         }
 

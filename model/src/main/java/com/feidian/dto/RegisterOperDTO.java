@@ -9,10 +9,15 @@ import org.springframework.stereotype.Component;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class QueryRegisterDTO {
+public class RegisterOperDTO {
 
+    //查询操作
     private String gradeName;
     private Long subjectId;
     private Long desireDepartmentId;
     private String status;
+
+    //审核操作
+    private Long registerId;
+    private String isApprovedFlag;
 }

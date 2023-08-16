@@ -19,6 +19,7 @@ public interface UserMapper {
     //根据年级或者专业查询出UserList
     List<User> selectUserListByGradeNameOrSubjectId(@Param("gradeName") String gradeName,@Param("subjectId") Long subjectId);
 
+
     //根据registerId查询User
     User selectUserByRegisterId(Long registerId);
 

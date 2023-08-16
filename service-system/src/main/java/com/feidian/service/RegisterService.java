@@ -1,16 +1,16 @@
 package com.feidian.service;
 
-import com.feidian.dto.QueryRegisterDTO;
-import com.feidian.dto.RegisterDTO;
+import com.feidian.dto.RegisterOperDTO;
+import com.feidian.dto.RegisterFormDTO;
 import com.feidian.responseResult.ResponseResult;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface RegisterService {
-    ResponseResult submitRegister(RegisterDTO registerDTO);
+    ResponseResult submitRegister(RegisterFormDTO registerFormDTO);
 
     ResponseResult submitImage(MultipartFile imageFile);
 
-    ResponseResult editRegister(RegisterDTO registerDTO);
+    ResponseResult editRegister(RegisterFormDTO registerFormDTO);
 
     ResponseResult examineRegister(Long registerId);
 
@@ -18,5 +18,5 @@ public interface RegisterService {
 
     ResponseResult viewRegister(Long registerId);
 
-    ResponseResult selectByQueryRegister(QueryRegisterDTO queryRegisterDTO);
+    ResponseResult selectByQueryRegister(RegisterOperDTO registerOperDTO);
 }

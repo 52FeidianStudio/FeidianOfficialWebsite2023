@@ -114,21 +114,27 @@
     </resultMap>
 
 
-
-    <!-- 多表联查 根据userId查询User和Register并封装成一个SectionalRegisterVO -->
-    <select id="selectSectionalRegisterVOByUser" parameterType="long" resultMap="SectionalRegisterVOMap">
+    <!-- 多表联查 根据userId列表查询User和Register并封装成一个SectionalRegisterVO -->
+    <select id="selectSectionalRegisterVOByUser" parameterType="java.util.List" resultMap="SectionalRegisterVOMap">
         SELECT u.*, r.*
         FROM user u
-                 JOIN register r ON u.id = r.user_id
-        WHERE u.id = #{userId}
+        JOIN register r ON u.id = r.user_id
+        WHERE u.id IN
+        <foreach item="userId" collection="list" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
     </select>
 
-    <!-- 多表联查 根据registerId查询User和Register并封装成一个SectionalRegisterVO -->
-    <select id="selectSectionalRegisterVOByRegister" parameterType="long" resultMap="SectionalRegisterVOMap">
+    <!-- 多表联查 根据registerId列表查询User和Register并封装成一个SectionalRegisterVO -->
+    <select id="selectSectionalRegisterVOByRegister" parameterType="java.util.List" resultMap="SectionalRegisterVOMap">
         SELECT u.*, r.*
         FROM user u
-                 JOIN register r ON u.id = r.user_id
-        WHERE r.id = #{registerId}
+        JOIN register r ON u.id = r.user_id
+        WHERE r.id IN
+        <!-- 使用foreach遍历registerId列表，并将其作为参数传入SQL的IN语句中 -->
+        <foreach item="registerId" collection="list" open="(" separator="," close=")">
+            #{registerId}
+        </foreach>
     </select>
 
 
