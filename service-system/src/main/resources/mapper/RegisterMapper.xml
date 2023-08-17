@@ -97,19 +97,19 @@
         <!-- 使用 association 来映射 Register 对象 -->
         <association property="register" javaType="com.feidian.po.Register">
             <id column="r_id" property="id"/>
-            <result column="r_user_id" property="userId"/>
-            <result column="r_resume" property="resume"/>
-            <result column="r_desire_department_id" property="desireDepartmentId"/>
-            <result column="r_direction" property="direction"/>
-            <result column="r_arrangement" property="arrangement"/>
-            <result column="r_status" property="status"/>
-            <result column="r_reason" property="reason"/>
-            <result column="r_img_url" property="imgUrl"/>
-            <result column="r_is_deleted" property="isDeleted"/>
-            <result column="r_create_time" property="createTime"/>
-            <result column="r_create_by" property="createBy"/>
-            <result column="r_update_time" property="updateTime"/>
-            <result column="r_update_by" property="updateBy"/>
+            <result column="user_id" property="userId"/>
+            <result column="resume" property="resume"/>
+            <result column="desire_department_id" property="desireDepartmentId"/>
+            <result column="direction" property="direction"/>
+            <result column="arrangement" property="arrangement"/>
+            <result column="status" property="status"/>
+            <result column="reason" property="reason"/>
+            <result column="img_url" property="imgUrl"/>
+            <result column="is_deleted" property="isDeleted"/>
+            <result column="create_time" property="createTime"/>
+            <result column="create_by" property="createBy"/>
+            <result column="update_time" property="updateTime"/>
+            <result column="update_by" property="updateBy"/>
         </association>
     </resultMap>
 
@@ -137,6 +137,16 @@
         </foreach>
     </select>
 
+    <select id="selectDesireDepartmentId" resultType="java.lang.Long">
+        select desire_department_id
+        from register
+    </select>
+
+    <select id="selectStatus" resultType="java.lang.String">
+        select status
+        from register
+    </select>
+
 
     <resultMap id="SectionalRegisterVOMap" type="com.feidian.vo.SectionalRegisterVO">
         <result property="userId" column="user_id"/>
@@ -151,18 +161,19 @@
     </resultMap>
 
 
-
     <!-- 添加报名表 -->
     <insert id="insertRegister" parameterType="com.feidian.po.Register">
-        INSERT INTO register (user_id, resume, desire_department_id, direction, arrangement, status, reason, img_url, is_deleted, create_time, create_by, update_time, update_by)
-        VALUES (#{userId}, #{resume}, #{desireDepartmentId}, #{direction}, #{arrangement}, #{status}, #{reason}, #{imgUrl}, #{isDeleted}, #{createTime}, #{createBy}, #{updateTime}, #{updateBy})
+        INSERT INTO register (user_id, resume, desire_department_id, direction, arrangement, status, reason, img_url,
+                              is_deleted, create_time, create_by, update_time, update_by)
+        VALUES (#{userId}, #{resume}, #{desireDepartmentId}, #{direction}, #{arrangement}, #{status}, #{reason},
+                #{imgUrl}, #{isDeleted}, #{createTime}, #{createBy}, #{updateTime}, #{updateBy})
     </insert>
 
     <!-- 更新报名表状态 -->
     <update id="updateStatus" parameterType="com.feidian.po.Register">
         UPDATE register
-        SET status = #{status},
-            update_by = #{updateBy},
+        SET status      = #{status},
+            update_by   = #{updateBy},
             update_time = #{updateTime}
         WHERE id = #{id}
     </update>

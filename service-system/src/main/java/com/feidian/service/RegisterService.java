@@ -18,5 +18,8 @@ public interface RegisterService {
 
     ResponseResult viewRegister(Long registerId);
 
+    /*ResponseResult selectQueryCategory(Integer queryCategoryId);*/
+
     ResponseResult selectByQueryRegister(RegisterOperDTO registerOperDTO);
+
 }

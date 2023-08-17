@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 public class RegisterOperDTO {
 
     //查询操作
+    private Integer queryCategoryId;
+
     private String gradeName;
     private Long subjectId;
     private Long desireDepartmentId;

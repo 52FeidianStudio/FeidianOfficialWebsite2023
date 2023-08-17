@@ -45,4 +45,7 @@ public interface RegisterMapper {
     List<SectionalRegisterVO> selectSectionalRegisterVOByRegister(List<Long> registerIdList);
 
 
+    List<Long> selectDesireDepartmentId();
+
+    List<String> selectStatus();
 }

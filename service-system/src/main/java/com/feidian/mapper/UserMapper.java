@@ -33,5 +33,7 @@ public interface UserMapper {
 
     long selectUserIdByPhone(String phone);
 
+    List<String> selectGradeName();
 
+    List<Long> selectSubjectId();
 }

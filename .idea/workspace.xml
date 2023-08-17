@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99d09a5c-7290-4ee5-b268-939b0ad44342" name="Changes" comment="fix():测接口">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix():测接口">
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/config/CorsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/ForgetPasswordDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/ForgetPasswordDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/VerifyPasswordDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/VerifyPasswordDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/ForgetPasswordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/ForgetPasswordServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/VerifyPasswordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/VerifyPasswordServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterOperDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterOperDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +44,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/model/src/main/java/com/feidian/dto/AddGraduateDTO.java" root0="FORCE_HIGHLIGHTING" />
@@ -59,8 +64,16 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
+        <option name="localRepository" value="D:\openRepository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../../Maven/Maven/apache-maven-3.9.1" />
         <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="D:\Develop\Maven\Maven\apache-maven-3.9.1\conf\settings.xml" />
       </MavenGeneralSettings>
+    </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="jdk-1.8" />
+      </list>
     </option>
   </component>
   <component name="MavenRunner">
@@ -75,34 +88,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/develop/IdeaProjects/FeidianOfficialWebsite2023",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "d0f396f1b9f6c3b80886b816e17d56ac"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Develop/jerbrains/idea/idea projects/FeidianOfficialWebsite2023/service-system/src/main/resources/mapper&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;4b5e5f5e4604aaab2ccf4a581bfe326a&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -110,6 +123,9 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.feidian.vo" />
       <recent name="com.feidian.dto" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Develop\jerbrains\idea\idea projects\FeidianOfficialWebsite2023\service-system\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.feiidan.vo" />
@@ -165,8 +181,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
-        <item itemvalue="JUnit.test.test" />
         <item itemvalue="JUnit.test.test02" />
+        <item itemvalue="JUnit.test.test" />
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
         <item itemvalue="JUnit.test.test02" />
       </list>
@@ -175,7 +191,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="99d09a5c-7290-4ee5-b268-939b0ad44342" name="Changes" comment="" />
+      <changelist id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="" />
       <created>1689818880064</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -195,8 +211,9 @@
       <workItem from="1690624806610" duration="100000" />
       <workItem from="1691654996684" duration="1073000" />
       <workItem from="1692150409429" duration="1135000" />
-      <workItem from="1692154651740" duration="7885000" />
-      <workItem from="1692179495504" duration="612000" />
+      <workItem from="1692154785467" duration="2121000" />
+      <workItem from="1692169554395" duration="5052000" />
+      <workItem from="1692254431553" duration="419000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -401,7 +418,28 @@
       <option name="project" value="LOCAL" />
       <updated>1690269587391</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fix(service-system):修改细节">
+      <created>1692153838755</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1692153838755</updated>
+    </task>
+    <task id="LOCAL-00031" summary="refactor(service-system):修改pom文件准备打包">
+      <created>1692156329524</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1692156329524</updated>
+    </task>
+    <task id="LOCAL-00032" summary="refactor(service-system):修改yml文件准备打包">
+      <created>1692170921733</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1692170921733</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,7 +456,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature-model" />
+                        <option value="feature-registrationSystem" />
                       </list>
                     </value>
                   </entry>
@@ -432,9 +470,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(model):给po层添加了一一与数据库对应的javaBean类" />
-    <MESSAGE value="fix(security):将UserLogin替换成了LoginUser，让security模块依赖了model模块。" />
-    <MESSAGE value="feat(service-system):新增了上传报名表的功能" />
     <MESSAGE value="feat(service-system):删去了冗余的RegisterController" />
     <MESSAGE value="feat(common-util):再次修改了上传文件的返回值类型，方便后续操作。" />
     <MESSAGE value="feat(service-system):新增上传大头照、上传报名表、正式查看的功能（查看后会修改报名表状态）" />
@@ -457,7 +492,10 @@
     <MESSAGE value="fix(service-system):修改了一些细节" />
     <MESSAGE value="chore(service-system):转移了registerController的位置" />
     <MESSAGE value="fix(service-system):修复了根据条件筛选的bug，但还没完全修复。" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修复了根据条件筛选的bug，但还没完全修复。" />
+    <MESSAGE value="fix(service-system):修改细节" />
+    <MESSAGE value="refactor(service-system):修改pom文件准备打包" />
+    <MESSAGE value="refactor(service-system):修改yml文件准备打包" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(service-system):修改yml文件准备打包" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -473,32 +511,19 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
-          <line>216</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
           <url>jar://$PROJECT_DIR$/../../../../../openRepository/org/springframework/security/spring-security-core/5.5.5/spring-security-core-5.5.5.jar!/org/springframework/security/access/expression/SecurityExpressionRoot.class</url>
           <line>41</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
-          <line>53</line>
+          <line>55</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
-          <line>205</line>
+          <line>207</line>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java</url>
-          <line>38</line>
-          <properties class="com.feidian.mapper.RegisterMapper">
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

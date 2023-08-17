@@ -24,7 +24,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Service("registerService")
@@ -209,6 +211,47 @@ public class RegisterServiceImpl implements RegisterService {
         }
         return ResponseResult.successResult(completeRegisterVO);
     }
+
+    /*//将已经提交的人员的年级、专业、申请组别、报名表状态查出来，以供前端筛选
+    @Override
+    public ResponseResult selectQueryCategory(Integer queryCategoryId) {
+        switch (queryCategoryId){
+            case 0:{
+                Set<String> gradeNameSet = new HashSet<>();
+                for (String gradeName:userMapper.selectGradeName()) {
+                    gradeNameSet.add(gradeName);
+                }
+                return ResponseResult.successResult(gradeNameSet);
+            }
+            case 1:{
+                //TODO 将专业与Id对应之后发给前端
+                Set<Long> subjectIdSet = new HashSet<>();
+                for (Long subjectId:userMapper.selectSubjectId()) {
+                    subjectIdSet.add(subjectId);
+                }
+                return ResponseResult.successResult(subjectIdSet);
+            }
+            case 2:{
+                //TODO 将申请组别与Id对应之后发给前端
+                Set<Long> desireDepartmentIdSet = new HashSet<>();
+                for (Long desireDepartmentId:registerMapper.selectDesireDepartmentId()) {
+                    desireDepartmentIdSet.add(desireDepartmentId);
+                }
+                return ResponseResult.successResult(desireDepartmentIdSet);
+            }
+            case 3:{
+                //TODO 将状态与Id对应之后发给前端
+                Set<String> statusSet = new HashSet<>();
+                for (String status:registerMapper.selectStatus()) {
+                    statusSet.add(status);
+                }
+                return ResponseResult.successResult(statusSet);
+            }
+            default:{
+                return ResponseResult.errorResult(400,"你不要乱传些东西啊");
+            }
+        }
+    }*/
 
 
     //按年级、专业、申请组别、报名表状态筛选
