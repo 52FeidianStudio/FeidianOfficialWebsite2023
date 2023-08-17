@@ -14,7 +14,7 @@ public class CorsConfig implements WebMvcConfigurer {
                 /*//设置允许自定义请求头跨域
                 .exposedHeaders("*")*/
                 // 设置允许跨域请求的域名
-                .allowedOrigins("http://localhost:8080")
+//                .allowedOrigins("*")
                 .allowedOriginPatterns("*")
                 // 是否允许cookie
                 .allowCredentials(true)

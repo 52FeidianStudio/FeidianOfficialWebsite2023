@@ -156,6 +156,7 @@ public class RegisterServiceImpl implements RegisterService {
         }
     }
 
+    //TODO 审核后发邮件
     @Override
     public ResponseResult isApproved(Long registerId, String isApprovedFlag) {
         //查询审核人(即查询当前正在审核的User)
@@ -194,7 +195,14 @@ public class RegisterServiceImpl implements RegisterService {
             register.setUpdateTime(new Timestamp(System.currentTimeMillis()));
             registerMapper.updateStatus(register);
 
-            //不用修改UserRole，默认roleId为6 未加入
+            //将user设置为未加入
+            UserRole userRole = new UserRole();
+            userRole.setUserId(register.getUserId());
+            userRole.setRoleId(6L);
+            userRole.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+            userRole.setUpdateBy(auditor.getUsername());
+
+            userRoleMapper.updateUserRole(userRole);
 
             return ResponseResult.successResult(200, "成功修改报名表状态为未通过");
         }

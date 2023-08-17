@@ -71,28 +71,28 @@
         <!-- 使用 association 来映射 User 对象 -->
         <association property="user" javaType="com.feidian.po.User">
             <id property="id" column="u_id"/>
-            <result property="username" column="u_username"/>
-            <result property="password" column="u_password"/>
-            <result property="name" column="u_name"/>
-            <result property="nickname" column="u_nickname"/>
-            <result property="birthday" column="u_birthday"/>
+            <result property="username" column="username"/>
+            <result property="password" column="password"/>
+            <result property="name" column="name"/>
+            <result property="nickname" column="nickname"/>
+            <result property="birthday" column="birthday"/>
             <result property="sex" column="u_sex"/>
-            <result property="studentId" column="u_studentId"/>
-            <result property="gradeName" column="u_gradeName"/>
-            <result property="className" column="u_className"/>
-            <result property="subjectId" column="u_subjectId"/>
-            <result property="facultyId" column="u_facultyId"/>
-            <result property="departmentId" column="u_departmentId"/>
-            <result property="avatarUrl" column="u_avatarUrl"/>
-            <result property="nationality" column="u_nationality"/>
-            <result property="phone" column="u_phone"/>
-            <result property="email" column="u_email"/>
-            <result property="qq" column="u_qq"/>
-            <result property="isDeleted" column="u_isDeleted"/>
-            <result property="createTime" column="u_createTime"/>
-            <result property="createBy" column="u_createBy"/>
-            <result property="updateTime" column="u_updateTime"/>
-            <result property="updateBy" column="u_updateBy"/>
+            <result property="studentId" column="studentId"/>
+            <result property="gradeName" column="gradeName"/>
+            <result property="className" column="className"/>
+            <result property="subjectId" column="subjectId"/>
+            <result property="facultyId" column="facultyId"/>
+            <result property="departmentId" column="departmentId"/>
+            <result property="avatarUrl" column="avatarUrl"/>
+            <result property="nationality" column="nationality"/>
+            <result property="phone" column="phone"/>
+            <result property="email" column="email"/>
+            <result property="qq" column="qq"/>
+            <result property="isDeleted" column="isDeleted"/>
+            <result property="createTime" column="createTime"/>
+            <result property="createBy" column="createBy"/>
+            <result property="updateTime" column="updateTime"/>
+            <result property="updateBy" column="updateBy"/>
         </association>
         <!-- 使用 association 来映射 Register 对象 -->
         <association property="register" javaType="com.feidian.po.Register">
