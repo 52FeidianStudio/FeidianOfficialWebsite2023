@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.feidian.mapper.SubjectMapper">
 
-    <select id="selectIdAndFacultyIdBySubjectName" resultType="java.lang.Long">
+    <select id="selectIdAndFacultyIdBySubjectName" resultType="java.util.List">
         SELECT s.id, s.faculty_id
         FROM feidian.subject s
         WHERE s.subject_name = #{subjectName}
