@@ -3,6 +3,7 @@ package com.feidian.mapper;
 
 import com.feidian.po.User;
 import com.feidian.po.UserRole;
+import com.feidian.vo.QueryCategoryVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -33,7 +34,7 @@ public interface UserMapper {
 
     long selectUserIdByPhone(String phone);
 
-    List<String> selectGradeName();
+    List<QueryCategoryVO> selectGradeName();
 
-    List<Long> selectSubjectId();
+    List<QueryCategoryVO> selectSubjectIdAndSubjectName();
 }

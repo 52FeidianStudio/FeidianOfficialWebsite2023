@@ -48,9 +48,6 @@
             <when test="subjectId != null">
                 subject_id = #{subjectId}
             </when>
-            <otherwise>
-                <!-- 如果gradeName和subjectId都为null，则不拼接任何条件，返回所有数据 -->
-            </otherwise>
         </choose>
     </select>
 
@@ -129,15 +126,26 @@
           and is_deleted = 0
     </select>
 
-    <select id="selectGradeName" resultType="java.lang.String">
+    <select id="selectGradeName" resultMap="QueryCategoryVOMap">
         select grade_name
         from user
     </select>
 
-    <select id="selectSubjectId" resultType="java.lang.Long">
-        select subject_id
-        from user
+    <select id="selectSubjectIdAndSubjectName" resultMap="QueryCategoryVOMap">
+        SELECT DISTINCT u.subject_Id, s.subject_name
+        FROM user u
+                 JOIN subject s ON u.subject_id = s.id;
     </select>
+
+
+    <resultMap id="QueryCategoryVOMap" type="com.feidian.vo.QueryCategoryVO">
+        <result property="gradeName" column="grade_name"/>
+        <result property="subjectId" column="subject_id"/>
+        <result property="subjectName" column="subject_name"/>
+        <result property="desireDepartmentId" column="desire_department_id"/>
+        <result property="departmentName" column="department_name"/>
+        <result property="status" column="status"/>
+    </resultMap>
 
 </mapper>
 

@@ -14,6 +14,7 @@ import com.feidian.util.RedisCache;
 import com.feidian.util.SecurityUtils;
 import com.feidian.util.serviceUtil.FileUploadUtil;
 import com.feidian.vo.CompleteRegisterVO;
+import com.feidian.vo.QueryCategoryVO;
 import com.feidian.vo.SectionalRegisterVO;
 
 import io.micrometer.core.instrument.util.StringUtils;
@@ -212,46 +213,47 @@ public class RegisterServiceImpl implements RegisterService {
         return ResponseResult.successResult(completeRegisterVO);
     }
 
-    /*//将已经提交的人员的年级、专业、申请组别、报名表状态查出来，以供前端筛选
+    //将已经提交的人员的年级、专业、申请组别、报名表状态查出来，以供前端筛选
     @Override
     public ResponseResult selectQueryCategory(Integer queryCategoryId) {
         switch (queryCategoryId){
             case 0:{
-                Set<String> gradeNameSet = new HashSet<>();
-                for (String gradeName:userMapper.selectGradeName()) {
-                    gradeNameSet.add(gradeName);
-                }
-                return ResponseResult.successResult(gradeNameSet);
+                List<QueryCategoryVO> gradeNameList = userMapper.selectGradeName();
+                return ResponseResult.successResult(gradeNameList);
             }
             case 1:{
-                //TODO 将专业与Id对应之后发给前端
-                Set<Long> subjectIdSet = new HashSet<>();
-                for (Long subjectId:userMapper.selectSubjectId()) {
-                    subjectIdSet.add(subjectId);
-                }
-                return ResponseResult.successResult(subjectIdSet);
+                List<QueryCategoryVO> subjectList = userMapper.selectSubjectIdAndSubjectName();
+                return ResponseResult.successResult(subjectList);
             }
             case 2:{
-                //TODO 将申请组别与Id对应之后发给前端
-                Set<Long> desireDepartmentIdSet = new HashSet<>();
-                for (Long desireDepartmentId:registerMapper.selectDesireDepartmentId()) {
-                    desireDepartmentIdSet.add(desireDepartmentId);
-                }
-                return ResponseResult.successResult(desireDepartmentIdSet);
+                List<QueryCategoryVO> desireDepartmentList = registerMapper.selectDesireDepartmentIdAndDepartmentName();
+                return ResponseResult.successResult(desireDepartmentList);
             }
             case 3:{
-                //TODO 将状态与Id对应之后发给前端
-                Set<String> statusSet = new HashSet<>();
-                for (String status:registerMapper.selectStatus()) {
-                    statusSet.add(status);
+                List<QueryCategoryVO> statusList = registerMapper.selectStatus();
+                for (QueryCategoryVO queryCategoryVO: statusList) {
+                    switch (queryCategoryVO.getStatus()){
+                        case "0":{
+                            queryCategoryVO.setStatusName("已提交");
+                        }
+                        case "1":{
+                            queryCategoryVO.setStatusName("已查看");
+                        }
+                        case "2":{
+                            queryCategoryVO.setStatusName("已通过");
+                        }
+                        case "3":{
+                            queryCategoryVO.setStatusName("未通过");
+                        }
+                    }
                 }
-                return ResponseResult.successResult(statusSet);
+                return ResponseResult.successResult(statusList);
             }
             default:{
                 return ResponseResult.errorResult(400,"你不要乱传些东西啊");
             }
         }
-    }*/
+    }
 
 
     //按年级、专业、申请组别、报名表状态筛选

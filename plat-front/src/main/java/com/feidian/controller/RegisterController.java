@@ -61,12 +61,12 @@ public class RegisterController {
         return registerService.viewRegister(registerOperDTO.getRegisterId());
     }
 
-    /*//      获取年级、专业、申请组别、报名表状态
+    //      获取年级、专业、申请组别、报名表状态
     @PreAuthorize("hasAuthority('VIEW_REGISTER_BY_FILTER')")
     @PostMapping("/selectQueryCategory")
     public ResponseResult selectQueryCategory(@RequestBody RegisterOperDTO registerOperDTO) {
         return registerService.selectQueryCategory(registerOperDTO.getQueryCategoryId());
-    }*/
+    }
 
     //      按年级、专业、申请组别、报名表状态筛选
     @PreAuthorize("hasAuthority('VIEW_REGISTER_BY_FILTER')")

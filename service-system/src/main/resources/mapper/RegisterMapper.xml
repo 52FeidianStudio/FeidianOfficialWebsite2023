@@ -137,17 +137,6 @@
         </foreach>
     </select>
 
-    <select id="selectDesireDepartmentId" resultType="java.lang.Long">
-        select desire_department_id
-        from register
-    </select>
-
-    <select id="selectStatus" resultType="java.lang.String">
-        select status
-        from register
-    </select>
-
-
     <resultMap id="SectionalRegisterVOMap" type="com.feidian.vo.SectionalRegisterVO">
         <result property="userId" column="user_id"/>
         <result property="registerId" column="id"/>
@@ -157,6 +146,27 @@
         <result property="subjectId" column="subject_id"/>
         <result property="gradeName" column="grade_name"/>
         <result property="desireDepartmentId" column="desire_department_id"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+    <select id="selectDesireDepartmentIdAndDepartmentName" resultMap="QueryCategoryVOMap">
+        SELECT DISTINCT r.desire_department_id, d.department_name
+        FROM register r
+                 JOIN department d on r.desire_department_id = d.id;
+    </select>
+
+
+    <select id="selectStatus" resultMap="QueryCategoryVOMap">
+        SELECT DISTINCT status
+        FROM register
+    </select>
+
+    <resultMap id="QueryCategoryVOMap" type="com.feidian.vo.QueryCategoryVO">
+        <result property="gradeName" column="grade_name"/>
+        <result property="subjectId" column="subject_id"/>
+        <result property="subjectName" column="subject_name"/>
+        <result property="desireDepartmentId" column="desire_department_id"/>
+        <result property="departmentName" column="department_name"/>
         <result property="status" column="status"/>
     </resultMap>
 

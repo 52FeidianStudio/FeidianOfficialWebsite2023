@@ -3,6 +3,7 @@ package com.feidian.mapper;
 import com.feidian.po.Register;
 import com.feidian.po.User;
 import com.feidian.vo.CompleteRegisterVO;
+import com.feidian.vo.QueryCategoryVO;
 import com.feidian.vo.SectionalRegisterVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -45,7 +46,7 @@ public interface RegisterMapper {
     List<SectionalRegisterVO> selectSectionalRegisterVOByRegister(List<Long> registerIdList);
 
 
-    List<Long> selectDesireDepartmentId();
+    List<QueryCategoryVO> selectDesireDepartmentIdAndDepartmentName();
 
-    List<String> selectStatus();
+    List<QueryCategoryVO> selectStatus();
 }

@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix():测接口">
-      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/config/CorsConfig.java" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="refactor(common):新增了跨域配置">
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/QueryCategoryVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterOperDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterOperDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/RegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/RegisterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
     </list>
@@ -128,6 +126,7 @@
       <recent name="D:\Develop\jerbrains\idea\idea projects\FeidianOfficialWebsite2023\service-system\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.feidian.config" />
       <recent name="com.feiidan.vo" />
       <recent name="com.feiidan.bo" />
     </key>
@@ -214,6 +213,7 @@
       <workItem from="1692154785467" duration="2121000" />
       <workItem from="1692169554395" duration="5052000" />
       <workItem from="1692254431553" duration="419000" />
+      <workItem from="1692258927353" duration="4079000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -439,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692170921733</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="refactor(common):新增了跨域配置">
+      <created>1692258546006</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1692258546006</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +477,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(service-system):删去了冗余的RegisterController" />
     <MESSAGE value="feat(common-util):再次修改了上传文件的返回值类型，方便后续操作。" />
     <MESSAGE value="feat(service-system):新增上传大头照、上传报名表、正式查看的功能（查看后会修改报名表状态）" />
     <MESSAGE value="feat(service-system):初步新增了根据条件筛选的四个接口" />
@@ -495,7 +501,8 @@
     <MESSAGE value="fix(service-system):修改细节" />
     <MESSAGE value="refactor(service-system):修改pom文件准备打包" />
     <MESSAGE value="refactor(service-system):修改yml文件准备打包" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(service-system):修改yml文件准备打包" />
+    <MESSAGE value="refactor(common):新增了跨域配置" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(common):新增了跨域配置" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -515,14 +522,9 @@
           <line>41</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
-          <line>207</line>
+          <line>208</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
