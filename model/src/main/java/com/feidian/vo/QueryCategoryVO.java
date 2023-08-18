@@ -23,4 +23,13 @@ public class QueryCategoryVO {
     private String status;
     //0:已提交 1:已查看 2:已通过 3:未通过
     private String statusName;
+
+    private Integer queryAllFlag;
+    private String queryAllName;
+
+    public QueryCategoryVO(Integer queryAllFlag, String queryAllName) {
+        this.queryAllFlag = queryAllFlag;
+        this.queryAllName = queryAllName;
+    }
+
 }

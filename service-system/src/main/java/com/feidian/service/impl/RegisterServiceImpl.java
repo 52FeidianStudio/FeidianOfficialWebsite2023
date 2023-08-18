@@ -226,18 +226,24 @@ public class RegisterServiceImpl implements RegisterService {
     public ResponseResult selectQueryCategory(Integer queryCategoryId) {
         switch (queryCategoryId){
             case 0:{
+                QueryCategoryVO queryCategoryVO = new QueryCategoryVO(0,"全部");
+                List<QueryCategoryVO> queryAllFlag = new ArrayList<>();
+                queryAllFlag.add(queryCategoryVO);
+                return ResponseResult.successResult(queryAllFlag);
+            }
+            case 1:{
                 List<QueryCategoryVO> gradeNameList = userMapper.selectGradeName();
                 return ResponseResult.successResult(gradeNameList);
             }
-            case 1:{
+            case 2:{
                 List<QueryCategoryVO> subjectList = userMapper.selectSubjectIdAndSubjectName();
                 return ResponseResult.successResult(subjectList);
             }
-            case 2:{
+            case 3:{
                 List<QueryCategoryVO> desireDepartmentList = registerMapper.selectDesireDepartmentIdAndDepartmentName();
                 return ResponseResult.successResult(desireDepartmentList);
             }
-            case 3:{
+            case 4:{
                 List<QueryCategoryVO> statusList = registerMapper.selectStatus();
                 for (QueryCategoryVO queryCategoryVO: statusList) {
                     switch (queryCategoryVO.getStatus()){
@@ -270,7 +276,16 @@ public class RegisterServiceImpl implements RegisterService {
         List<SectionalRegisterVO> sectionalRegisterVOList = new ArrayList<>();
 
         try {
-            if (registerOperDTO.getGradeName() != null || registerOperDTO.getSubjectId() != null) {
+            if(registerOperDTO.getQueryAllFlag() != null && registerOperDTO.getQueryAllFlag() == 0){
+                //查询全部报名表
+                List<Register> registerList = registerMapper.selectAllRegister();
+                List<Long> registerIdList = new ArrayList<>();
+                for (Register tempRegister : registerList) {
+                    registerIdList.add(tempRegister.getId());
+                }
+                if (registerIdList.isEmpty()) return ResponseResult.errorResult(400, "数据库中没有报名表");
+                sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerIdList);
+            } else if (registerOperDTO.getGradeName() != null || registerOperDTO.getSubjectId() != null) {
                 // 根据年级或专业查询用户
                 List<User> userList = userMapper.selectUserListByGradeNameOrSubjectId(registerOperDTO.getGradeName(), registerOperDTO.getSubjectId());
                 List<Long> userIdList = new ArrayList<>();
@@ -288,11 +303,12 @@ public class RegisterServiceImpl implements RegisterService {
                 }
                 if (registerIdList.isEmpty()) return ResponseResult.errorResult(400, "数据库中没有相关报名表");
                 sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerIdList);
+            }else {
+                return ResponseResult.errorResult(400,"不要乱传些东西啊");
             }
         } catch (Exception e) {
-            throw new RuntimeException("查询失败原因:" + e.getMessage());
+            throw new RuntimeException(e.getMessage());
         }
-
         return ResponseResult.successResult(sectionalRegisterVOList);
     }
 

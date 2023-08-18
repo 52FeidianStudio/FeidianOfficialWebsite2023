@@ -23,6 +23,11 @@
         <result column="update_by" property="updateBy"/>
     </resultMap>
 
+    <select id="selectAllRegister" resultMap="RegisterBaseResultMap">
+        SELECT *
+        FROM register
+    </select>
+
     <!-- 根据用户ID查询报名表，返回单个Register对象 -->
     <select id="selectRegisterByUserId" parameterType="long" resultType="com.feidian.po.Register">
         SELECT *
@@ -51,9 +56,6 @@
             <when test="status != null">
                 status = #{status}
             </when>
-            <otherwise>
-                <!-- 如果desireDepartmentId和status都为null，则不拼接任何条件，返回所有数据 -->
-            </otherwise>
         </choose>
     </select>
 

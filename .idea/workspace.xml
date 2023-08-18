@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):新增了获取报名者年级、专业、申请组别、报名表状态的接口">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):修复了一些小bug以及跨域问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/config/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterOperDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterOperDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/QueryCategoryVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/QueryCategoryVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application-develop.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application-develop.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature-registrationSystem" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -210,7 +211,8 @@
       <workItem from="1692169554395" duration="5052000" />
       <workItem from="1692254431553" duration="419000" />
       <workItem from="1692258927353" duration="9127000" />
-      <workItem from="1692269762328" duration="1929000" />
+      <workItem from="1692269762328" duration="2597000" />
+      <workItem from="1692339531298" duration="2734000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -450,7 +452,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692263195525</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="fix(service-system):修复了一些小bug以及跨域问题">
+      <created>1692271726716</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1692271726716</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +490,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(service-system):新增上传大头照、上传报名表、正式查看的功能（查看后会修改报名表状态）" />
     <MESSAGE value="feat(service-system):初步新增了根据条件筛选的四个接口" />
     <MESSAGE value="feat(model):完善了SectionalRegisterVO" />
     <MESSAGE value="feat(service-system):新增了一大堆查询" />
@@ -506,7 +514,8 @@
     <MESSAGE value="refactor(service-system):修改yml文件准备打包" />
     <MESSAGE value="refactor(common):新增了跨域配置" />
     <MESSAGE value="feat(service-system):新增了获取报名者年级、专业、申请组别、报名表状态的接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(service-system):新增了获取报名者年级、专业、申请组别、报名表状态的接口" />
+    <MESSAGE value="fix(service-system):修复了一些小bug以及跨域问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修复了一些小bug以及跨域问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -526,7 +535,12 @@
           <line>41</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
           <line>216</line>
           <option name="timeStamp" value="17" />

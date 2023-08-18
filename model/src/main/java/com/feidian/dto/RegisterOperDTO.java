@@ -14,6 +14,7 @@ public class RegisterOperDTO {
     //查询操作
     private Integer queryCategoryId;
 
+    private Integer queryAllFlag;
     private String gradeName;
     private Long subjectId;
     private Long desireDepartmentId;
@@ -22,4 +23,6 @@ public class RegisterOperDTO {
     //审核操作
     private Long registerId;
     private String isApprovedFlag;
+
+
 }

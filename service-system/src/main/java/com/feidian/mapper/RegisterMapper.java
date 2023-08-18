@@ -14,6 +14,8 @@ import java.util.List;
 @Mapper
 @Repository
 public interface RegisterMapper {
+    //查询所有报名表
+    List<Register> selectAllRegister();
 
     // 根据用户ID查询报名表
     Register selectRegisterByUserId(@Param("userId") Long userId);
@@ -49,4 +51,6 @@ public interface RegisterMapper {
     List<QueryCategoryVO> selectDesireDepartmentIdAndDepartmentName();
 
     List<QueryCategoryVO> selectStatus();
+
+
 }
