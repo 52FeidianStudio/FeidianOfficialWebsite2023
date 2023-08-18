@@ -1,7 +1,7 @@
 spring:
 
   profiles:
-    active: develop
+    active: deploy
 
   datasource:
     url: jdbc:mysql://182.254.242.96/feidian?characterEncoding=utf-8&serverTimezone=UTC

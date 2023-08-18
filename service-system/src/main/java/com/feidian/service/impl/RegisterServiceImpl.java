@@ -12,6 +12,7 @@ import com.feidian.po.UserRole;
 import com.feidian.responseResult.ResponseResult;
 import com.feidian.util.RedisCache;
 import com.feidian.util.SecurityUtils;
+import com.feidian.util.serviceUtil.EmailUtil;
 import com.feidian.util.serviceUtil.FileUploadUtil;
 import com.feidian.vo.CompleteRegisterVO;
 import com.feidian.vo.QueryCategoryVO;
@@ -25,9 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 @Service("registerService")
@@ -91,7 +90,7 @@ public class RegisterServiceImpl implements RegisterService {
         String key = SecurityUtils.getLoginUser().getUsername();
         redisCache.setCacheObject(key, submitImageResponseResult.getData());
 
-        return ResponseResult.successResult(200,"图片上传成功");
+        return ResponseResult.successResult(200, "图片上传成功");
     }
 
     @Override
@@ -158,7 +157,7 @@ public class RegisterServiceImpl implements RegisterService {
 
     //TODO 审核后发邮件
     @Override
-    public ResponseResult isApproved(Long registerId, String isApprovedFlag) {
+    public ResponseResult isApproved(Long registerId, String isApprovedFlag, String emailContent) {
         //查询审核人(即查询当前正在审核的User)
         User auditor = selectCurrentAuditor();
 
@@ -187,6 +186,10 @@ public class RegisterServiceImpl implements RegisterService {
 
             userRoleMapper.updateUserRole(userRole);
 
+            //给目标用户发邮件
+            User targetUser = userMapper.selectUserByRegisterId(registerId);
+            EmailUtil.sendEmail(targetUser.getEmail(), emailContent, 0);
+
             return ResponseResult.successResult(200, "成功修改报名表状态为已通过，并将其添加至预备成员。");
         } else if ("3".equals(isApprovedFlag)) {
             //更改状态为3 未通过
@@ -203,6 +206,10 @@ public class RegisterServiceImpl implements RegisterService {
             userRole.setUpdateBy(auditor.getUsername());
 
             userRoleMapper.updateUserRole(userRole);
+
+            //给目标用户发邮件
+            User targetUser = userMapper.selectUserByRegisterId(registerId);
+            EmailUtil.sendEmail(targetUser.getEmail(), emailContent, 0);
 
             return ResponseResult.successResult(200, "成功修改报名表状态为未通过");
         }
@@ -224,47 +231,47 @@ public class RegisterServiceImpl implements RegisterService {
     //将已经提交的人员的年级、专业、申请组别、报名表状态查出来，以供前端筛选
     @Override
     public ResponseResult selectQueryCategory(Integer queryCategoryId) {
-        switch (queryCategoryId){
-            case 0:{
-                QueryCategoryVO queryCategoryVO = new QueryCategoryVO(0,"全部");
+        switch (queryCategoryId) {
+            case 0: {
+                QueryCategoryVO queryCategoryVO = new QueryCategoryVO(0, "全部");
                 List<QueryCategoryVO> queryAllFlag = new ArrayList<>();
                 queryAllFlag.add(queryCategoryVO);
                 return ResponseResult.successResult(queryAllFlag);
             }
-            case 1:{
+            case 1: {
                 List<QueryCategoryVO> gradeNameList = userMapper.selectGradeName();
                 return ResponseResult.successResult(gradeNameList);
             }
-            case 2:{
+            case 2: {
                 List<QueryCategoryVO> subjectList = userMapper.selectSubjectIdAndSubjectName();
                 return ResponseResult.successResult(subjectList);
             }
-            case 3:{
+            case 3: {
                 List<QueryCategoryVO> desireDepartmentList = registerMapper.selectDesireDepartmentIdAndDepartmentName();
                 return ResponseResult.successResult(desireDepartmentList);
             }
-            case 4:{
+            case 4: {
                 List<QueryCategoryVO> statusList = registerMapper.selectStatus();
-                for (QueryCategoryVO queryCategoryVO: statusList) {
-                    switch (queryCategoryVO.getStatus()){
-                        case "0":{
+                for (QueryCategoryVO queryCategoryVO : statusList) {
+                    switch (queryCategoryVO.getStatus()) {
+                        case "0": {
                             queryCategoryVO.setStatusName("已提交");
                         }
-                        case "1":{
+                        case "1": {
                             queryCategoryVO.setStatusName("已查看");
                         }
-                        case "2":{
+                        case "2": {
                             queryCategoryVO.setStatusName("已通过");
                         }
-                        case "3":{
+                        case "3": {
                             queryCategoryVO.setStatusName("未通过");
                         }
                     }
                 }
                 return ResponseResult.successResult(statusList);
             }
-            default:{
-                return ResponseResult.errorResult(400,"你不要乱传些东西啊");
+            default: {
+                return ResponseResult.errorResult(400, "你不要乱传些东西啊");
             }
         }
     }
@@ -276,7 +283,7 @@ public class RegisterServiceImpl implements RegisterService {
         List<SectionalRegisterVO> sectionalRegisterVOList = new ArrayList<>();
 
         try {
-            if(registerOperDTO.getQueryAllFlag() != null && registerOperDTO.getQueryAllFlag() == 0){
+            if (registerOperDTO.getQueryAllFlag() != null && registerOperDTO.getQueryAllFlag() == 0) {
                 //查询全部报名表
                 List<Register> registerList = registerMapper.selectAllRegister();
                 List<Long> registerIdList = new ArrayList<>();
@@ -303,8 +310,8 @@ public class RegisterServiceImpl implements RegisterService {
                 }
                 if (registerIdList.isEmpty()) return ResponseResult.errorResult(400, "数据库中没有相关报名表");
                 sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerIdList);
-            }else {
-                return ResponseResult.errorResult(400,"不要乱传些东西啊");
+            } else {
+                return ResponseResult.errorResult(400, "不要乱传些东西啊");
             }
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());

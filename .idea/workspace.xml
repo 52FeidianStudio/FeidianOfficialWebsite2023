@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):修复了一些小bug以及跨域问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/EmailUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/EmailUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterOperDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterOperDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/QueryCategoryVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/QueryCategoryVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -537,13 +536,8 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
-          <line>56</line>
+          <line>55</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
-          <line>216</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

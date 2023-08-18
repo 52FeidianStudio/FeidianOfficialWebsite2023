@@ -23,6 +23,7 @@ public class RegisterOperDTO {
     //审核操作
     private Long registerId;
     private String isApprovedFlag;
+    private String emailContent;
 
 
 }

@@ -50,7 +50,7 @@ public class RegisterController {
     @PreAuthorize("hasAuthority('EXAMINE_REGISTER')")
     @PostMapping("/isApproved")
     public ResponseResult isApproved(@RequestBody RegisterOperDTO registerOperDTO) {
-        return registerService.isApproved(registerOperDTO.getRegisterId(), registerOperDTO.getIsApprovedFlag());
+        return registerService.isApproved(registerOperDTO.getRegisterId(), registerOperDTO.getIsApprovedFlag(), registerOperDTO.getEmailContent());
     }
 
 

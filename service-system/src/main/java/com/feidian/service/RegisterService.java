@@ -14,7 +14,7 @@ public interface RegisterService {
 
     ResponseResult examineRegister(Long registerId);
 
-    ResponseResult isApproved(Long registerId, String isApprovedFlag);
+    ResponseResult isApproved(Long registerId, String isApprovedFlag, String emailContent);
 
     ResponseResult viewRegister(Long registerId);
 
