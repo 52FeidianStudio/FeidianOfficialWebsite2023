@@ -3,6 +3,7 @@ package com.feidian.service.impl;
 
 import cn.hutool.core.util.RandomUtil;
 import com.feidian.bo.LoginUser;
+import com.feidian.bo.SubjectInfo;
 import com.feidian.constants.SystemConstants;
 import com.feidian.dto.LoginFormDTO;
 import com.feidian.dto.LoginUserDTO;
@@ -166,36 +167,43 @@ public class UserServiceImpl implements UserService {
 
 
 
-
         return ResponseResult.successResult();
     }
 
     @Override
     public ResponseResult login(LoginUserDTO loginUserDTO) {
-
+        // 获取用户输入的密码
         String password = loginUserDTO.getPassword();
+        // 对密码进行加密
         String encode = passwordEncoder.encode(password);
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginUserDTO.getUsername(),loginUserDTO.getPassword());
+
+        // 创建认证令牌，包含用户名和密码
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginUserDTO.getUsername(), loginUserDTO.getPassword());
+        // 执行认证
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
+
         // 判断是否认证通过
-        if(Objects.isNull(authenticate)){
+        if (Objects.isNull(authenticate)) {
             throw new RuntimeException("用户名或密码错误");
         }
-        // 获取userid 生成token
-        LoginUser loginUser =(LoginUser) authenticate.getPrincipal();
-        List<String> permissionKeyList =  permissionMapper.selectPermsByUserId(loginUser.getUser().getId());
-        loginUser.setPermissions(permissionKeyList);
+
+        // 获取认证后的用户信息
+        LoginUser loginUser = (LoginUser) authenticate.getPrincipal();
+
+
+        // 获取用户ID并生成Token
         long id = loginUser.getUser().getId();
         String userId = String.valueOf(id);
-        String jwt = JwtUtil.createJWT(userId);
-        // 把用户信息存入redis
-        redisCache.setCacheObject("login:"+userId,loginUser);
+        String token = JwtUtil.createJWT(userId);
 
-        // 把token和userinfo封装 返回
-        // 把User转换成UserInfoVo
+        // 将用户信息存入Redis缓存
+        redisCache.setCacheObject("login:" + userId, loginUser);
 
-        UserInfoVO vo = new UserInfoVO(loginUser,jwt);
+        // 封装用户信息和Token，准备返回
+        // 将LoginUser转换为UserInfoVo
+        UserInfoVO vo = new UserInfoVO(loginUser.getUser().getId(), loginUser.getPermissions(),token);
 
+        // 返回成功响应，包含用户信息和Token
         return ResponseResult.successResult(vo);
     }
 
@@ -235,11 +243,11 @@ public class UserServiceImpl implements UserService {
 
         // 获取专业名称并查询对应的学院ID和专业ID
         String subject = registerUserDTO.getSubject();
-        List<Long> ids = subjectMapper.selectIdAndFacultyIdBySubjectName(subject);
+        SubjectInfo ids = subjectMapper.selectIdAndFacultyIdBySubjectName(subject);
 
         // 设置学院ID和专业ID的，从上面查到的集合得出来
-        user.setFacultyId(ids.get(1));
-        user.setSubjectId(ids.get(0));
+        user.setFacultyId(ids.getFacultyId());
+        user.setSubjectId(ids.getId());
 
         // 根据部门名称设置部门ID
         String department = registerUserDTO.getDepartment();
