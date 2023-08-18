@@ -169,6 +169,9 @@ public class RegisterServiceImpl implements RegisterService {
         if (user == null && register == null) {
             return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
         }
+        if(StringUtils.isEmpty(emailContent)){
+            return ResponseResult.errorResult(400,"发送邮件不能为空");
+        }
 
         if ("2".equals(isApprovedFlag)) {
             //更改状态为2 已通过
