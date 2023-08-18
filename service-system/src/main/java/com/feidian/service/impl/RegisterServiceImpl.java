@@ -138,6 +138,8 @@ public class RegisterServiceImpl implements RegisterService {
 
         //查询被查看的报名表和报名人
         CompleteRegisterVO completeRegisterVO = registerMapper.selectCompleteRegisterVOByRegisterId(registerId);
+        completeRegisterVO.getRegister().setId(registerId);
+        completeRegisterVO.getUser().setId(completeRegisterVO.getRegister().getId());
 
         if (completeRegisterVO == null) {
             return ResponseResult.errorResult(400, "用户未注册或报名表不存在");

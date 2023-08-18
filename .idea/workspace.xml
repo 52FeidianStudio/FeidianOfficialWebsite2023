@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):新增了在审核后设置状态的同时给表面者发邮件的功能" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):新增了在审核后设置状态的同时给表面者发邮件的功能">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -539,6 +542,11 @@
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
           <line>55</line>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
+          <line>151</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
