@@ -58,7 +58,7 @@ public class CompleteRegisterVO {
     //根据CompleteRegisterBO生成VO
     public CompleteRegisterVO(CompleteRegisterBO completeRegisterBO) {
         this.registerId = completeRegisterBO.getRegister().getId();
-        this.userId = completeRegisterBO.getRegister().getUserId();
+        this.userId = completeRegisterBO.getUser().getId();
 
         this.name = completeRegisterBO.getUser().getName();
         this.username = completeRegisterBO.getUser().getUsername();

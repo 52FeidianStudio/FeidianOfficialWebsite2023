@@ -62,7 +62,7 @@
 
     <!-- 多表联查 根据registerId查询User和Register并封装成一个CompleteRegisterVO -->
     <select id="selectCompleteRegisterBOByRegisterId" parameterType="long" resultMap="CompleteRegisterBOMap">
-        SELECT r.*, u.*, f.*, s.*, d.*
+        SELECT u.id AS u_id, r.*, u.*, f.*, s.*, d.*
         FROM register r
                  JOIN user u on r.user_id = u.id
                  JOIN faculty f on f.id = u.faculty_id
@@ -92,7 +92,7 @@
         </association>
         <!-- 使用 association 来映射 User 对象 -->
         <association property="user" javaType="com.feidian.po.User">
-            <result property="id" column="id"/>
+            <result property="id" column="u_id"/>
             <result property="username" column="username"/>
             <result property="password" column="password"/>
             <result property="name" column="name"/>

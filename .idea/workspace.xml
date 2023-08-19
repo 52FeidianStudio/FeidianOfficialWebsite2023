@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):新增了CompleteRegisterBO，优化了CompleteRegisterVO，修复了查询出的registerId是错误的bug">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):修复了查询SectionalRegisterVO无法正常查询出registerId的bug">
       <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -212,7 +211,7 @@
       <workItem from="1692346638088" duration="970000" />
       <workItem from="1692357888429" duration="69000" />
       <workItem from="1692427908267" duration="4621000" />
-      <workItem from="1692432541826" duration="2392000" />
+      <workItem from="1692432541826" duration="2733000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -487,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692432127755</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="fix(service-system):修复了查询SectionalRegisterVO无法正常查询出registerId的bug">
+      <created>1692435045119</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1692435045119</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,7 +524,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix(service-system):修复了merge之后一些小bug" />
     <MESSAGE value="fix(service-system):修复了报名系统审核时审核人不参与的bug" />
     <MESSAGE value="feat(common-util):优化了文件上传的工具类" />
     <MESSAGE value="feat(service-system):优化了查询审核人信息的方法" />
@@ -543,7 +548,8 @@
     <MESSAGE value="feat(service-system):新增了在审核后设置状态的同时给表面者发邮件的功能" />
     <MESSAGE value="fix(service-system):修复了不能修改报名表状态的bug" />
     <MESSAGE value="fix(service-system):新增了CompleteRegisterBO，优化了CompleteRegisterVO，修复了查询出的registerId是错误的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):新增了CompleteRegisterBO，优化了CompleteRegisterVO，修复了查询出的registerId是错误的bug" />
+    <MESSAGE value="fix(service-system):修复了查询SectionalRegisterVO无法正常查询出registerId的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修复了查询SectionalRegisterVO无法正常查询出registerId的bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
