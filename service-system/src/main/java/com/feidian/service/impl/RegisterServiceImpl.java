@@ -14,6 +14,7 @@ import com.feidian.util.RedisCache;
 import com.feidian.util.SecurityUtils;
 import com.feidian.util.serviceUtil.EmailUtil;
 import com.feidian.util.serviceUtil.FileUploadUtil;
+import com.feidian.bo.CompleteRegisterBO;
 import com.feidian.vo.CompleteRegisterVO;
 import com.feidian.vo.QueryCategoryVO;
 import com.feidian.vo.SectionalRegisterVO;
@@ -137,23 +138,24 @@ public class RegisterServiceImpl implements RegisterService {
         User auditor = selectCurrentAuditor();
 
         //查询被查看的报名表和报名人
-        CompleteRegisterVO completeRegisterVO = registerMapper.selectCompleteRegisterVOByRegisterId(registerId);
-        completeRegisterVO.getRegister().setId(registerId);
-        completeRegisterVO.getUser().setId(completeRegisterVO.getRegister().getId());
+        CompleteRegisterBO completeRegisterBO = registerMapper.selectCompleteRegisterBOByRegisterId(registerId);
+        //修复了不能修改报名表状态的bug
+        completeRegisterBO.getRegister().setId(registerId);
+        completeRegisterBO.getUser().setId(completeRegisterBO.getRegister().getId());
 
-        if (completeRegisterVO == null) {
+        if (completeRegisterBO == null) {
             return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
-        } else if ("2".equals(completeRegisterVO.getRegister().getStatus()) || "3".equals(completeRegisterVO.getRegister().getStatus())) {
+        } else if ("2".equals(completeRegisterBO.getRegister().getStatus()) || "3".equals(completeRegisterBO.getRegister().getStatus())) {
             //如果这张报名表已经被审核过了，直接返回审核后的报名表，不用更新报名表状态
-            return ResponseResult.successResult(completeRegisterVO);
+            return ResponseResult.successResult(completeRegisterBO);
         } else {
             //未审核过则更新状态为1 已查看并更新update_by等信息
-            completeRegisterVO.getRegister().setStatus("1");// 更新register对象中的状态字段
-            completeRegisterVO.getRegister().setUpdateBy(auditor.getUsername());
-            completeRegisterVO.getRegister().setUpdateTime(new Timestamp(System.currentTimeMillis()));
-            registerMapper.updateStatus(completeRegisterVO.getRegister());
+            completeRegisterBO.getRegister().setStatus("1");// 更新register对象中的状态字段
+            completeRegisterBO.getRegister().setUpdateBy(auditor.getUsername());
+            completeRegisterBO.getRegister().setUpdateTime(new Timestamp(System.currentTimeMillis()));
+            registerMapper.updateStatus(completeRegisterBO.getRegister());
 
-            return ResponseResult.successResult(completeRegisterVO);
+            return ResponseResult.successResult(new CompleteRegisterVO(completeRegisterBO));
         }
     }
 
@@ -164,9 +166,9 @@ public class RegisterServiceImpl implements RegisterService {
         User auditor = selectCurrentAuditor();
 
         //查询被查询的报名表相关信息
-        CompleteRegisterVO completeRegisterVO = registerMapper.selectCompleteRegisterVOByRegisterId(registerId);
-        User user = completeRegisterVO.getUser();
-        Register register = completeRegisterVO.getRegister();
+        CompleteRegisterBO completeRegisterBO = registerMapper.selectCompleteRegisterBOByRegisterId(registerId);
+        User user = completeRegisterBO.getUser();
+        Register register = completeRegisterBO.getRegister();
 
         if (user == null && register == null) {
             return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
@@ -226,11 +228,11 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     public ResponseResult viewRegister(Long registerId) {
         //查询被查看的报名表和报名人
-        CompleteRegisterVO completeRegisterVO = registerMapper.selectCompleteRegisterVOByRegisterId(registerId);
-        if (completeRegisterVO == null) {
+        CompleteRegisterBO completeRegisterBO = registerMapper.selectCompleteRegisterBOByRegisterId(registerId);
+        if (completeRegisterBO == null) {
             return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
         }
-        return ResponseResult.successResult(completeRegisterVO);
+        return ResponseResult.successResult(new CompleteRegisterVO(completeRegisterBO));
     }
 
     //将已经提交的人员的年级、专业、申请组别、报名表状态查出来，以供前端筛选
@@ -285,7 +287,7 @@ public class RegisterServiceImpl implements RegisterService {
     //按年级、专业、申请组别、报名表状态筛选
     @Override
     public ResponseResult selectByQueryRegister(RegisterOperDTO registerOperDTO) {
-        List<SectionalRegisterVO> sectionalRegisterVOList = new ArrayList<>();
+        List<SectionalRegisterVO> sectionalRegisterVOList;
 
         try {
             if (registerOperDTO.getQueryAllFlag() != null && registerOperDTO.getQueryAllFlag() == 0) {

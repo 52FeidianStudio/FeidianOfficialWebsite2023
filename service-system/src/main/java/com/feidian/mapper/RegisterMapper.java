@@ -1,8 +1,7 @@
 package com.feidian.mapper;
 
 import com.feidian.po.Register;
-import com.feidian.po.User;
-import com.feidian.vo.CompleteRegisterVO;
+import com.feidian.bo.CompleteRegisterBO;
 import com.feidian.vo.QueryCategoryVO;
 import com.feidian.vo.SectionalRegisterVO;
 import org.apache.ibatis.annotations.Mapper;
@@ -39,7 +38,7 @@ public interface RegisterMapper {
 
 
     //   多表联查 根据registerId查询User和Register并封装成一个CompleteRegisterVO
-    CompleteRegisterVO selectCompleteRegisterVOByRegisterId(Long registerId);
+    CompleteRegisterBO selectCompleteRegisterBOByRegisterId(Long registerId);
 
     //   多表联查 根据userId查询User和Register并封装成一个SectionalRegisterVO
     List<SectionalRegisterVO> selectSectionalRegisterVOByUser(List<Long> userIdList);

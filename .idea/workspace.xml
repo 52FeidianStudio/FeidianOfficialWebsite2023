@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):新增了在审核后设置状态的同时给表面者发邮件的功能">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):修复了不能修改报名表状态的bug">
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/bo/CompleteRegisterBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/CompleteRegisterVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/CompleteRegisterVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/RegisterMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,6 +214,9 @@
       <workItem from="1692258927353" duration="9127000" />
       <workItem from="1692269762328" duration="2597000" />
       <workItem from="1692339531298" duration="2734000" />
+      <workItem from="1692346638088" duration="970000" />
+      <workItem from="1692357888429" duration="69000" />
+      <workItem from="1692427908267" duration="4095000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -462,7 +470,21 @@
       <option name="project" value="LOCAL" />
       <updated>1692344653805</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fix(service-system):修复了不能修改报名表状态的bug">
+      <created>1692346150529</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1692346150529</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fix(service-system):修复了不能修改报名表状态的bug">
+      <created>1692346191239</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1692346191239</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,7 +515,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(model):完善了SectionalRegisterVO" />
     <MESSAGE value="feat(service-system):新增了一大堆查询" />
     <MESSAGE value="fix(service-system):修复了merge之后一些小bug" />
     <MESSAGE value="fix(service-system):修复了报名系统审核时审核人不参与的bug" />
@@ -518,7 +539,8 @@
     <MESSAGE value="feat(service-system):新增了获取报名者年级、专业、申请组别、报名表状态的接口" />
     <MESSAGE value="fix(service-system):修复了一些小bug以及跨域问题" />
     <MESSAGE value="feat(service-system):新增了在审核后设置状态的同时给表面者发邮件的功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(service-system):新增了在审核后设置状态的同时给表面者发邮件的功能" />
+    <MESSAGE value="fix(service-system):修复了不能修改报名表状态的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修复了不能修改报名表状态的bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -540,13 +562,8 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
-          <line>55</line>
+          <line>56</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
-          <line>151</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

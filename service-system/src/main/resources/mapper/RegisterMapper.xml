@@ -61,44 +61,21 @@
 
 
     <!-- 多表联查 根据registerId查询User和Register并封装成一个CompleteRegisterVO -->
-    <select id="selectCompleteRegisterVOByRegisterId" parameterType="long" resultMap="CompleteRegisterVOMap">
-        SELECT u.*, r.*
-        FROM user u
-                 JOIN register r ON u.id = r.user_id
+    <select id="selectCompleteRegisterBOByRegisterId" parameterType="long" resultMap="CompleteRegisterBOMap">
+        SELECT r.*, u.*, f.*, s.*, d.*
+        FROM register r
+                 JOIN user u on r.user_id = u.id
+                 JOIN faculty f on f.id = u.faculty_id
+                 JOIN subject s on s.id = u.subject_id
+                 JOIN department d on d.id = r.desire_department_id
         WHERE r.id = #{registerId}
     </select>
 
-    <!-- 定义 CompleteRegisterVO 的 resultMap -->
-    <resultMap id="CompleteRegisterVOMap" type="com.feidian.vo.CompleteRegisterVO">
-        <!-- 使用 association 来映射 User 对象 -->
-        <association property="user" javaType="com.feidian.po.User">
-            <id property="id" column="u_id"/>
-            <result property="username" column="username"/>
-            <result property="password" column="password"/>
-            <result property="name" column="name"/>
-            <result property="nickname" column="nickname"/>
-            <result property="birthday" column="birthday"/>
-            <result property="sex" column="u_sex"/>
-            <result property="studentId" column="studentId"/>
-            <result property="gradeName" column="gradeName"/>
-            <result property="className" column="className"/>
-            <result property="subjectId" column="subjectId"/>
-            <result property="facultyId" column="facultyId"/>
-            <result property="departmentId" column="departmentId"/>
-            <result property="avatarUrl" column="avatarUrl"/>
-            <result property="nationality" column="nationality"/>
-            <result property="phone" column="phone"/>
-            <result property="email" column="email"/>
-            <result property="qq" column="qq"/>
-            <result property="isDeleted" column="isDeleted"/>
-            <result property="createTime" column="createTime"/>
-            <result property="createBy" column="createBy"/>
-            <result property="updateTime" column="updateTime"/>
-            <result property="updateBy" column="updateBy"/>
-        </association>
+    <!-- 定义 CompleteRegisterBO 的 resultMap -->
+    <resultMap id="CompleteRegisterBOMap" type="com.feidian.bo.CompleteRegisterBO">
         <!-- 使用 association 来映射 Register 对象 -->
         <association property="register" javaType="com.feidian.po.Register">
-            <id column="r_id" property="id"/>
+            <id property="id" column="id"/>
             <result column="user_id" property="userId"/>
             <result column="resume" property="resume"/>
             <result column="desire_department_id" property="desireDepartmentId"/>
@@ -112,6 +89,45 @@
             <result column="create_by" property="createBy"/>
             <result column="update_time" property="updateTime"/>
             <result column="update_by" property="updateBy"/>
+        </association>
+        <!-- 使用 association 来映射 User 对象 -->
+        <association property="user" javaType="com.feidian.po.User">
+            <result property="id" column="id"/>
+            <result property="username" column="username"/>
+            <result property="password" column="password"/>
+            <result property="name" column="name"/>
+            <result property="nickname" column="nickname"/>
+            <result property="birthday" column="birthday"/>
+            <result property="sex" column="sex"/>
+            <result property="studentId" column="student_id"/>
+            <result property="gradeName" column="grade_name"/>
+            <result property="className" column="class_name"/>
+            <result property="subjectId" column="subject_id"/>
+            <result property="facultyId" column="faculty_id"/>
+            <result property="departmentId" column="department_id"/>
+            <result property="avatarUrl" column="avatar_url"/>
+            <result property="nationality" column="nationality"/>
+            <result property="phone" column="phone"/>
+            <result property="email" column="email"/>
+            <result property="qq" column="qq"/>
+            <result property="isDeleted" column="isDeleted"/>
+            <result property="createTime" column="createTime"/>
+            <result property="createBy" column="createBy"/>
+            <result property="updateTime" column="updateTime"/>
+            <result property="updateBy" column="updateBy"/>
+        </association>
+        <!-- 使用 association 来映射 Faculty 对象 -->
+        <association property="faculty" javaType="com.feidian.po.Faculty">
+            <id column="f_id" property="id"/>
+            <result column="faculty_name" property="facultyName"/>
+        </association><!-- 使用 association 来映射 Subject 对象 -->
+        <association property="subject" javaType="com.feidian.po.Subject">
+            <id column="s_id" property="id"/>
+            <result column="subject_name" property="subjectName"/>
+        </association><!-- 使用 association 来映射 Department 对象 -->
+        <association property="department" javaType="com.feidian.po.Department">
+            <id column="d_id" property="id"/>
+            <result column="department_name" property="departmentName"/>
         </association>
     </resultMap>
 
