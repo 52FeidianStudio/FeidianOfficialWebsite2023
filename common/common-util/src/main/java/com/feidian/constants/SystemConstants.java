@@ -9,4 +9,6 @@ public class SystemConstants {
     // 逻辑删除中的已删除
     public static final Long DELETE = 1L;
     public static final Long NOT_DELETED = 0L;
+
+    public static final Long DEFAULT_DEPARTMENT_ID =5L;
 }

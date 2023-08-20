@@ -20,4 +20,6 @@ public interface UserRoleMapper  {
 
     List<UserRoleVO> selectAllUserRole();
 
+    Long selectRoleIdsByUserId(Long userId);
+
 }
