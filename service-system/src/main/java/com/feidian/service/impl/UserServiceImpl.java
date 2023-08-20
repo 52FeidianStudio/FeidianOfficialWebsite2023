@@ -201,7 +201,8 @@ public class UserServiceImpl implements UserService {
 
         // 封装用户信息和Token，准备返回
         // 将LoginUser转换为UserInfoVo
-        UserInfoVO vo = new UserInfoVO(loginUser.getUser().getId(), loginUser.getPermissions(),token);
+        Long roleId = userRoleMapper.selectRoleIdsByUserId(id);
+        UserInfoVO vo = new UserInfoVO(id, loginUser.getPermissions(),token,roleId);
 
         // 返回成功响应，包含用户信息和Token
         return ResponseResult.successResult(vo);
@@ -250,23 +251,23 @@ public class UserServiceImpl implements UserService {
         user.setSubjectId(ids.getId());
 
         // 根据部门名称设置部门ID
-        String department = registerUserDTO.getDepartment();
-        long departmentId = 0L;
-        switch (department) {
-            case "前端":
-                departmentId = 1L;
-                break;
-            case "后端":
-                departmentId = 2L;
-                break;
-            case "ios":
-                departmentId = 3L;
-                break;
-            case "信息安全":
-                departmentId = 4L;
-                break;
-        }
-        user.setDepartmentId(departmentId);
+//        String department = registerUserDTO.getDepartment();
+//        long departmentId = 0L;
+//        switch (department) {
+//            case "前端":
+//                departmentId = 1L;
+//                break;
+//            case "后端":
+//                departmentId = 2L;
+//                break;
+//            case "ios":
+//                departmentId = 3L;
+//                break;
+//            case "信息安全":
+//                departmentId = 4L;
+//                break;
+//        }
+        user.setDepartmentId(SystemConstants.DEFAULT_DEPARTMENT_ID);
 
         // 获取当前时间
         Date now = new Date();

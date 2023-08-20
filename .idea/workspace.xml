@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="refactor(admin):给后台的controller增加了代码，并在前台pom加上了后台的依赖，使之能够启动后台">
-      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/bo/SubjectInfo.java" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(UserController):改了注册登录功能的相关bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/constants/SystemConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/constants/SystemConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/UserInfoVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/UserInfoVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/SubjectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/SubjectMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserRoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/UserRoleMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/SubjectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/SubjectMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;4b5e5f5e4604aaab2ccf4a581bfe326a&quot;
+    &quot;spring.configuration.checksum&quot;: &quot;4674d37c56225354b9633954216e2b92&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -208,6 +207,8 @@
       <workItem from="1692258927353" duration="9127000" />
       <workItem from="1692269762328" duration="2597000" />
       <workItem from="1692339531298" duration="2734000" />
+      <workItem from="1692347427609" duration="42000" />
+      <workItem from="1692513758169" duration="1496000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -454,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692271726716</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fix(UserController):改了注册登录功能的相关bug">
+      <created>1692346531186</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1692346531186</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +493,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(service-system):初步新增了根据条件筛选的四个接口" />
     <MESSAGE value="feat(model):完善了SectionalRegisterVO" />
     <MESSAGE value="feat(service-system):新增了一大堆查询" />
     <MESSAGE value="fix(service-system):修复了merge之后一些小bug" />
@@ -510,7 +517,8 @@
     <MESSAGE value="refactor(common):新增了跨域配置" />
     <MESSAGE value="feat(service-system):新增了获取报名者年级、专业、申请组别、报名表状态的接口" />
     <MESSAGE value="fix(service-system):修复了一些小bug以及跨域问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修复了一些小bug以及跨域问题" />
+    <MESSAGE value="fix(UserController):改了注册登录功能的相关bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(UserController):改了注册登录功能的相关bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

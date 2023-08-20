@@ -40,5 +40,8 @@
         where
             is_deleted = 0
     </select>
+    <select id="selectRoleIdsByUserId" resultType="java.lang.Long">
+        SELECT role_id FROM feidian.user_role WHERE user_id = #{userId}
+    </select>
 
 </mapper>

@@ -21,5 +21,8 @@ public class UserInfoVO {
     // 登陆token
     private String token;
 
+    // 角色id
+    private Long roleId;
+
 
 }
