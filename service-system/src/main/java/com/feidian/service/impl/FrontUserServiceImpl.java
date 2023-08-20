@@ -7,6 +7,7 @@ import com.feidian.service.FrontUserService;
 import com.feidian.util.BeanCopyUtils;
 import com.feidian.util.SecurityUtils;
 import com.feidian.vo.FrontUserVO;
+import com.feidian.vo.MergeFrontUserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,9 @@ public class FrontUserServiceImpl implements FrontUserService {
     public ResponseResult getMessage() {
         Long userId = SecurityUtils.getUserId();
         FrontUserVO frontUserVO = frontUserMapper.getMessageById(userId);
-        return ResponseResult.successResult(frontUserVO);
+        //关联register表拿到status
+        String status = frontUserMapper.getStatusById(userId);
+        MergeFrontUserVO mergeFrontUserVO = new MergeFrontUserVO(frontUserVO, status);
+        return ResponseResult.successResult(mergeFrontUserVO);
     }
 }

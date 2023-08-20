@@ -63,4 +63,7 @@
     <select id="getSIdByName" resultType="java.lang.Long">
         select id from subject where subject_name = #{subjectName}
     </select>
+    <select id="getStatusById" resultType="java.lang.String">
+        select status from register where user_id  = #{userId}
+    </select>
 </mapper>
