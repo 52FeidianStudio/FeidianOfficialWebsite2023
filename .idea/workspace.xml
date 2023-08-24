@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="修改getMessage">
-      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/DepartmentVO.java" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="前台补充">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/src/main/java/com/feidian/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/DepartmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/DepartmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/DepartmentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/DepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/DepartmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/common-util-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/target/common-util-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/target/security-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/target/security-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/model-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/model-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar.original" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/DepartmentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/service-system-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/service-system-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,6 +216,7 @@
       <workItem from="1692519199048" duration="152000" />
       <workItem from="1692519367410" duration="3968000" />
       <workItem from="1692859272867" duration="911000" />
+      <workItem from="1692863879057" duration="1157000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -503,7 +505,21 @@
       <option name="project" value="LOCAL" />
       <updated>1692521123034</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="前台补充">
+      <created>1692860760134</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1692860760134</updated>
+    </task>
+    <task id="LOCAL-00043" summary="前台补充">
+      <created>1692860772255</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1692860772255</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -534,7 +550,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(common-util):优化了文件上传的工具类" />
     <MESSAGE value="feat(service-system):优化了查询审核人信息的方法" />
     <MESSAGE value="feat(service-system):新增了修改报名表的功能，下一阶段准备按项目要求，全部替换回mybatis。" />
     <MESSAGE value="feat(admin):增加了毕业生相关的三个接口" />
@@ -559,7 +574,8 @@
     <MESSAGE value="fix(service-system):新增了CompleteRegisterBO，优化了CompleteRegisterVO，修复了查询出的registerId是错误的bug" />
     <MESSAGE value="fix(service-system):修复了查询SectionalRegisterVO无法正常查询出registerId的bug" />
     <MESSAGE value="修改getMessage" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改getMessage" />
+    <MESSAGE value="前台补充" />
+    <option name="LAST_COMMIT_MESSAGE" value="前台补充" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
