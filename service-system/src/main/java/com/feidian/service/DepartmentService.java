@@ -16,4 +16,6 @@ public interface DepartmentService {
     ResponseResult getAllName();
 
     ResponseResult getByName(String name);
+
+    ResponseResult getAllMessage();
 }

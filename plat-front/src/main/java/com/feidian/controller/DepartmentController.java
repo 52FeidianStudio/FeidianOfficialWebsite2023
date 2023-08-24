@@ -23,4 +23,8 @@ public class DepartmentController {
         return departmentService.getByName(name);
     }
 
+    @GetMapping("/getAllMessage")
+    public ResponseResult getAllMessage(){
+        return departmentService.getAllMessage();
+    }
 }

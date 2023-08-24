@@ -7,6 +7,8 @@ import com.feidian.po.Department;
 import com.feidian.po.Graduates;
 import com.feidian.responseResult.ResponseResult;
 import com.feidian.service.DepartmentService;
+import com.feidian.util.BeanCopyUtils;
+import com.feidian.vo.DepartmentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,5 +64,12 @@ public class DepartmentServiceImpl  implements DepartmentService {
     public ResponseResult getByName(String name) {
         String byName = departmentMapper.getByName(name);
         return ResponseResult.successResult(byName);
+    }
+
+    @Override
+    public ResponseResult getAllMessage() {
+        List<Department> allMessage = departmentMapper.getAllMessage();
+        List<DepartmentVO> departmentVOS = BeanCopyUtils.copyProperties(allMessage, DepartmentVO.class);
+        return ResponseResult.successResult(departmentVOS);
     }
 }
