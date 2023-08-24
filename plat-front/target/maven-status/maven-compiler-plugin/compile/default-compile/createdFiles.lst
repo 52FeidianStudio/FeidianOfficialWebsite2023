@@ -1,0 +1,9 @@
+com\feidian\controller\FrontUserController.class
+com\feidian\controller\GraduatesController.class
+com\feidian\controller\RegisterController.class
+com\feidian\controller\ForgetPasswordController.class
+com\feidian\controller\FacultyController.class
+com\feidian\controller\UploadController.class
+com\feidian\controller\DepartmentController.class
+com\feidian\WebsiteFrontApplication.class
+com\feidian\controller\UserController.class

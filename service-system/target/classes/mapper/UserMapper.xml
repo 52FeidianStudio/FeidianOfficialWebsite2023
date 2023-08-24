@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feidian.mapper.UserMapper">
+
+    <!-- 定义User的映射关系 -->
+    <resultMap id="UserBaseResultMap" type="com.feidian.po.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="nickname" column="nickname"/>
+        <result property="birthday" column="birthday"/>
+        <result property="sex" column="sex"/>
+        <result property="studentId" column="studentId"/>
+        <result property="gradeName" column="gradeName"/>
+        <result property="className" column="className"/>
+        <result property="subjectId" column="subjectId"/>
+        <result property="facultyId" column="facultyId"/>
+        <result property="departmentId" column="departmentId"/>
+        <result property="avatarUrl" column="avatarUrl"/>
+        <result property="nationality" column="nationality"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="qq" column="qq"/>
+        <result property="isDeleted" column="isDeleted"/>
+        <result property="createTime" column="createTime"/>
+        <result property="createBy" column="createBy"/>
+        <result property="updateTime" column="updateTime"/>
+        <result property="updateBy" column="updateBy"/>
+    </resultMap>
+
+    <!-- 根据UserId查询用户信息 -->
+    <select id="selectUserByUserId" parameterType="long" resultMap="UserBaseResultMap">
+        SELECT *
+        FROM user
+        WHERE id = #{userId}
+    </select>
+
+    <!-- 根据年级或者专业查询出 UserList -->
+    <select id="selectUserListByGradeNameOrSubjectId" resultMap="UserBaseResultMap">
+        SELECT *
+        FROM user
+        WHERE
+        <choose>
+            <when test="gradeName != null">
+                grade_name = #{gradeName}
+            </when>
+            <when test="subjectId != null">
+                subject_id = #{subjectId}
+            </when>
+        </choose>
+    </select>
+
+
+    <!-- 根据registerId查询User -->
+    <select id="selectUserByRegisterId" parameterType="long" resultMap="UserBaseResultMap">
+        SELECT u.*
+        FROM user u
+                 JOIN register r ON u.id = r.user_id
+        WHERE r.id = #{registerId}
+    </select>
+
+    <!-- 插入用户数据 -->
+    <insert id="insertUser" parameterType="com.feidian.po.User">
+        INSERT INTO user (username, password, name, nickname, birthday, sex, student_id,
+                          grade_name, class_name, subject_id, faculty_id, department_id,
+                          avatar_url, nationality, phone, email, qq, is_deleted,
+                          create_time, create_by, update_time, update_by)
+        VALUES (#{username}, #{password}, #{name}, #{nickname}, #{birthday},
+                #{sex}, #{studentId}, #{gradeName}, #{className}, #{subjectId},
+                #{facultyId}, #{departmentId}, #{avatarUrl}, #{nationality},
+                #{phone}, #{email}, #{qq}, #{isDeleted}, #{createTime},
+                #{createBy}, #{updateTime}, #{updateBy})
+    </insert>
+
+    <select id="isEmailExist" resultType="boolean">
+        SELECT COUNT(1) > 0
+        FROM user
+        WHERE email = #{email}
+    </select>
+
+    <select id="isPhoneExist" resultType="boolean">
+        SELECT COUNT(1) > 0
+        FROM user
+        WHERE phone = #{phone}
+    </select>
+
+    <!-- 在UserMapper.xml文件中添加resultMap -->
+    <resultMap id="UserResultMap" type="com.feidian.po.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="nickname" column="nickname"/>
+        <result property="birthday" column="birthday"/>
+        <result property="sex" column="sex"/>
+        <result property="studentId" column="student_id"/>
+        <result property="gradeName" column="grade_name"/>
+        <result property="className" column="class_name"/>
+        <result property="subjectId" column="subject_id"/>
+        <result property="facultyId" column="faculty_id"/>
+        <result property="departmentId" column="department_id"/>
+        <result property="avatarUrl" column="avatar_url"/>
+        <result property="nationality" column="nationality"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="qq" column="qq"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+    </resultMap>
+
+    <!-- 使用resultMap来映射查询结果 -->
+    <select id="selectUserByUsername" resultMap="UserResultMap">
+        select *
+        from user
+        where username = #{username}
+    </select>
+
+    <select id="selectUserIdByPhone" resultType="long">
+        select id
+        from user
+        where phone = #{phone}
+          and is_deleted = 0
+    </select>
+
+    <select id="selectGradeName" resultMap="QueryCategoryVOMap">
+        select grade_name
+        from user
+    </select>
+
+    <select id="selectSubjectIdAndSubjectName" resultMap="QueryCategoryVOMap">
+        SELECT DISTINCT u.subject_Id, s.subject_name
+        FROM user u
+                 JOIN subject s ON u.subject_id = s.id;
+    </select>
+
+
+    <resultMap id="QueryCategoryVOMap" type="com.feidian.vo.QueryCategoryVO">
+        <result property="gradeName" column="grade_name"/>
+        <result property="subjectId" column="subject_id"/>
+        <result property="subjectName" column="subject_name"/>
+        <result property="desireDepartmentId" column="desire_department_id"/>
+        <result property="departmentName" column="department_name"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+</mapper>
+
+
+

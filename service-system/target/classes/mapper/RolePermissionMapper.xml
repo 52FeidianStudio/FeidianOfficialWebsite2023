@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.feidian.mapper.RolePermissionMapper">
+
+    <resultMap id="RolePermissionMap" type="com.feidian.po.UserRole">
+        <id property="roleId" column="role_id"/>
+        <result property="permissionId" column="permission_id"/>
+    </resultMap>
+
+    <!-- selectByRoleId: 查询角色权限关联表 -->
+    <select id="selectByRoleId" parameterType="java.util.List" resultMap="RolePermissionMap">
+        SELECT
+        role_id,
+        permission_id
+        FROM
+        role_permission
+        WHERE
+        role_id IN
+        <foreach collection="list" item="roleId" open="(" close=")" separator=",">
+            #{roleId}
+        </foreach>
+    </select>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.feidian.mapper.SubjectMapper">
+
+    <!-- 定义SubjectInfo的映射关系 -->
+    <resultMap id="SubjectInfoResultMap" type="com.feidian.bo.SubjectInfo">
+        <result property="id" column="id"/>
+        <result property="facultyId" column="faculty_id"/>
+    </resultMap>
+
+    <!-- 根据SubjectName查询学科信息 -->
+    <select id="selectIdAndFacultyIdBySubjectName" parameterType="String" resultMap="SubjectInfoResultMap">
+        SELECT s.id, s.faculty_id
+        FROM feidian.subject s
+        WHERE s.subject_name = #{subjectName}
+    </select>
+
+</mapper>
