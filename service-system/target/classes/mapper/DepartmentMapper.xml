@@ -29,7 +29,7 @@
           and is_deleted = 0
     </select>
     <select id="getAllMessage" resultType="com.feidian.po.Department">
-        select department_name,introduction from department where is_deleted = 0
+        select department_name,introduction from department where is_deleted = 0 and id != 5
     </select>
 
     <!-- 更新Department介绍信息 -->
