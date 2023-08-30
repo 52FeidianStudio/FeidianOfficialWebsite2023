@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):修复了一些小问题">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="chore(service-system):一些小修改，准备改用阿里云的oss对象存储处理图片">
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/AliyunOSSUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/TestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/SectionalRegisterVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/SectionalRegisterVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +220,7 @@
       <workItem from="1693216035719" duration="497000" />
       <workItem from="1693297943626" duration="1039000" />
       <workItem from="1693301855219" duration="5522000" />
-      <workItem from="1693391887211" duration="2531000" />
+      <workItem from="1693391887211" duration="7855000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -500,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692435045119</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="chore(service-system):一些小修改，准备改用阿里云的oss对象存储处理图片">
+      <created>1693396803684</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1693396803684</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +540,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix(service-system):修复了报名系统审核时审核人不参与的bug" />
     <MESSAGE value="feat(common-util):优化了文件上传的工具类" />
     <MESSAGE value="feat(service-system):优化了查询审核人信息的方法" />
     <MESSAGE value="feat(service-system):新增了修改报名表的功能，下一阶段准备按项目要求，全部替换回mybatis。" />
@@ -556,7 +564,8 @@
     <MESSAGE value="fix(service-system):修复了不能修改报名表状态的bug" />
     <MESSAGE value="fix(service-system):新增了CompleteRegisterBO，优化了CompleteRegisterVO，修复了查询出的registerId是错误的bug" />
     <MESSAGE value="fix(service-system):修复了查询SectionalRegisterVO无法正常查询出registerId的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):修复了查询SectionalRegisterVO无法正常查询出registerId的bug" />
+    <MESSAGE value="chore(service-system):一些小修改，准备改用阿里云的oss对象存储处理图片" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(service-system):一些小修改，准备改用阿里云的oss对象存储处理图片" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -590,6 +599,11 @@
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
           <line>312</line>
           <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/util/serviceUtil/AliyunOSSUtil.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

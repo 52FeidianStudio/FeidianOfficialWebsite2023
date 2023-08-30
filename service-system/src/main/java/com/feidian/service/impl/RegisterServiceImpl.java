@@ -12,8 +12,8 @@ import com.feidian.po.UserRole;
 import com.feidian.responseResult.ResponseResult;
 import com.feidian.util.RedisCache;
 import com.feidian.util.SecurityUtils;
+import com.feidian.util.serviceUtil.AliyunOSSUtil;
 import com.feidian.util.serviceUtil.EmailUtil;
-import com.feidian.util.serviceUtil.FileUploadUtil;
 import com.feidian.bo.CompleteRegisterBO;
 import com.feidian.vo.CompleteRegisterVO;
 import com.feidian.vo.QueryCategoryVO;
@@ -84,7 +84,7 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Override
     public ResponseResult submitImage(MultipartFile imageFile) {
-        ResponseResult submitImageResponseResult = FileUploadUtil.uploadAvatar(imageFile);
+        ResponseResult submitImageResponseResult = AliyunOSSUtil.uploadImage(imageFile);
         if (submitImageResponseResult.getCode() == 400) {
             return submitImageResponseResult;
         }
