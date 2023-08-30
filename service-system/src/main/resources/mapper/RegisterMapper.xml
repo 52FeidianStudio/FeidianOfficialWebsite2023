@@ -160,7 +160,7 @@
         <result property="registerId" column="register_id"/>
         <result property="name" column="name"/>
         <result property="nickname" column="nickname"/>
-        <result property="avatarUrl" column="avatar_url"/>
+        <result property="imageUrl" column="img_url "/>
         <result property="subjectId" column="subject_id"/>
         <result property="gradeName" column="grade_name"/>
         <result property="desireDepartmentId" column="desire_department_id"/>
