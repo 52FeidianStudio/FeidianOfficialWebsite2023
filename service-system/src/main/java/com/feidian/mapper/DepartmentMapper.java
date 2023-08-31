@@ -24,5 +24,7 @@ public interface DepartmentMapper  {
     List<String> getAllName();
 
     String getByName(String name);
+
+    List<Department> getAllMessage();
 }
 

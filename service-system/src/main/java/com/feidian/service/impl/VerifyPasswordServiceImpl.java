@@ -7,6 +7,7 @@ import com.feidian.responseResult.ResponseResult;
 import com.feidian.service.VerifyPasswordService;
 import com.feidian.util.RedisCache;
 import com.feidian.util.serviceUtil.Base64Util;
+import com.feidian.util.serviceUtil.StandardPasswordUtil;
 import io.micrometer.core.instrument.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,6 +23,10 @@ public class VerifyPasswordServiceImpl implements VerifyPasswordService {
     private PasswordEncoder passwordEncoder;
     @Override
     public ResponseResult verifyProcess(VerifyPasswordDTO verifyPasswordDTO) {
+        // 对密码是否符合规范的判断
+        if(!StandardPasswordUtil.isPasswordStandardized(verifyPasswordDTO.getPassword())){
+            throw new SystemException(HttpCodeEnum.PASSWORD_NOT_STANDARDIZED);
+        }
         if(StringUtils.isBlank(verifyPasswordDTO.getCode())){
             throw new SystemException(HttpCodeEnum.CODE_NULL);
         }

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.feidian.mapper.RegisterMapper">
+
+    <!-- 定义结果映射 -->
+    <resultMap id="RegisterBaseResultMap" type="com.feidian.po.Register">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="resume" property="resume"/>
+        <result column="desire_department_id" property="desireDepartmentId"/>
+        <result column="direction" property="direction"/>
+        <result column="arrangement" property="arrangement"/>
+        <result column="status" property="status"/>
+        <result column="reason" property="reason"/>
+        <result column="img_url" property="imgUrl"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+    </resultMap>
+
+    <select id="selectAllRegister" resultMap="RegisterBaseResultMap">
+        SELECT *
+        FROM register
+    </select>
+
+    <!-- 根据用户ID查询报名表，返回单个Register对象 -->
+    <select id="selectRegisterByUserId" parameterType="long" resultType="com.feidian.po.Register">
+        SELECT *
+        FROM register
+        WHERE user_id = #{userId}
+        LIMIT 1
+    </select>
+
+    <!-- 根据报名表ID查询报名表，返回单个Register对象 -->
+    <select id="selectRegisterByRegisterId" parameterType="long" resultType="com.feidian.po.Register">
+        SELECT *
+        FROM register
+        WHERE id = #{registerId}
+        LIMIT 1
+    </select>
+
+    <!-- 根据申请组别或者报名表状态查询报名表-->
+    <select id="selectByDesireDepartmentIdOrStatus" resultMap="RegisterBaseResultMap">
+        SELECT *
+        FROM register
+        WHERE
+        <choose>
+            <when test="desireDepartmentId != null">
+                desire_department_id = #{desireDepartmentId}
+            </when>
+            <when test="status != null">
+                status = #{status}
+            </when>
+        </choose>
+    </select>
+
+
+    <!-- 多表联查 根据registerId查询User和Register并封装成一个CompleteRegisterVO -->
+    <select id="selectCompleteRegisterBOByRegisterId" parameterType="long" resultMap="CompleteRegisterBOMap">
+        SELECT u.id AS u_id, r.*, u.*, f.*, s.*, d.*
+        FROM register r
+                 JOIN user u on r.user_id = u.id
+                 JOIN faculty f on f.id = u.faculty_id
+                 JOIN subject s on s.id = u.subject_id
+                 JOIN department d on d.id = r.desire_department_id
+        WHERE r.id = #{registerId}
+    </select>
+
+    <!-- 定义 CompleteRegisterBO 的 resultMap -->
+    <resultMap id="CompleteRegisterBOMap" type="com.feidian.bo.CompleteRegisterBO">
+        <!-- 使用 association 来映射 Register 对象 -->
+        <association property="register" javaType="com.feidian.po.Register">
+            <id property="id" column="id"/>
+            <result column="user_id" property="userId"/>
+            <result column="resume" property="resume"/>
+            <result column="desire_department_id" property="desireDepartmentId"/>
+            <result column="direction" property="direction"/>
+            <result column="arrangement" property="arrangement"/>
+            <result column="status" property="status"/>
+            <result column="reason" property="reason"/>
+            <result column="img_url" property="imgUrl"/>
+            <result column="is_deleted" property="isDeleted"/>
+            <result column="create_time" property="createTime"/>
+            <result column="create_by" property="createBy"/>
+            <result column="update_time" property="updateTime"/>
+            <result column="update_by" property="updateBy"/>
+        </association>
+        <!-- 使用 association 来映射 User 对象 -->
+        <association property="user" javaType="com.feidian.po.User">
+            <result property="id" column="u_id"/>
+            <result property="username" column="username"/>
+            <result property="password" column="password"/>
+            <result property="name" column="name"/>
+            <result property="nickname" column="nickname"/>
+            <result property="birthday" column="birthday"/>
+            <result property="sex" column="sex"/>
+            <result property="studentId" column="student_id"/>
+            <result property="gradeName" column="grade_name"/>
+            <result property="className" column="class_name"/>
+            <result property="subjectId" column="subject_id"/>
+            <result property="facultyId" column="faculty_id"/>
+            <result property="departmentId" column="department_id"/>
+            <result property="avatarUrl" column="avatar_url"/>
+            <result property="nationality" column="nationality"/>
+            <result property="phone" column="phone"/>
+            <result property="email" column="email"/>
+            <result property="qq" column="qq"/>
+            <result property="isDeleted" column="isDeleted"/>
+            <result property="createTime" column="createTime"/>
+            <result property="createBy" column="createBy"/>
+            <result property="updateTime" column="updateTime"/>
+            <result property="updateBy" column="updateBy"/>
+        </association>
+        <!-- 使用 association 来映射 Faculty 对象 -->
+        <association property="faculty" javaType="com.feidian.po.Faculty">
+            <id column="f_id" property="id"/>
+            <result column="faculty_name" property="facultyName"/>
+        </association><!-- 使用 association 来映射 Subject 对象 -->
+        <association property="subject" javaType="com.feidian.po.Subject">
+            <id column="s_id" property="id"/>
+            <result column="subject_name" property="subjectName"/>
+        </association><!-- 使用 association 来映射 Department 对象 -->
+        <association property="department" javaType="com.feidian.po.Department">
+            <id column="d_id" property="id"/>
+            <result column="department_name" property="departmentName"/>
+        </association>
+    </resultMap>
+
+
+    <!-- 多表联查 根据userId列表查询User和Register并封装成一个SectionalRegisterVO -->
+    <select id="selectSectionalRegisterVOByUser" parameterType="java.util.List" resultMap="SectionalRegisterVOMap">
+        SELECT u.id AS user_id, r.id AS register_id, u.*, r.*
+        FROM register r
+        JOIN user u ON u.id = r.user_id
+        WHERE u.id IN
+        <foreach item="userId" collection="list" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
+    </select>
+
+    <!-- 多表联查 根据registerId列表查询User和Register并封装成一个SectionalRegisterVO -->
+    <select id="selectSectionalRegisterVOByRegister" parameterType="java.util.List" resultMap="SectionalRegisterVOMap">
+        SELECT u.id AS user_id, r.id AS register_id, u.*, r.*
+        FROM register r
+        JOIN user u ON u.id = r.user_id
+        WHERE r.id IN
+        <!-- 使用foreach遍历registerId列表，并将其作为参数传入SQL的IN语句中 -->
+        <foreach item="registerId" collection="list" open="(" separator="," close=")">
+            #{registerId}
+        </foreach>
+    </select>
+
+    <resultMap id="SectionalRegisterVOMap" type="com.feidian.vo.SectionalRegisterVO">
+        <result property="userId" column="user_id"/>
+        <result property="registerId" column="register_id"/>
+        <result property="name" column="name"/>
+        <result property="nickname" column="nickname"/>
+        <result property="avatarUrl" column="avatar_url"/>
+        <result property="subjectId" column="subject_id"/>
+        <result property="gradeName" column="grade_name"/>
+        <result property="desireDepartmentId" column="desire_department_id"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+
+
+
+    <select id="selectDesireDepartmentIdAndDepartmentName" resultMap="QueryCategoryVOMap">
+        SELECT DISTINCT r.desire_department_id, d.department_name
+        FROM register r
+                 JOIN department d on r.desire_department_id = d.id;
+    </select>
+
+
+    <select id="selectStatus" resultMap="QueryCategoryVOMap">
+        SELECT DISTINCT status
+        FROM register
+    </select>
+
+    <resultMap id="QueryCategoryVOMap" type="com.feidian.vo.QueryCategoryVO">
+        <result property="gradeName" column="grade_name"/>
+        <result property="subjectId" column="subject_id"/>
+        <result property="subjectName" column="subject_name"/>
+        <result property="desireDepartmentId" column="desire_department_id"/>
+        <result property="departmentName" column="department_name"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+
+    <!-- 添加报名表 -->
+    <insert id="insertRegister" parameterType="com.feidian.po.Register">
+        INSERT INTO register (user_id, resume, desire_department_id, direction, arrangement, status, reason, img_url,
+                              is_deleted, create_time, create_by, update_time, update_by)
+        VALUES (#{userId}, #{resume}, #{desireDepartmentId}, #{direction}, #{arrangement}, #{status}, #{reason},
+                #{imgUrl}, #{isDeleted}, #{createTime}, #{createBy}, #{updateTime}, #{updateBy})
+    </insert>
+
+    <!-- 更新报名表状态 -->
+    <update id="updateStatus" parameterType="com.feidian.po.Register">
+        UPDATE register
+        SET status      = #{status},
+            update_by   = #{updateBy},
+            update_time = #{updateTime}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 更新报名表内容 -->
+    <update id="updateContent" parameterType="com.feidian.po.Register">
+        UPDATE register
+        <set>
+            <!-- 使用动态SQL，根据字段是否为空来动态更新字段 -->
+            <if test="resume != null">resume = #{resume},</if>
+            <if test="desireDepartmentId != null">desire_department_id = #{desireDepartmentId},</if>
+            <if test="direction != null">direction = #{direction},</if>
+            <if test="arrangement != null">arrangement = #{arrangement},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="reason != null">reason = #{reason},</if>
+            <if test="imgUrl != null">img_url = #{imgUrl},</if>
+            update_by = #{updateBy},
+            update_time = #{updateTime}
+        </set>
+        WHERE id = #{id}
+    </update>
+
+</mapper>

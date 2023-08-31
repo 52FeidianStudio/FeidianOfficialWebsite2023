@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.feidian.mapper.GraduatesMapper">
+
+
+    <!--查询毕业生信息的map-->
+    <resultMap id="GraduatesMap" type="com.feidian.bo.GraduatesBO">
+        <id column="faculty_id" property="facultyId"/>
+        <result column="name" property="name"/>
+        <result column="subject_id" property="subjectId"/>
+        <result column="department_id" property="departmentId"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="faculty_name" property="faculty.facultyName"/>
+        <result column="department_name" property="department.departmentName"/>
+        <result column="subject_name" property="subject.subjectName"/>
+    </resultMap>
+
+    <insert id="insertGraduate">
+        insert into graduates (name, faculty_id, subject_id, department_id, city, company, is_deleted, create_time, create_by)
+        values (#{name}, #{facultyId}, #{subject}, #{departmentId}, #{city}, #{company}, #{isDeleted}, #{createTime}, #{createBy})
+    </insert>
+
+
+    <!-- 在GraduatesMapper.xml文件中添加resultMap -->
+    <resultMap id="GraduatesResultMap" type="com.feidian.po.Graduates">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="facultyId" column="faculty_id"/>
+        <result property="subjectId" column="subject_id"/>
+        <result property="departmentId" column="department_id"/>
+        <result property="city" column="city"/>
+        <result property="company" column="company"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+    </resultMap>
+
+    <!-- 使用resultMap来映射查询结果 -->
+    <select id="getGraduateById" resultMap="GraduatesResultMap">
+        select
+            id, name, faculty_id, subject_id, department_id,
+            city, company, is_deleted, create_time, create_by,
+            update_time, update_by
+        from graduates
+        where id = #{id}
+    </select>
+
+
+    <update id="updateGraduate">
+        update graduates
+        set
+            name = #{name},
+            faculty_id = #{facultyId},
+            subject = #{subject},
+            department_id = #{departmentId},
+            city = #{city},
+            company = #{company},
+            is_deleted = #{isDeleted},
+            create_time = #{createTime},
+            create_by = #{createBy}
+        where id = #{id}
+    </update>
+    <select id="getGraduatesMessage" resultMap="GraduatesMap">
+        select g.name, f.faculty_name, s.subject_name, d.department_name, g.city, g.company
+        from graduates g,
+             faculty f,
+             department d,
+             subject s
+        where g.is_deleted = 0
+          and g.faculty_id = f.id
+          and g.department_id = d.id
+          and g.subject_id = s.id
+    </select>
+
+
+</mapper>
