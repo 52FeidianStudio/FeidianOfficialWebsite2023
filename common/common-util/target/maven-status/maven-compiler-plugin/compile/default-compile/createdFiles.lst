@@ -20,3 +20,4 @@ com\feidian\enums\HttpCodeEnum.class
 com\feidian\util\serviceUtil\EmailUtil.class
 com\feidian\util\serviceUtil\VerifyCode.class
 com\feidian\util\PathUtils.class
+com\feidian\util\serviceUtil\AliyunOSSUtil.class

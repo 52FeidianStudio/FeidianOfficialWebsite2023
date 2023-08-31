@@ -2,6 +2,7 @@ D:\develop\IdeaProjects\FeidianOfficialWebsite2023\common\common-util\src\main\j
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\common\common-util\src\main\java\com\feidian\constants\RedisConstants.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\common\common-util\src\main\java\com\feidian\util\JwtUtil.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\common\common-util\src\main\java\com\feidian\responseResult\ResponseResult.java
+D:\develop\IdeaProjects\FeidianOfficialWebsite2023\common\common-util\src\main\java\com\feidian\util\serviceUtil\AliyunOSSUtil.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\common\common-util\src\main\java\com\feidian\util\PathUtils.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\common\common-util\src\main\java\com\feidian\util\FastJsonRedisSerializer.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\common\common-util\src\main\java\com\feidian\util\serviceUtil\RegexUtils.java

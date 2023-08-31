@@ -5,18 +5,171 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="小修">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common-util/target/common-util-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/target/common-util-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/security/target/security-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/target/security-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/target/model-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/model-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plat-admin/target/plat-admin-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/plat-admin/target/plat-admin-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/VerifyPasswordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/VerifyPasswordServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/VerifyPasswordServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/VerifyPasswordServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/classes/mapper/DepartmentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/target/service-system-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/service-system-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/config/CorsConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/config/RedisConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/constants/RedisConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/constants/SystemConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/enums/HttpCodeEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/exception/SystemException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/handle/exception/ControllerAdvice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/responseResult/ResponseResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/BeanCopyUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/FastJsonRedisSerializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/JwtUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/PathUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/RedisCache.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/WebUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/serviceUtil/AESUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/serviceUtil/Base64Util.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/serviceUtil/EmailUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/serviceUtil/FileUploadUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/serviceUtil/RegexPatterns.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/serviceUtil/RegexUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/serviceUtil/StandardPasswordUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/util/serviceUtil/VerifyCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/common-util-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/target/classes/com/feidian/config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/target/classes/com/feidian/filter/JwtAuthenticationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/target/classes/com/feidian/handler/AccessDeniedHandleImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/target/classes/com/feidian/handler/AuthenticationEntryPointImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/target/classes/com/feidian/util/SecurityUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/target/security-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/bo/CompleteRegisterBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/bo/GraduatesBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/bo/LoginUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/bo/SubjectInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/AddGraduateDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/AddRoleDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/EditDepartmentIntroductionDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/EditGraduateDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/ForgetPasswordDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/FrontUserDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/LoginFormDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/LoginUserDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/PageDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/RegisterFormDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/RegisterOperDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/RegisterUserDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/SubjectDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/VerifyPasswordDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/po/Department.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/po/Faculty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/po/Graduates.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/po/Permission.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/po/Register.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/po/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/po/RolePermission.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/po/Subject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/po/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/po/UserRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/AvatarVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/CompleteRegisterVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/DepartmentVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/FrontUserVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/GraduatesVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/MergeFrontUserVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/QueryCategoryVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/SectionalRegisterVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/UserInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/UserRoleVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/model-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-admin/target/classes/com/feidian/controller/DepartmentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-admin/target/classes/com/feidian/controller/GraduatesController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-admin/target/classes/com/feidian/controller/RoleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-admin/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-admin/target/plat-admin-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/WebsiteFrontApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/DepartmentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/FacultyController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/ForgetPasswordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/FrontUserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/GraduatesController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/RegisterController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/UploadController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UploadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UploadServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/application-deploy.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/application-develop.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/DepartmentMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/FacultyMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/ForgetPasswordMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/FrontUserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/GraduatesMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/PermissionMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/RegisterMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/RoleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/RolePermissionMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/SubjectMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/UserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/UserRoleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/VerifyPasswordMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/DepartmentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/FacultyService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/ForgetPasswordService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/FrontUserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/GraduatesService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/PermissionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/RegisterService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/RolePermissionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/RoleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/SubjectService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/UploadService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/UserRoleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/UtilService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/VerifyPasswordService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/DepartmentServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/FacultyServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/ForgetPasswordServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/FrontUserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/GraduatesServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/PermissionServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/RegisterServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/RoleServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/SubjectServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/UploadServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/UserDetailsServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/UtilServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/VerifyPasswordServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/DepartmentMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/FacultyMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/ForgetPasswordMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/FrontUserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/GraduatesMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/PermissionMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/RegisterMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/RolePermissionMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/SubjectMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/UserRoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/VerifyPasswordMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/service-system-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/test-classes/com/feidian/test.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,34 +235,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/develop/IdeaProjects/FeidianOfficialWebsite2023",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "77ed373eb0d63d03fd3ad849bb41ab74"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/develop/IdeaProjects/FeidianOfficialWebsite2023&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;77ed373eb0d63d03fd3ad849bb41ab74&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
