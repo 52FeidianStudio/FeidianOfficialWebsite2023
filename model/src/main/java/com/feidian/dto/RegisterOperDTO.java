@@ -21,6 +21,7 @@ public class RegisterOperDTO {
     private String status;
 
     //审核操作
+    private Long userId;
     private Long registerId;
     private String isApprovedFlag;
     private String emailContent;

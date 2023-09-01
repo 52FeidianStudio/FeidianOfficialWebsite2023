@@ -30,6 +30,12 @@ public class RegisterController {
         return registerService.submitRegister(registerFormDTO);
     }
 
+    @PreAuthorize("hasAuthority('EDIT_REGISTER_CONTENT')")
+    @GetMapping("/viewRegisterInfo")
+    public ResponseResult viewRegisterInfo() {
+        return registerService.viewRegisterInfo();
+    }
+
     //      修改报名表
     @PreAuthorize("hasAuthority('EDIT_REGISTER_CONTENT')")
     @PostMapping("/editRegister")
@@ -54,7 +60,7 @@ public class RegisterController {
     }
 
 
-    // 查看
+    // 普通查看
     @PreAuthorize("hasAuthority('VIEW_REGISTER_BY_FILTER')")
     @PostMapping("/viewRegister")
     public ResponseResult viewRegister(@RequestBody RegisterOperDTO registerOperDTO) {
