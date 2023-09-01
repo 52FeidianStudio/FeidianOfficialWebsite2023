@@ -2,7 +2,6 @@ package com.feidian.service.impl;
 import com.feidian.responseResult.ResponseResult;
 import com.feidian.service.UploadService;
 import com.feidian.util.serviceUtil.AliyunOSSUtil;
-import com.feidian.util.serviceUtil.FileUploadUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
