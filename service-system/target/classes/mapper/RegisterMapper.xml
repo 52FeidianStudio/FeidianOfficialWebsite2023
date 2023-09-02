@@ -71,6 +71,16 @@
         WHERE r.id = #{registerId}
     </select>
 
+    <select id="selectCompleteRegisterBOByUserId" parameterType="long" resultMap="CompleteRegisterBOMap">
+        SELECT u.id AS u_id, r.*, u.*, f.*, s.*, d.*
+        FROM user u
+                 JOIN register r on r.user_id = u.id
+                 JOIN faculty f on f.id = u.faculty_id
+                 JOIN subject s on s.id = u.subject_id
+                 JOIN department d on d.id = r.desire_department_id
+        WHERE u.id = #{userId}
+    </select>
+
     <!-- 定义 CompleteRegisterBO 的 resultMap -->
     <resultMap id="CompleteRegisterBOMap" type="com.feidian.bo.CompleteRegisterBO">
         <!-- 使用 association 来映射 Register 对象 -->
@@ -160,7 +170,7 @@
         <result property="registerId" column="register_id"/>
         <result property="name" column="name"/>
         <result property="nickname" column="nickname"/>
-        <result property="imageUrl" column="img_url "/>
+        <result property="imgUrl" column="img_url"/>
         <result property="subjectId" column="subject_id"/>
         <result property="gradeName" column="grade_name"/>
         <result property="desireDepartmentId" column="desire_department_id"/>
