@@ -235,6 +235,16 @@ public class RegisterServiceImpl implements RegisterService {
         return ResponseResult.successResult(new CompleteRegisterVO(completeRegisterBO));
     }
 
+    @Override
+    public ResponseResult viewRegisterInfo() {
+        //查询被查看的报名表和报名人
+        CompleteRegisterBO completeRegisterBO = registerMapper.selectCompleteRegisterBOByUserId(SecurityUtils.getUserId());
+        if (completeRegisterBO == null) {
+            return ResponseResult.errorResult(400, "用户未注册或报名表不存在");
+        }
+        return ResponseResult.successResult(new CompleteRegisterVO(completeRegisterBO));
+    }
+
     //将已经提交的人员的年级、专业、申请组别、报名表状态查出来，以供前端筛选
     @Override
     public ResponseResult selectQueryCategory(Integer queryCategoryId) {

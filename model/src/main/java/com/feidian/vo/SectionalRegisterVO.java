@@ -16,7 +16,7 @@ public class SectionalRegisterVO {
 
     private String name;
     private String nickname;
-    private String imageUrl;
+    private String imgUrl;
 
     private Long subjectId;
     private String gradeName;
