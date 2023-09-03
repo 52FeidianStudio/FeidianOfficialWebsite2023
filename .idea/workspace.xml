@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feature(service-system):1.删除了RegisterOperDTO中的userId">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):1.修复了筛选时查不出imgUrl的bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/SectionalRegisterVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/SectionalRegisterVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/RegisterMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +218,9 @@
       <workItem from="1693463044845" duration="661000" />
       <workItem from="1693497263659" duration="719000" />
       <workItem from="1693571335104" duration="4092000" />
-      <workItem from="1693581544510" duration="1078000" />
+      <workItem from="1693581544510" duration="2328000" />
+      <workItem from="1693645283270" duration="67000" />
+      <workItem from="1693648133355" duration="224000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -516,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693581837206</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="fix(service-system):1.修复了筛选时查不出imgUrl的bug">
+      <created>1693582734027</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1693582734027</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,7 +554,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(service-system):优化了查询审核人信息的方法" />
     <MESSAGE value="feat(service-system):新增了修改报名表的功能，下一阶段准备按项目要求，全部替换回mybatis。" />
     <MESSAGE value="feat(admin):增加了毕业生相关的三个接口" />
     <MESSAGE value="fix(service-system):修改了UserMapperTwo" />
@@ -572,7 +578,8 @@
     <MESSAGE value="fix(service-system):修复了查询SectionalRegisterVO无法正常查询出registerId的bug" />
     <MESSAGE value="feature(service-system):1.删除了testController" />
     <MESSAGE value="feature(service-system):1.删除了RegisterOperDTO中的userId" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature(service-system):1.删除了RegisterOperDTO中的userId" />
+    <MESSAGE value="fix(service-system):1.修复了筛选时查不出imgUrl的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):1.修复了筛选时查不出imgUrl的bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -596,11 +603,6 @@
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
           <line>56</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>
-          <line>240</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java</url>

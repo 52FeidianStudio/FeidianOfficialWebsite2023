@@ -127,7 +127,7 @@
     </select>
 
     <select id="selectGradeName" resultMap="QueryCategoryVOMap">
-        select grade_name
+        select DISTINCT grade_name
         from user
     </select>
 
