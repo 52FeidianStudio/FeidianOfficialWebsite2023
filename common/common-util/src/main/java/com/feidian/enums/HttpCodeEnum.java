@@ -29,7 +29,7 @@ public enum HttpCodeEnum {
     PHONE_NOT_NULL(400, "联系电话不能为空"),
     EMAIL_NOT_NULL(400, "邮箱不能为空"),
     QQ_NOT_NULL(400, "QQ号不能为空"),
-    PASSWORD_NOT_STANDARDIZED(400,"密码不符合规范" ),
+    PASSWORD_NOT_STANDARDIZED(400,"密码不符合规范，应有大写字母和小写字母且密码长度在八个字符以上" ),
     PHONE_EXIST(400,"电话已经存在" ),
     EMAIL_NOT_FORMAT(400,"邮箱不符合规范" ),
     PHONE_NOT_FORMAT(400,"电话不符合规范" ),
