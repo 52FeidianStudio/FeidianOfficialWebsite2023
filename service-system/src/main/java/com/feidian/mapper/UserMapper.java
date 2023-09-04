@@ -37,4 +37,6 @@ public interface UserMapper {
     List<QueryCategoryVO> selectGradeName();
 
     List<QueryCategoryVO> selectSubjectIdAndSubjectName();
+
+    boolean isUsernameExist(String username);
 }

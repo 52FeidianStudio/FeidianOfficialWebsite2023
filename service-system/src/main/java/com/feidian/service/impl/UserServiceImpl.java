@@ -96,6 +96,10 @@ public class UserServiceImpl implements UserService {
         }
 
         // 对数据进行是否已经存在的判断
+        // TODO 看用户名是否已经重复
+        if(userMapper.isUsernameExist(registerUserDTO.getUsername())){
+            throw new SystemException(HttpCodeEnum.USERNAME_EXIST);
+        }
         if(userMapper.isEmailExist(registerUserDTO.getEmail())){
             throw new SystemException(HttpCodeEnum.EMAIL_EXIST);
         }
