@@ -1,6 +1,7 @@
 package com.feidian.service.impl;
 
 
+import cn.hutool.core.util.ObjectUtil;
 import com.feidian.dto.RegisterOperDTO;
 import com.feidian.dto.RegisterFormDTO;
 import com.feidian.mapper.RegisterMapper;
@@ -28,6 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 @Service("registerService")
@@ -79,6 +81,9 @@ public class RegisterServiceImpl implements RegisterService {
 
         registerMapper.insertRegister(register);
 
+        //释放redis资源
+        redisCache.deleteObject(key);
+
         return ResponseResult.successResult(200, "提交报名表成功!");
     }
 
@@ -122,10 +127,16 @@ public class RegisterServiceImpl implements RegisterService {
         tempRegister.setDirection(registerFormDTO.getDirection());
         tempRegister.setArrangement(registerFormDTO.getArrangement());
         tempRegister.setReason(registerFormDTO.getReason());
+        if(!ObjectUtil.isEmpty(redisCache.getCacheObject(SecurityUtils.getLoginUser().getUsername()))){
+            tempRegister.setImgUrl(redisCache.getCacheObject(SecurityUtils.getLoginUser().getUsername()));
+        }
         tempRegister.setUpdateTime(new Timestamp(System.currentTimeMillis()));
         tempRegister.setUpdateBy(tempUser.getUsername());
         //TODO 检验修改是否合法
         registerMapper.updateContent(tempRegister);
+
+        //释放redis资源
+        redisCache.deleteObject(SecurityUtils.getLoginUser().getUsername());
 
         return ResponseResult.successResult(200, "修改报名表成功!");
     }
