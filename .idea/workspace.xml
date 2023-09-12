@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="fix(service-system):1.修复了获取年级时，有重复年级的bug">
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):1.新增了修改报名表头像的功能 2.新增了释放redis资源的步骤">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature-registrationSystem" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -223,6 +223,7 @@
       <workItem from="1693645283270" duration="67000" />
       <workItem from="1693648133355" duration="224000" />
       <workItem from="1694262695899" duration="1570000" />
+      <workItem from="1694264539218" duration="310000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -556,7 +557,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(service-system):新增了修改报名表的功能，下一阶段准备按项目要求，全部替换回mybatis。" />
     <MESSAGE value="feat(admin):增加了毕业生相关的三个接口" />
     <MESSAGE value="fix(service-system):修改了UserMapperTwo" />
     <MESSAGE value="fix(mapper):把相同的接口合起来了" />
@@ -581,7 +581,8 @@
     <MESSAGE value="feature(service-system):1.删除了testController" />
     <MESSAGE value="feature(service-system):1.删除了RegisterOperDTO中的userId" />
     <MESSAGE value="fix(service-system):1.修复了筛选时查不出imgUrl的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(service-system):1.修复了筛选时查不出imgUrl的bug" />
+    <MESSAGE value="feat(service-system):1.新增了修改报名表头像的功能 2.新增了释放redis资源的步骤" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(service-system):1.新增了修改报名表头像的功能 2.新增了释放redis资源的步骤" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
