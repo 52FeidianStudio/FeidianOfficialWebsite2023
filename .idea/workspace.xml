@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):1.新增了修改报名表头像的功能 2.新增了释放redis资源的步骤" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="feat(service-system):1.完善redis的资源释放">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterFormDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterFormDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/RegisterServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/test/java/com/feidian/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/test/java/com/feidian/test.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,6 +158,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test.test03" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.feidian.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.feidian" />
+      <option name="MAIN_CLASS_NAME" value="com.feidian.test" />
+      <option name="METHOD_NAME" value="test03" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WebsiteFrontApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="plat-front" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.feidian.WebsiteFrontApplication" />
@@ -169,10 +190,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
+        <item itemvalue="JUnit.test.test03" />
         <item itemvalue="JUnit.test.test02" />
         <item itemvalue="JUnit.test.test" />
         <item itemvalue="Spring Boot.WebsiteFrontApplication" />
-        <item itemvalue="JUnit.test.test02" />
       </list>
     </recent_temporary>
   </component>
@@ -221,6 +242,9 @@
       <workItem from="1693648133355" duration="224000" />
       <workItem from="1694262695899" duration="1570000" />
       <workItem from="1694264539218" duration="310000" />
+      <workItem from="1694504710736" duration="111000" />
+      <workItem from="1694505017256" duration="41000" />
+      <workItem from="1694612067706" duration="792000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -523,7 +547,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693582734027</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="feat(service-system):1.完善redis的资源释放">
+      <created>1694504496754</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1694504496754</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +585,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(admin):增加了毕业生相关的三个接口" />
     <MESSAGE value="fix(service-system):修改了UserMapperTwo" />
     <MESSAGE value="fix(mapper):把相同的接口合起来了" />
     <MESSAGE value="feat(admin):增加了一个关于组别的接口" />
@@ -579,7 +609,8 @@
     <MESSAGE value="feature(service-system):1.删除了RegisterOperDTO中的userId" />
     <MESSAGE value="fix(service-system):1.修复了筛选时查不出imgUrl的bug" />
     <MESSAGE value="feat(service-system):1.新增了修改报名表头像的功能 2.新增了释放redis资源的步骤" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(service-system):1.新增了修改报名表头像的功能 2.新增了释放redis资源的步骤" />
+    <MESSAGE value="feat(service-system):1.完善redis的资源释放" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(service-system):1.完善redis的资源释放" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

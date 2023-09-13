@@ -102,13 +102,8 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Override
     public ResponseResult editRegister(RegisterFormDTO registerFormDTO) {
-        //根据registerId查询当前报名用户
-        User registerUser = userMapper.selectUserByRegisterId(registerFormDTO.getRegisterId());
-        //比对编辑用户是否是报名表的提交者
+        //查询当前正在进行编辑的用户
         User tempUser = SecurityUtils.getLoginUser().getUser();
-        if (registerUser.getId() != tempUser.getId()) {
-            return ResponseResult.errorResult(408, "您没有编辑这份报名表的权限");
-        }
 
         //根据用户查询报名表
         Register tempRegister = registerMapper.selectRegisterByUserId(tempUser.getId());
