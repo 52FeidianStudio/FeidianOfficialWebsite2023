@@ -33,10 +33,9 @@ public class GraduatesServiceImpl implements GraduatesService {
     @Autowired
     private GraduatesMapper graduatesMapper;
 
-    //分页查询毕业生信息
+    //查询毕业生信息
     @Override
-    public ResponseResult getMessage(PageDTO pageDTO) {
-        PageHelper.startPage(pageDTO.getPageNum(),pageDTO.getPageSize());
+    public ResponseResult getMessage() {
         List<GraduatesBO> graduates = graduatesMapper.getGraduatesMessage();
         ArrayList<GraduatesVO> graduatesVOS = new ArrayList<>();
         for(GraduatesBO graduate:graduates){
@@ -46,8 +45,7 @@ public class GraduatesServiceImpl implements GraduatesService {
             vo.setSubject(graduate.getSubject().getSubjectName());
             graduatesVOS.add(vo);
         }
-        PageInfo<GraduatesVO> pageInfo = new PageInfo<>(graduatesVOS);
-        return ResponseResult.successResult(pageInfo);
+        return ResponseResult.successResult(graduatesVOS);
     }
 
     @Override

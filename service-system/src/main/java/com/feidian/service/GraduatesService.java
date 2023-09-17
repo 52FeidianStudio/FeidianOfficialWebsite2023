@@ -16,7 +16,7 @@ import com.feidian.responseResult.ResponseResult;
  */
 public interface GraduatesService {
 
-    ResponseResult getMessage(PageDTO pageDTO);
+    ResponseResult getMessage();
 
     ResponseResult addGraduateInformation(AddGraduateDTO addGraduateDTO);
 
