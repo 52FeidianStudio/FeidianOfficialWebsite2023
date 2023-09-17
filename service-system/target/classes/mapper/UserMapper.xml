@@ -73,6 +73,13 @@
                 #{createBy}, #{updateTime}, #{updateBy})
     </insert>
 
+    <select id="isUsernameExist" resultType="boolean">
+        SELECT COUNT(1) > 0
+        FROM user
+        WHERE username = #{username}
+    </select>
+
+
     <select id="isEmailExist" resultType="boolean">
         SELECT COUNT(1) > 0
         FROM user
@@ -127,7 +134,7 @@
     </select>
 
     <select id="selectGradeName" resultMap="QueryCategoryVOMap">
-        select grade_name
+        select DISTINCT grade_name
         from user
     </select>
 

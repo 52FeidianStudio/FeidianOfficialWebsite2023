@@ -15,8 +15,8 @@ public class GraduatesController {
     @Autowired
     private GraduatesService graduatesService;
     @GetMapping("/getMessage")
-    public ResponseResult getMessage(PageDTO pageDTO){
-        return graduatesService.getMessage(pageDTO);
+    public ResponseResult getMessage(){
+        return graduatesService.getMessage();
     }
 
 
