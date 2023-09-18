@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FrontUserDTO {
+    private Long id;
     private String name;
     private String nickname;
     private String birthday;

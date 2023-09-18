@@ -26,12 +26,25 @@
             class_name    = #{className},
             subject_id    = #{subjectId},
             faculty_id    = #{facultyId},
-            department_id =#{departmentId},
+            department_id = #{departmentId},
             avatar_url    = #{avatarUrl},
-            nationality   = #{ nationality},
+            nationality   = #{nationality},
             phone         = #{phone},
             email         = #{email},
             qq            = #{qq}
+        where id = #{id}
+    </update>
+    <update id="updateUserRegister">
+        update `user`
+        set `name`        = #{name},
+            sex           = #{sex},
+            phone         = #{phone},
+            email         = #{email},
+            student_id    = #{studentId},
+            faculty_id    = #{facultyId},
+            class_name    = #{className},
+            nationality   = #{nationality}
+        where id = #{id}
     </update>
 
 

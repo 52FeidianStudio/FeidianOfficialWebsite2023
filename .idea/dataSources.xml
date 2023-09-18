@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://182.254.242.96:3306/feidian</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="182.254.242.96" uuid="6c00b08d-a8f1-4760-8e1c-2bff7166e453">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://182.254.242.96:3306</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
