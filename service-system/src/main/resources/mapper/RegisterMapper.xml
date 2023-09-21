@@ -25,7 +25,7 @@
 
     <select id="selectAllRegister" resultMap="RegisterBaseResultMap">
         SELECT *
-        FROM register
+        FROM register order by status
     </select>
 
     <!-- 根据用户ID查询报名表，返回单个Register对象 -->
@@ -151,6 +151,7 @@
         <foreach item="userId" collection="list" open="(" separator="," close=")">
             #{userId}
         </foreach>
+        order by status
     </select>
 
     <!-- 多表联查 根据registerId列表查询User和Register并封装成一个SectionalRegisterVO -->
@@ -159,10 +160,12 @@
         FROM register r
         JOIN user u ON u.id = r.user_id
         WHERE r.id IN
+
         <!-- 使用foreach遍历registerId列表，并将其作为参数传入SQL的IN语句中 -->
         <foreach item="registerId" collection="list" open="(" separator="," close=")">
             #{registerId}
         </foreach>
+        order by status
     </select>
 
     <resultMap id="SectionalRegisterVOMap" type="com.feidian.vo.SectionalRegisterVO">
