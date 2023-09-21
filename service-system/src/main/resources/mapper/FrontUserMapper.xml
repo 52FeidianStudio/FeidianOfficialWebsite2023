@@ -42,6 +42,7 @@
             email         = #{email},
             student_id    = #{studentId},
             faculty_id    = #{facultyId},
+            subject_id    = #{subjectId},
             class_name    = #{className},
             nationality   = #{nationality}
         where id = #{id}

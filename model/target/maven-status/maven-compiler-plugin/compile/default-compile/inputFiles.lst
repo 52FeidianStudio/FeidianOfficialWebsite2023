@@ -3,6 +3,7 @@ D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidi
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\po\Department.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\dto\VerifyPasswordDTO.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\bo\CompleteRegisterBO.java
+D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\vo\FrontUserRegisterVO.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\dto\AddGraduateDTO.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\vo\GraduatesVO.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\po\UserRole.java
@@ -21,6 +22,7 @@ D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidi
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\dto\RegisterUserDTO.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\po\Role.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\po\Graduates.java
+D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\dto\FrontUserRegisterDTO.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\vo\FrontUserVO.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\vo\SectionalRegisterVO.java
 D:\develop\IdeaProjects\FeidianOfficialWebsite2023\model\src\main\java\com\feidian\po\RolePermission.java

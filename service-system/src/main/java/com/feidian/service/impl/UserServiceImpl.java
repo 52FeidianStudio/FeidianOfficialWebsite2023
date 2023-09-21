@@ -247,7 +247,7 @@ public class UserServiceImpl implements UserService {
         User user = BeanCopyUtils.copyProperty(registerUserDTO, User.class);
 
         // 获取专业名称并查询对应的学院ID和专业ID
-        String subject = registerUserDTO.getSubject();
+        String subject = registerUserDTO.getSubjectName();
         SubjectInfo ids = subjectMapper.selectIdAndFacultyIdBySubjectName(subject);
 
         // 设置学院ID和专业ID的，从上面查到的集合得出来

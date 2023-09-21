@@ -25,30 +25,18 @@ public class ForgetPasswordServiceImpl implements ForgetPasswordService {
     @Autowired
     private RedisCache redisCache;
     @Autowired
-    private ForgetPasswordMapper forgetPasswordMapper;
-    @Autowired
-    private UserMapper userMapper;
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override
     public ResponseResult forgetPassword(ForgetPasswordDTO forgetPasswordDTO) {
 
         String address = forgetPasswordDTO.getEmail();
-        String username = forgetPasswordDTO.getUsername();
-        //验证用户名和邮箱是否匹配
-        if(StringUtils.isBlank(username)){
-            throw new SystemException(HttpCodeEnum.USERNAME_NOT_NULL);
-        }else if(StringUtils.isBlank(address)){
+
+
+        if(StringUtils.isBlank(address)) {
             throw new SystemException(HttpCodeEnum.EMAIL_NOT_NULL);
         }
-        String email = forgetPasswordMapper.getEmailByUsername(username);
-        //TODO 判断用户名邮箱是否匹配，发送验证码，验证验证码是否正确
-        if(!email.equals(address)){
-            throw new SystemException(HttpCodeEnum.USERNAME_EMAIL_NOT_MATCH);
-        }
         String code = VerifyCode.setVerifyCode();
-
         redisCache.setCacheObject("forget:" + address,code);
         EmailUtil.sendEmail(address,code);
         System.out.println(passwordEncoder.encode("@Soososoo123"));

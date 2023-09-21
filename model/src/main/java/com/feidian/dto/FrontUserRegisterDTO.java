@@ -17,6 +17,7 @@ public class FrontUserRegisterDTO {
     private String email;
     private Long studentId;
     private Long facultyId;
+    private Long subjectId;
     private String className;
     private String nationality;
 

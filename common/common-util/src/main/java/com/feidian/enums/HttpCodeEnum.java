@@ -12,7 +12,7 @@ public enum HttpCodeEnum {
     PHONENUMBER_EXIST(406,"手机号已存在"),
     EMAIL_EXIST(406, "邮箱已存在"),
     REQUIRE_USERNAME(406, "必需填写用户名"),
-
+    INVALID_PARAM(408,"无效参数"),
     LOGIN_ERROR(505,"用户名或密码错误"),
     IMAGE_FORMAT_ERROR(505,"图片格式错误"),
     IMAGE_UPLOAD_ERROR(505,"图片上传失败"),

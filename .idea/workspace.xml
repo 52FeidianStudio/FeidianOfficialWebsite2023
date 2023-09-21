@@ -4,20 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="refactor(project):重构各个pom文件">
-      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/FrontUserRegisterDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/FrontUserRegisterVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a3b7198d-f5c9-41ce-9d12-2257ad8d578c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a3b7198d-f5c9-41ce-9d12-2257ad8d578c.xml" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="报名界面修改个人信息">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/enums/HttpCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/enums/HttpCodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/handle/exception/ControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/feidian/handle/exception/ControllerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/enums/HttpCodeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/enums/HttpCodeEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/handle/exception/ControllerAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/target/classes/com/feidian/handle/exception/ControllerAdvice.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/common-util/target/common-util-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/target/common-util-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/common-util/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/common-util/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/security/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/security/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/security/target/security-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/target/security-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/ForgetPasswordDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/ForgetPasswordDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/FrontUserRegisterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/FrontUserRegisterDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/dto/RegisterUserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/FrontUserRegisterVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/FrontUserRegisterVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/FrontUserVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/feidian/vo/FrontUserVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/FrontUserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/FrontUserDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/RegisterFormDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/RegisterFormDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/RegisterUserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/RegisterUserDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/FrontUserVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/FrontUserVO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/SectionalRegisterVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/feidian/vo/SectionalRegisterVO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -25,22 +32,29 @@
       <change beforePath="$PROJECT_DIR$/plat-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/plat-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/plat-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-admin/target/plat-admin-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/plat-admin/target/plat-admin-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/ForgetPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/ForgetPasswordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/FrontUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/FrontUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/ForgetPasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/ForgetPasswordController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/FrontUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/FrontUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/classes/com/feidian/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-front/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-front/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOTT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/FrontUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/mapper/FrontUserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/FrontUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/FrontUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/ForgetPasswordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/ForgetPasswordServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/FrontUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/FrontUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/src/main/resources/mapper/FrontUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/resources/mapper/FrontUserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/FrontUserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/classes/com/feidian/mapper/FrontUserMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/FrontUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/FrontUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/ForgetPasswordServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/ForgetPasswordServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/FrontUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/FrontUserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/RegisterServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/RegisterServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/classes/com/feidian/service/impl/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/target/classes/mapper/FrontUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/classes/mapper/FrontUserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -125,7 +139,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/develop/IdeaProjects/RuoYi-Vue",
+    "last_opened_file_path": "D:/develop/IdeaProjects/FeidianOfficialWebsite2023",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -134,7 +148,8 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "77ed373eb0d63d03fd3ad849bb41ab74"
+    "spring.configuration.checksum": "860c323d7a9a45a48f4cdafa8f9c0bf6",
+    "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -254,7 +269,13 @@
       <workItem from="1692863879057" duration="3244000" />
       <workItem from="1693208957196" duration="12000" />
       <workItem from="1693289348633" duration="724000" />
-      <workItem from="1695002334016" duration="6697000" />
+      <workItem from="1695002334016" duration="7665000" />
+      <workItem from="1695134430592" duration="211000" />
+      <workItem from="1695210442127" duration="12000" />
+      <workItem from="1695223130701" duration="755000" />
+      <workItem from="1695261962089" duration="1154000" />
+      <workItem from="1695284541065" duration="8440000" />
+      <workItem from="1695295323518" duration="4428000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
       <created>1689818993779</created>
@@ -571,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692865064444</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="报名界面修改个人信息">
+      <created>1695042326627</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1695042326627</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -602,7 +630,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(service-system):新增了修改报名表的功能，下一阶段准备按项目要求，全部替换回mybatis。" />
     <MESSAGE value="feat(admin):增加了毕业生相关的三个接口" />
     <MESSAGE value="fix(service-system):修改了UserMapperTwo" />
     <MESSAGE value="fix(mapper):把相同的接口合起来了" />
@@ -627,7 +654,8 @@
     <MESSAGE value="修改getMessage" />
     <MESSAGE value="前台补充" />
     <MESSAGE value="小修" />
-    <option name="LAST_COMMIT_MESSAGE" value="小修" />
+    <MESSAGE value="报名界面修改个人信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="报名界面修改个人信息" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -654,12 +682,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/FrontUserServiceImpl.java</url>
-          <line>35</line>
+          <line>37</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/FrontUserServiceImpl.java</url>
-          <line>37</line>
+          <line>42</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>

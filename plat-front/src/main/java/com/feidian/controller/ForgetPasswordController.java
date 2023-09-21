@@ -6,6 +6,7 @@ import com.feidian.responseResult.ResponseResult;
 import com.feidian.service.ForgetPasswordService;
 import com.feidian.service.VerifyPasswordService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,7 @@ public class ForgetPasswordController {
         return forgetPasswordService.forgetPassword(forgetPasswordDTO);
     }
     //验证，修改密码
+    @Transactional
     @PostMapping("/verifyProcess")
     public ResponseResult verifyProcess(@RequestBody VerifyPasswordDTO verifyPasswordDTO){
         return verifyPasswordService.verifyProcess(verifyPasswordDTO);

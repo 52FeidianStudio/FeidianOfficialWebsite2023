@@ -39,6 +39,7 @@ public class FrontUserServiceImpl implements FrontUserService {
         Long userId = SecurityUtils.getUserId();
         frontUserRegisterDTO.setId(userId);
         frontUserRegisterDTO.setFacultyId(frontUserMapper.getFIdByName(frontUserRegisterVO.getFacultyName()));
+        frontUserRegisterDTO.setSubjectId(frontUserMapper.getSIdByName(frontUserRegisterVO.getSubjectName()));
         frontUserMapper.updateUserRegister(frontUserRegisterDTO);
         return ResponseResult.successResult();
     }

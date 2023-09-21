@@ -10,6 +10,6 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ForgetPasswordDTO {
-    private String username;
+
     private String email;
 }

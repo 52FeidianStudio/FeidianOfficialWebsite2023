@@ -6,9 +6,11 @@ import com.feidian.dto.RegisterUserDTO;
 import com.feidian.responseResult.ResponseResult;
 import com.feidian.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 @RestController
 public class UserController {
@@ -22,7 +24,7 @@ public class UserController {
      * @return 返回 ResponseResult 对象，表示注册结果
      */
     @PostMapping("/register")
-    public ResponseResult registerUser(@RequestBody RegisterUserDTO registerUserDTO){
+    public ResponseResult registerUser(@Valid @RequestBody RegisterUserDTO registerUserDTO){
         return userService.registerUser(registerUserDTO);
     }
 

@@ -1,5 +1,6 @@
 com\feidian\dto\AddGraduateDTO.class
 com\feidian\po\UserRole.class
+com\feidian\dto\FrontUserRegisterDTO.class
 com\feidian\vo\UserInfoVO.class
 com\feidian\dto\RegisterOperDTO.class
 com\feidian\po\Department.class
@@ -20,6 +21,7 @@ com\feidian\bo\SubjectInfo.class
 com\feidian\po\Graduates.class
 com\feidian\vo\QueryCategoryVO.class
 com\feidian\po\RolePermission.class
+com\feidian\vo\FrontUserRegisterVO.class
 com\feidian\po\Permission.class
 com\feidian\vo\GraduatesVO.class
 com\feidian\vo\AvatarVO.class

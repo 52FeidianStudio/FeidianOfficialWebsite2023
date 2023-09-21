@@ -18,7 +18,7 @@ public interface FrontUserMapper {
 
     Long getFIdByName(String facultyName);
 
-    Long getSIdByName(String facultyName);
+    Long getSIdByName(String subjectName);
 
     String getStatusById(Long userId);
 }

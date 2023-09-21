@@ -16,6 +16,7 @@ public class FrontUserRegisterVO {
     private String email;
     private Long studentId;
     private String facultyName;
+    private String subjectName;
     private String className;
     private String nationality;
 }
