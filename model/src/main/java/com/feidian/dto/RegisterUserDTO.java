@@ -23,7 +23,7 @@ public class RegisterUserDTO {
     @NotBlank(message = "姓名不能为空")
     private String name; // 姓名
 
-    @NotBlank(message = "昵称不能为空")
+
     private String nickname; // 昵称
 
     @NotBlank(message = "年级不能为空")
@@ -45,7 +45,7 @@ public class RegisterUserDTO {
     @NotBlank(message = "专业不能为空")
     private String subjectName; // 专业
 
-    @NotBlank(message = "想加入的部门不能为空")
+
     private String departmentName; // 想加入的部门
 
     @NotBlank(message = "民族不能为空")
