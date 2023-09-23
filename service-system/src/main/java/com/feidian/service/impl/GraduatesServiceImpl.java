@@ -12,6 +12,7 @@ import com.feidian.service.GraduatesService;
 import com.feidian.responseResult.ResponseResult;
 
 import com.feidian.util.BeanCopyUtils;
+import com.feidian.util.RedisCache;
 import com.feidian.vo.GraduatesVO;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -32,19 +33,13 @@ import java.util.List;
 public class GraduatesServiceImpl implements GraduatesService {
     @Autowired
     private GraduatesMapper graduatesMapper;
+    @Autowired
+    private RedisCache redisCache;
 
     //查询毕业生信息
     @Override
     public ResponseResult getMessage() {
-        List<GraduatesBO> graduates = graduatesMapper.getGraduatesMessage();
-        ArrayList<GraduatesVO> graduatesVOS = new ArrayList<>();
-        for(GraduatesBO graduate:graduates){
-            GraduatesVO vo = BeanCopyUtils.copyProperty(graduate, GraduatesVO.class);
-            vo.setFaculty(graduate.getFaculty().getFacultyName());
-            vo.setDepartment(graduate.getDepartment().getDepartmentName());
-            vo.setSubject(graduate.getSubject().getSubjectName());
-            graduatesVOS.add(vo);
-        }
+        List<GraduatesVO> graduatesVOS = redisCache.getCacheObject("graduates::message");
         return ResponseResult.successResult(graduatesVOS);
     }
 
