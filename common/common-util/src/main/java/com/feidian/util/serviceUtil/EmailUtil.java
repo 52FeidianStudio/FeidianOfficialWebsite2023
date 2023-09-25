@@ -17,7 +17,7 @@ public class EmailUtil {
             //配置接收人
             send.addTo(emailAddress);
             //设置邮箱主题
-            send.setSubject("test");
+            send.setSubject("沸点工作室");
             //具体的发送消息
             send.setMsg("欢迎使用邮箱验证本系统！");
             send.setCharset("UTF-8");
@@ -41,7 +41,7 @@ public class EmailUtil {
             //配置接收人
             send.addTo(emailAddress);
             //设置邮箱主题
-            send.setSubject("test");
+            send.setSubject("沸点工作室");
             //具体的发送消息
             send.setMsg("欢迎使用邮箱验证本系统！");
             send.setMsg("这是您的验证码，请妥善保管:"+verifyCode);
@@ -66,7 +66,7 @@ public class EmailUtil {
             //配置接收人
             send.addTo(emailAddress);
             //设置邮箱主题
-            send.setSubject("test");
+            send.setSubject("沸点工作室");
             //具体的发送消息
             send.setMsg("欢迎使用邮箱验证本系统！");
             send.setMsg(emailContent);
