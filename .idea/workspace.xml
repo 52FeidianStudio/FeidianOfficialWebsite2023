@@ -4,32 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="point">
-      <change afterPath="$PROJECT_DIR$/plat-front/src/main/java/com/feidian/runner/ViewCountRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a3b7198d-f5c9-41ce-9d12-2257ad8d578c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a3b7198d-f5c9-41ce-9d12-2257ad8d578c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fa506b39-91d4-405b-9b53-11d2e73ad455" name="Changes" comment="实现前台数据缓存">
       <change beforePath="$PROJECT_DIR$/common/common-util/target/common-util-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/target/common-util-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common-util/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common-util/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/common-util/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/security/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/security/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/security/target/security-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/target/security-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/RegisterUserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/feidian/dto/RegisterUserDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/target/model-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/model-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plat-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/plat-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plat-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/plat-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-admin/target/plat-admin-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/plat-admin/target/plat-admin-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-front/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-front/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/plat-front/target/plat-front-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/GraduatesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/src/main/java/com/feidian/service/impl/GraduatesServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-system/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-system/target/service-system-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/service-system/target/service-system-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -245,14 +229,7 @@
       <workItem from="1695261962089" duration="1154000" />
       <workItem from="1695284541065" duration="8440000" />
       <workItem from="1695295323518" duration="7310000" />
-      <workItem from="1695453197677" duration="2119000" />
-    </task>
-    <task id="LOCAL-00001" summary="refactor(project):重构各个pom文件">
-      <created>1689818993779</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1689818993779</updated>
+      <workItem from="1695453197677" duration="2417000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(project):重构各个pom文件">
       <created>1689819214901</created>
@@ -590,7 +567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695388739850</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="实现前台数据缓存">
+      <created>1695455452036</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1695455452036</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +605,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix(mapper):把相同的接口合起来了" />
     <MESSAGE value="feat(admin):增加了一个关于组别的接口" />
     <MESSAGE value="feat(admin):把耦合的代码改了" />
     <MESSAGE value="feat(admin):实现了两个关于权限等级的接口" />
@@ -646,7 +629,8 @@
     <MESSAGE value="报名界面修改个人信息" />
     <MESSAGE value=" 忘记密码传参修改，报名信息修改增加班级，对传参限制等" />
     <MESSAGE value="point" />
-    <option name="LAST_COMMIT_MESSAGE" value="point" />
+    <MESSAGE value="实现前台数据缓存" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现前台数据缓存" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
