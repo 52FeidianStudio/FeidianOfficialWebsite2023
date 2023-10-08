@@ -316,7 +316,7 @@ public class RegisterServiceImpl implements RegisterService {
                 }
                 if (registerIdList.isEmpty()) return ResponseResult.errorResult(400, "数据库中没有报名表");
                 sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerIdList);
-            } else if (registerOperDTO.getGradeName() != null || registerOperDTO.getSubjectId() != null) {
+            } else if ((registerOperDTO.getGradeName() != null || registerOperDTO.getSubjectId() != null) && registerOperDTO.getDesireDepartmentId() != null) {
                 // 根据年级或专业查询用户
                 List<User> userList = userMapper.selectUserListByGradeNameOrSubjectId(registerOperDTO.getGradeName(), registerOperDTO.getSubjectId());
                 List<Long> userIdList = new ArrayList<>();
@@ -324,16 +324,7 @@ public class RegisterServiceImpl implements RegisterService {
                     userIdList.add(tempUser.getId());
                 }
                 if (userIdList.isEmpty()) return ResponseResult.errorResult(400, "数据库中没有相关报名表");
-                sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByUser(userIdList);
-            } else if (registerOperDTO.getDesireDepartmentId() != null || registerOperDTO.getStatus() != null) {
-                // 根据申请组别查询报名表
-                List<Register> registerList = registerMapper.selectByDesireDepartmentIdOrStatus(registerOperDTO.getDesireDepartmentId(), registerOperDTO.getStatus());
-                List<Long> registerIdList = new ArrayList<>();
-                for (Register tempRegister : registerList) {
-                    registerIdList.add(tempRegister.getId());
-                }
-                if (registerIdList.isEmpty()) return ResponseResult.errorResult(400, "数据库中没有相关报名表");
-                sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByRegister(registerIdList);
+                sectionalRegisterVOList = registerMapper.selectSectionalRegisterVOByUser(userIdList,registerOperDTO.getDesireDepartmentId());
             } else {
                 return ResponseResult.errorResult(400, "不要乱传些东西啊");
             }

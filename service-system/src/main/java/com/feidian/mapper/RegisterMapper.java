@@ -44,7 +44,7 @@ public interface RegisterMapper {
     CompleteRegisterBO selectCompleteRegisterBOByUserId(Long userId);
 
     //   多表联查 根据userId查询User和Register并封装成一个SectionalRegisterVO
-    List<SectionalRegisterVO> selectSectionalRegisterVOByUser(List<Long> userIdList);
+    List<SectionalRegisterVO> selectSectionalRegisterVOByUser(List<Long> userIdList,Long desireDepartmentId);
 
     //   多表联查 根据registerId查询User和Register并封装成一个SectionalRegisterVO
     List<SectionalRegisterVO> selectSectionalRegisterVOByRegister(List<Long> registerIdList);

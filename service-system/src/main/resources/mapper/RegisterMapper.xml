@@ -147,8 +147,10 @@
         SELECT u.id AS user_id, r.id AS register_id, u.*, r.*
         FROM register r
         JOIN user u ON u.id = r.user_id
-        WHERE u.id IN
-        <foreach item="userId" collection="list" open="(" separator="," close=")">
+        WHERE
+            r.desire_department_id = #{desireDepartmentId} and
+            u.id IN
+        <foreach item="userId" collection="userIdList" open="(" separator="," close=")">
             #{userId}
         </foreach>
         order by status
