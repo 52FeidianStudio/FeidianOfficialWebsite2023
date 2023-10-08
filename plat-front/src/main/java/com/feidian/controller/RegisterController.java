@@ -71,7 +71,7 @@ public class RegisterController {
     @PreAuthorize("hasAuthority('VIEW_REGISTER_BY_FILTER')")
     @PostMapping("/selectQueryCategory")
     public ResponseResult selectQueryCategory(@RequestBody RegisterOperDTO registerOperDTO) {
-        return registerService.selectQueryCategory(registerOperDTO.getQueryCategoryId());
+        return registerService.selectQueryCategory(registerOperDTO.getQueryCategoryId(),registerOperDTO.getValidatedId());
     }
 
     //      按年级、专业、申请组别、报名表状态筛选

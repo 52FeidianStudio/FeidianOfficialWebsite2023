@@ -54,4 +54,5 @@ public interface RegisterMapper {
     List<QueryCategoryVO> selectStatus();
 
 
+    List<Long> selectUserIdS(Integer validatedId);
 }

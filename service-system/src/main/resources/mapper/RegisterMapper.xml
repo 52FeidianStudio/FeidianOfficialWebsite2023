@@ -196,6 +196,9 @@
         SELECT DISTINCT status
         FROM register
     </select>
+    <select id="selectUserIdS" resultType="java.lang.Long">
+        select user_id from register where desire_department_id = #{validatedId}
+    </select>
 
     <resultMap id="QueryCategoryVOMap" type="com.feidian.vo.QueryCategoryVO">
         <result property="gradeName" column="grade_name"/>

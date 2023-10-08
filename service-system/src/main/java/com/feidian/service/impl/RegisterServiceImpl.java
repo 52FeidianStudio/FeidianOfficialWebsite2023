@@ -254,7 +254,7 @@ public class RegisterServiceImpl implements RegisterService {
 
     //将已经提交的人员的年级、专业、申请组别、报名表状态查出来，以供前端筛选
     @Override
-    public ResponseResult selectQueryCategory(Integer queryCategoryId) {
+    public ResponseResult selectQueryCategory(Integer queryCategoryId,Integer validatedId) {
         switch (queryCategoryId) {
             case 0: {
                 QueryCategoryVO queryCategoryVO = new QueryCategoryVO(0, "全部");
@@ -263,11 +263,13 @@ public class RegisterServiceImpl implements RegisterService {
                 return ResponseResult.successResult(queryAllFlag);
             }
             case 1: {
-                List<QueryCategoryVO> gradeNameList = userMapper.selectGradeName();
+                List<Long> list = registerMapper.selectUserIdS(validatedId);
+                List<QueryCategoryVO> gradeNameList = userMapper.selectGradeName(list);
                 return ResponseResult.successResult(gradeNameList);
             }
             case 2: {
-                List<QueryCategoryVO> subjectList = userMapper.selectSubjectIdAndSubjectName();
+                List<Long> list = registerMapper.selectUserIdS(validatedId);
+                List<QueryCategoryVO> subjectList = userMapper.selectSubjectIdAndSubjectName(list);
                 return ResponseResult.successResult(subjectList);
             }
             case 3: {

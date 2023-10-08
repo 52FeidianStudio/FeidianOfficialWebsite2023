@@ -135,13 +135,22 @@
 
     <select id="selectGradeName" resultMap="QueryCategoryVOMap">
         select DISTINCT grade_name
-        from user
+        from user u
+        where u.id IN
+        <foreach item="userId" collection="list" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
     </select>
 
     <select id="selectSubjectIdAndSubjectName" resultMap="QueryCategoryVOMap">
         SELECT DISTINCT u.subject_Id, s.subject_name
         FROM user u
-                 JOIN subject s ON u.subject_id = s.id;
+                 JOIN subject s ON u.subject_id = s.id
+        where u.id IN
+        <foreach item="userId" collection="list" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
+
     </select>
 
 

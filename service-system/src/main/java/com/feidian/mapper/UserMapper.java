@@ -34,9 +34,9 @@ public interface UserMapper {
 
     long selectUserIdByPhone(String phone);
 
-    List<QueryCategoryVO> selectGradeName();
+    List<QueryCategoryVO> selectGradeName(List<Long> list);
 
-    List<QueryCategoryVO> selectSubjectIdAndSubjectName();
+    List<QueryCategoryVO> selectSubjectIdAndSubjectName(List<Long> list);
 
     boolean isUsernameExist(String username);
 }

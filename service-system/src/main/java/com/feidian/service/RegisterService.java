@@ -20,7 +20,7 @@ public interface RegisterService {
 
     ResponseResult viewRegisterInfo();
 
-    ResponseResult selectQueryCategory(Integer queryCategoryId);
+    ResponseResult selectQueryCategory(Integer queryCategoryId,Integer validatedId);
 
     ResponseResult selectByQueryRegister(RegisterOperDTO registerOperDTO);
 

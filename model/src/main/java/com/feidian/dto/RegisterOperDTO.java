@@ -25,5 +25,6 @@ public class RegisterOperDTO {
     private String isApprovedFlag;
     private String emailContent;
 
+    private  Integer validatedId;
 
 }
