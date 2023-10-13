@@ -45,7 +45,8 @@ public enum HttpCodeEnum {
     DEPARTMENT_IS_DELETE(400,"没有该部门" ),
     NOT_GRADUATE(400,"没有该毕业生" ),
     USERNAME_EMAIL_NOT_MATCH(400,"用户名和邮箱不匹配"),
-    CODE_NULL(400,"验证码不能为空");
+    CODE_NULL(400,"验证码不能为空"),
+    REGISTRATION_DOWN(400,"报名通道已关闭");
 
 
 

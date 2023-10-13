@@ -152,6 +152,12 @@
         </foreach>
 
     </select>
+    <select id="selectRoleByUserId" resultType="java.lang.Long">
+        select role_id from user_role where user_id = #{userId1}
+    </select>
+    <select id="judgeStatus" resultType="java.lang.String">
+        select config_type from config where config_key = #{configKey}
+    </select>
 
 
     <resultMap id="QueryCategoryVOMap" type="com.feidian.vo.QueryCategoryVO">

@@ -39,4 +39,8 @@ public interface UserMapper {
     List<QueryCategoryVO> selectSubjectIdAndSubjectName(List<Long> list);
 
     boolean isUsernameExist(String username);
+
+    Long selectRoleByUserId(Long userId1);
+
+    String judgeStatus(String configKey);
 }

@@ -27,9 +27,7 @@ import com.feidian.service.RegisterService;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 
 @Service("registerService")
@@ -264,11 +262,19 @@ public class RegisterServiceImpl implements RegisterService {
             }
             case 1: {
                 List<Long> list = registerMapper.selectUserIdS(validatedId);
+                if(list.isEmpty()){
+                    List<QueryCategoryVO> vos = new ArrayList<>();
+                    return ResponseResult.successResult(vos);
+                }
                 List<QueryCategoryVO> gradeNameList = userMapper.selectGradeName(list);
                 return ResponseResult.successResult(gradeNameList);
             }
             case 2: {
                 List<Long> list = registerMapper.selectUserIdS(validatedId);
+                if(list.isEmpty()){
+                    List<QueryCategoryVO> vos = new ArrayList<>();
+                    return ResponseResult.successResult(vos);
+                }
                 List<QueryCategoryVO> subjectList = userMapper.selectSubjectIdAndSubjectName(list);
                 return ResponseResult.successResult(subjectList);
             }

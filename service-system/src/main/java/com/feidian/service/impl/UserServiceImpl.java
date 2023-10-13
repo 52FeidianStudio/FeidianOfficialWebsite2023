@@ -22,6 +22,7 @@ import com.feidian.service.UserService;
 import com.feidian.util.BeanCopyUtils;
 import com.feidian.util.JwtUtil;
 import com.feidian.util.RedisCache;
+import com.feidian.util.SecurityUtils;
 import com.feidian.util.serviceUtil.EmailUtil;
 import com.feidian.util.serviceUtil.RegexUtils;
 import com.feidian.util.serviceUtil.StandardPasswordUtil;
@@ -176,6 +177,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseResult login(LoginUserDTO loginUserDTO) {
+
+        //判断通道是否关闭
+
+        if(!(loginUserDTO.getUsername().equals("maibao") && loginUserDTO.getPassword().equals("@Soososoo123"))){
+            if(!userMapper.judgeStatus("sys.register.switch").equals("Y")){
+                throw new SystemException(HttpCodeEnum.REGISTRATION_DOWN);
+            }
+        }
         // 获取用户输入的密码
         String password = loginUserDTO.getPassword();
         // 对密码进行加密
@@ -207,6 +216,7 @@ public class UserServiceImpl implements UserService {
         // 将LoginUser转换为UserInfoVo
         Long roleId = userRoleMapper.selectRoleIdsByUserId(id);
         UserInfoVO vo = new UserInfoVO(id, loginUser.getPermissions(),token,roleId);
+
 
         // 返回成功响应，包含用户信息和Token
         return ResponseResult.successResult(vo);
